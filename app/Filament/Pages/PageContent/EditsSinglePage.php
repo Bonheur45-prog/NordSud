@@ -4,6 +4,7 @@ namespace App\Filament\Pages\PageContent;
 
 use App\Models\Page;
 use Filament\Actions\Action;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -85,6 +86,26 @@ abstract class EditsSinglePage extends FilamentPage
                     ->description('The page title and search engine preview text. Not shown as a visible heading unless the page template says so.')
                     ->collapsed()
                     ->schema($this->titleAndSeoFields()),
+                Section::make('Publishing')
+                    ->description('Control whether this page is visible publicly and where it appears in ordered navigation.')
+                    ->collapsed()
+                    ->schema([
+                        Grid::make(2)->schema([
+                            Select::make('status')
+                                ->label('Publication status')
+                                ->options([
+                                    'draft' => 'Draft',
+                                    'published' => 'Published',
+                                ])
+                                ->required()
+                                ->default('draft'),
+                            TextInput::make('order')
+                                ->label('Display order')
+                                ->numeric()
+                                ->required()
+                                ->default(0),
+                        ]),
+                    ]),
                 ...$this->contentSchema(),
             ])
             ->statePath('data');

@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\Partner;
+use App\Models\Page;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
@@ -18,12 +18,13 @@ class PartnerFormTest extends TestCase
 
         Livewire::test(\App\Filament\Resources\Partners\Pages\CreatePartner::class)
             ->fillForm([
-                'name_fr' => 'KONA I',
-                'name_en' => 'KONA I',
+                'title_fr' => 'KONA I',
+                'title_en' => 'KONA I',
                 'slug' => 'kona-i',
                 'status' => 'published',
+                'order' => 0,
                 'content' => [
-                    'intro' => [
+                    'paragraphs' => [
                         ['fr' => 'Kona I est une société technologique.', 'en' => 'Kona I is a technology company.'],
                     ],
                 ],
@@ -31,13 +32,13 @@ class PartnerFormTest extends TestCase
             ->call('create')
             ->assertHasNoFormErrors();
 
-        $this->assertDatabaseHas('partners', [
+        $this->assertDatabaseHas('pages', [
             'slug' => 'kona-i',
-            'name_fr' => 'KONA I',
+            'title_fr' => 'KONA I',
         ]);
 
-        $partner = Partner::where('slug', 'kona-i')->first();
-        $this->assertEquals('Kona I est une société technologique.', $partner->content['intro'][0]['fr']);
+        $partner = Page::where('slug', 'kona-i')->first();
+        $this->assertEquals('Kona I est une société technologique.', $partner->content['paragraphs'][0]['fr']);
     }
 
     public function test_can_create_a_rich_partner_like_group_joos(): void
@@ -46,28 +47,23 @@ class PartnerFormTest extends TestCase
 
         Livewire::test(\App\Filament\Resources\Partners\Pages\CreatePartner::class)
             ->fillForm([
-                'name_fr' => 'Group JOOS',
-                'name_en' => 'Group JOOS',
+                'title_fr' => 'Group JOOS',
+                'title_en' => 'Group JOOS',
                 'slug' => 'group-joos',
                 'status' => 'published',
+                'order' => 0,
                 'content' => [
-                    'intro' => [
+                    'paragraphs' => [
                         ['fr' => 'Group JOOS est le partenaire de référence.', 'en' => 'Group JOOS is the reference partner.'],
-                    ],
-                    'facts' => [
-                        ['fr' => 'Plus de 80 ans d\'expérience.', 'en' => 'More than 80 years of experience.'],
-                        ['fr' => 'Structure familiale.', 'en' => 'Family-owned structure.'],
-                    ],
-                    'stats' => [
-                        ['fr' => 'Capacité: 3 millions de pages/jour', 'en' => 'Capacity: 3 million pages/day'],
+                        ['fr' => 'Une structure familiale.', 'en' => 'A family-owned structure.'],
                     ],
                 ],
             ])
             ->call('create')
             ->assertHasNoFormErrors();
 
-        $partner = Partner::where('slug', 'group-joos')->first();
-        $this->assertCount(2, $partner->content['facts']);
-        $this->assertEquals('Structure familiale.', $partner->content['facts'][1]['fr']);
+        $partner = Page::where('slug', 'group-joos')->first();
+        $this->assertCount(2, $partner->content['paragraphs']);
+        $this->assertEquals('Une structure familiale.', $partner->content['paragraphs'][1]['fr']);
     }
 }

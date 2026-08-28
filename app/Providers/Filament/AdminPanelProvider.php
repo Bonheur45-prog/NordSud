@@ -34,18 +34,21 @@ use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+        $pageTableExists = Schema::hasTable('pages');
+
         $homeItem = NavigationItem::make('Home Page')
             ->url(fn () => \App\Filament\Pages\PageContent\HomePage::getUrl())
             ->icon(Heroicon::OutlinedHome)
             ->sort(-100);
 
-        $aboutItems = Page::whereIn('template', ['about', 'references'])
+        $aboutItems = $pageTableExists ? Page::whereIn('template', ['about', 'references'])
             ->whereNotIn('slug', ['nsi-group', 'references', 'centre-de-personnalisation-de-kinshasa-2'])
             ->orderBy('order')
             ->get()
@@ -54,7 +57,7 @@ class AdminPanelProvider extends PanelProvider
                 ->icon(Heroicon::OutlinedInformationCircle)
                 ->group('About')
                 ->sort(10))
-            ->all();
+            ->all() : [];
 
         array_unshift($aboutItems, NavigationItem::make('NSI Group')
             ->url(fn () => NsiGroupPage::getUrl())
@@ -74,7 +77,7 @@ class AdminPanelProvider extends PanelProvider
             ->group('About')
             ->sort(12);
 
-        $solutionItems = Page::where('template', 'solution')
+        $solutionItems = $pageTableExists ? Page::where('template', 'solution')
             ->whereNotIn('slug', ['solutions-monetiques', 'software-expertise', 'consulting-advisory', 'consulting-advisory-services'])
             ->orderBy('order')
             ->get()
@@ -83,7 +86,7 @@ class AdminPanelProvider extends PanelProvider
                 ->icon(Heroicon::OutlinedLightBulb)
                 ->group('Solutions')
                 ->sort(30))
-            ->all();
+            ->all() : [];
 
         array_unshift($solutionItems, NavigationItem::make('Solutions Monétiques')
             ->url(fn () => SolutionsMonetiquePage::getUrl())
@@ -103,7 +106,7 @@ class AdminPanelProvider extends PanelProvider
             ->group('Solutions')
             ->sort(32);
 
-        $partnerItems = Page::where('template', 'partner')
+        $partnerItems = $pageTableExists ? Page::where('template', 'partner')
             ->whereNotIn('slug', ['group-joos', 'kona-i', 'verve'])
             ->orderBy('order')
             ->get()
@@ -112,7 +115,7 @@ class AdminPanelProvider extends PanelProvider
                 ->icon(Heroicon::OutlinedBuildingOffice2)
                 ->group('Partners')
                 ->sort(50))
-            ->all();
+            ->all() : [];
 
         array_unshift($partnerItems, NavigationItem::make('Group JOOS')
             ->url(fn () => GroupJoosPage::getUrl())
@@ -138,7 +141,7 @@ class AdminPanelProvider extends PanelProvider
             ->group('Partners')
             ->sort(59);
 
-        $productItems = Page::where('template', 'product')
+        $productItems = $pageTableExists ? Page::where('template', 'product')
             ->whereNotIn('slug', ['bank-card', 'secured-documents'])
             ->orderBy('order')
             ->get()
@@ -147,7 +150,7 @@ class AdminPanelProvider extends PanelProvider
                 ->icon(Heroicon::OutlinedCreditCard)
                 ->group('Products')
                 ->sort(40))
-            ->all();
+            ->all() : [];
 
             array_unshift($productItems, NavigationItem::make('Bank Cards')
                 ->url(fn () => BankCardPage::getUrl())

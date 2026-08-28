@@ -11,6 +11,7 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
+use Illuminate\Validation\ClosureValidationRule;
 use UnitEnum;
 
 /**
@@ -66,13 +67,17 @@ class HomePage extends EditsSinglePage
                         ->collapsed()
                         ->itemLabel(fn (array $state): string => filled($state['headline']['fr'] ?? null) ? $state['headline']['fr'] : 'Slide')
                         ->minItems(1),
-                        Grid::make(2)->schema([
-                        TranslatedField::pair('content.hero.cta_label', 'Button label', required: false),
-                        TextInput::make('content.hero.cta_link')
-                            ->label('Button link')
-                            ->rules([$this->linkRule()])
-                            ->helperText('Legacy fallback used only when a slide has no CTA.'),
-                    ]),
+                    Section::make('Legacy CTA Fallback')
+                        ->description('Used only by older frontend implementations when a slide has no CTA.')
+                        ->collapsed()
+                        ->schema([
+                            Grid::make(2)->schema([
+                                TranslatedField::pair('content.hero.cta_label', 'Button label', required: false),
+                                TextInput::make('content.hero.cta_link')
+                                    ->label('Button link')
+                                    ->rules([$this->linkRule()]),
+                            ]),
+                        ]),
                 ]),
 
             Section::make('Featured Spotlight')
@@ -192,9 +197,9 @@ class HomePage extends EditsSinglePage
         ];
     }
 
-    protected function linkRule(): Closure
+    protected function linkRule(): ClosureValidationRule
     {
-        return function (string $attribute, mixed $value, Closure $fail): void {
+        return new ClosureValidationRule(function (string $attribute, mixed $value, Closure $fail): void {
             if (blank($value)) {
                 return;
             }
@@ -223,6 +228,23 @@ class HomePage extends EditsSinglePage
             $slug = $segments[0] ?? '';
             $knownRoute = count($segments) === 1 && in_array($slug, ['', 'contact', 'press'], true);
             $knownPage = $slug !== '' && Page::published()->where('slug', $slug)->exists();
+            $knownPage = $knownPage || in_array($slug, [
+                'home',
+                'nsi-group',
+                'references',
+                'centre-de-personnalisation-de-kinshasa-2',
+                'solutions-monetiques',
+                'software-expertise',
+                'consulting-advisory',
+                'consulting-advisory-services',
+                'bank-card',
+                'secured-documents',
+                'group-joos',
+                'kona-i',
+                'verve',
+                'legal-notices',
+                'jobs',
+            ], true);
             $knownPressPost = count($segments) === 2
                 && $segments[0] === 'press'
                 && PressPost::press()->published()->where('slug', $segments[1])->exists();
@@ -230,6 +252,6 @@ class HomePage extends EditsSinglePage
             if (! $knownRoute && ! $knownPage && ! $knownPressPost) {
                 $fail('This internal link does not match a published page or public route.');
             }
-        };
+        });
     }
 }

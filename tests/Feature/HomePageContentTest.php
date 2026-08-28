@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Filament\Pages\PageContent\HomePage;
 use App\Models\Page;
+use App\Models\PressPost;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
@@ -29,11 +30,20 @@ class HomePageContentTest extends TestCase
     {
         $this->actingAs(User::factory()->create());
 
+        PressPost::create([
+            'slug' => 'nsi-kenya',
+            'type' => 'press',
+            'status' => 'published',
+            'published_at' => now()->subDay(),
+        ]);
+
         $component = Livewire::test(HomePage::class);
 
         $component->fillForm([
             'title_fr' => 'Accueil - NSI Group',
             'title_en' => 'Home - NSI Group',
+            'status' => 'published',
+            'order' => 0,
             'content' => [
                 'hero' => [
                     'slides' => [
@@ -63,7 +73,7 @@ class HomePageContentTest extends TestCase
                     'cta_link' => '/contact',
                 ],
             ],
-        ])->call('save');
+        ])->call('save')->assertHasNoFormErrors();
 
         $page = Page::where('slug', 'home')->firstOrFail();
 

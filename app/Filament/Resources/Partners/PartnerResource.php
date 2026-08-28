@@ -21,8 +21,8 @@ class PartnerResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingOffice2;
 
-    // We render direct per-partner links via custom NavigationItems in
-    // AdminPanelProvider instead of Filament's default list-based nav entry.
+    // Page is the canonical store for all partner pages. Direct partner links
+    // are rendered through custom NavigationItems in AdminPanelProvider.
     protected static bool $shouldRegisterNavigation = false;
 
     public static function getEloquentQuery(): Builder

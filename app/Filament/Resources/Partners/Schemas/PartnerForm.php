@@ -38,10 +38,10 @@ class PartnerForm
                     ->required()
                     ->unique(ignoreRecord: true)
                     ->helperText("Used in the page URL. Auto-filled from the name — only change if you know what you're doing."),
-                FileUpload::make('featured_image')
+                FileUpload::make('content.logo')
                     ->label('Logo')
                     ->image()
-                    ->directory('partners')
+                    ->directory('partners/logos')
                     ->visibility('public')
                     ->helperText("Shown on the partner's page and anywhere partner logos are listed."),
                 Select::make('status')
@@ -51,6 +51,11 @@ class PartnerForm
                     ])
                     ->required()
                     ->default('draft'),
+                TextInput::make('order')
+                    ->label('Display order')
+                    ->numeric()
+                    ->required()
+                    ->default(0),
 
                 Section::make('Paragraphs')
                     ->description('The main paragraphs describing this partner — e.g. what they do and their relationship with NSI Group.')

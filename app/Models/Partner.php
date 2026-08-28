@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @deprecated Partner pages are stored in the pages table. This model is
+ * retained only for compatibility with the historical partners migration.
+ */
 class Partner extends Model
 {
     protected $fillable = [
