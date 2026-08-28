@@ -12,6 +12,9 @@ use App\Filament\Pages\PageContent\SoftwareExpertisePage;
 use App\Filament\Pages\PageContent\ConsultingAdvisoryPage;
 use App\Filament\Pages\PageContent\BankCardPage;
 use App\Filament\Pages\PageContent\SecuredDocumentsPage;
+use App\Filament\Pages\PageContent\GroupJoosPage;
+use App\Filament\Pages\PageContent\KonaIPage;
+use App\Filament\Pages\PageContent\VervePage;
 use App\Models\Page;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -42,7 +45,7 @@ class AdminPanelProvider extends PanelProvider
             ->sort(-100);
 
         $aboutItems = Page::whereIn('template', ['about', 'references'])
-            ->whereNotIn('slug', ['nsi-group', 'references'])
+            ->whereNotIn('slug', ['nsi-group', 'references', 'centre-de-personnalisation-de-kinshasa-2'])
             ->orderBy('order')
             ->get()
             ->map(fn (Page $about) => NavigationItem::make($about->title_fr ?? $about->slug)
@@ -71,7 +74,7 @@ class AdminPanelProvider extends PanelProvider
             ->sort(12);
 
         $solutionItems = Page::where('template', 'solution')
-            ->whereNotIn('slug', ['solutions-monetiques', 'software-expertise', 'consulting-advisory-services'])
+            ->whereNotIn('slug', ['solutions-monetiques', 'software-expertise', 'consulting-advisory', 'consulting-advisory-services'])
             ->orderBy('order')
             ->get()
             ->map(fn (Page $solution) => NavigationItem::make($solution->title_fr ?? $solution->slug)
@@ -100,6 +103,7 @@ class AdminPanelProvider extends PanelProvider
             ->sort(32);
 
         $partnerItems = Page::where('template', 'partner')
+            ->whereNotIn('slug', ['group-joos', 'kona-i', 'verve'])
             ->orderBy('order')
             ->get()
             ->map(fn (Page $partner) => NavigationItem::make($partner->title_fr ?? $partner->slug)
@@ -108,6 +112,24 @@ class AdminPanelProvider extends PanelProvider
                 ->group('Partners')
                 ->sort(50))
             ->all();
+
+        array_unshift($partnerItems, NavigationItem::make('Group JOOS')
+            ->url(fn () => GroupJoosPage::getUrl())
+            ->icon(Heroicon::OutlinedBuildingOffice2)
+            ->group('Partners')
+            ->sort(50));
+
+        $partnerItems[] = NavigationItem::make('KONA I')
+            ->url(fn () => KonaIPage::getUrl())
+            ->icon(Heroicon::OutlinedBuildingOffice2)
+            ->group('Partners')
+            ->sort(51);
+
+        $partnerItems[] = NavigationItem::make('VERVE')
+            ->url(fn () => VervePage::getUrl())
+            ->icon(Heroicon::OutlinedBuildingOffice2)
+            ->group('Partners')
+            ->sort(52);
 
         $partnerItems[] = NavigationItem::make('Add New Partner')
             ->url(fn () => PartnerResource::getUrl('create'))
