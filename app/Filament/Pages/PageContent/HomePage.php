@@ -3,6 +3,9 @@
 namespace App\Filament\Pages\PageContent;
 
 use App\Filament\Support\TranslatedField;
+use App\Models\Page;
+use App\Models\PressPost;
+use Closure;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
@@ -55,6 +58,7 @@ class HomePage extends EditsSinglePage
                                 TranslatedField::pair('cta_label', 'Button label', required: false),
                                 TextInput::make('cta_link')
                                     ->label('Button link')
+                                    ->rules([$this->linkRule()])
                                     ->helperText('e.g. /contact'),
                             ]),
                         ])
@@ -66,6 +70,7 @@ class HomePage extends EditsSinglePage
                         TranslatedField::pair('content.hero.cta_label', 'Button label', required: false),
                         TextInput::make('content.hero.cta_link')
                             ->label('Button link')
+                            ->rules([$this->linkRule()])
                             ->helperText('Legacy fallback used only when a slide has no CTA.'),
                     ]),
                 ]),
@@ -82,6 +87,7 @@ class HomePage extends EditsSinglePage
                         ->directory('pages/home/kenya-spotlight'),
                     TextInput::make('content.press_spotlight.link')
                         ->label('Link')
+                        ->rules([$this->linkRule()])
                         ->helperText('URL of the featured story, campaign, or related page.'),
                 ]),
 
@@ -129,7 +135,10 @@ class HomePage extends EditsSinglePage
                             TranslatedField::pair('title', 'Title'),
                             TranslatedField::pairTextarea('description', 'Description', required: false, rows: 2),
                             FileUpload::make('image')->label('Image')->image()->directory('pages/home/highlights'),
-                            TextInput::make('link')->label('Links to')->helperText('e.g. /solutions-monetiques'),
+                            TextInput::make('link')
+                                ->label('Links to')
+                                ->rules([$this->linkRule()])
+                                ->helperText('e.g. /solutions-monetiques'),
                         ])
                         ->addActionLabel('Add card')
                         ->collapsed()
@@ -145,7 +154,9 @@ class HomePage extends EditsSinglePage
                     TranslatedField::pairTextarea('content.stats_banner.headline', 'Headline', required: false, rows: 2),
                     Grid::make(2)->schema([
                         TranslatedField::pair('content.stats_banner.cta_label', 'Button label', required: false),
-                        TextInput::make('content.stats_banner.cta_link')->label('Button link'),
+                        TextInput::make('content.stats_banner.cta_link')
+                            ->label('Button link')
+                            ->rules([$this->linkRule()]),
                     ]),
                     FileUpload::make('content.stats_banner.background_image')
                         ->label('Background image')
@@ -171,6 +182,7 @@ class HomePage extends EditsSinglePage
                     TranslatedField::pairTextarea('content.contact.body', 'Supporting text', required: false, rows: 3),
                     TextInput::make('content.contact.link')
                         ->label('Contact page link')
+                        ->rules([$this->linkRule()])
                         ->default('/contact'),
                     FileUpload::make('content.contact.background_image')
                         ->label('Background image')
@@ -178,5 +190,46 @@ class HomePage extends EditsSinglePage
                         ->directory('pages/home/contact'),
                 ]),
         ];
+    }
+
+    protected function linkRule(): Closure
+    {
+        return function (string $attribute, mixed $value, Closure $fail): void {
+            if (blank($value)) {
+                return;
+            }
+
+            if (filter_var($value, FILTER_VALIDATE_URL)) {
+                $scheme = strtolower((string) parse_url($value, PHP_URL_SCHEME));
+
+                if (in_array($scheme, ['http', 'https'], true)) {
+                    return;
+                }
+            }
+
+            if (! is_string($value) || ! str_starts_with($value, '/') || str_starts_with($value, '//')) {
+                $fail('Use a valid internal path beginning with / or a complete http(s) URL.');
+
+                return;
+            }
+
+            $path = trim((string) parse_url($value, PHP_URL_PATH), '/');
+            $segments = $path === '' ? [] : explode('/', $path);
+
+            if (in_array($segments[0] ?? null, ['fr', 'en'], true)) {
+                array_shift($segments);
+            }
+
+            $slug = $segments[0] ?? '';
+            $knownRoute = count($segments) === 1 && in_array($slug, ['', 'contact', 'press'], true);
+            $knownPage = $slug !== '' && Page::published()->where('slug', $slug)->exists();
+            $knownPressPost = count($segments) === 2
+                && $segments[0] === 'press'
+                && PressPost::press()->published()->where('slug', $segments[1])->exists();
+
+            if (! $knownRoute && ! $knownPage && ! $knownPressPost) {
+                $fail('This internal link does not match a published page or public route.');
+            }
+        };
     }
 }

@@ -29,7 +29,10 @@ class PressPost extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('status', 'published')->whereNotNull('published_at');
+        return $query
+            ->where('status', 'published')
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', now());
     }
 
     public function scopePress($query)
