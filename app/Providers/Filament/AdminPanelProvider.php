@@ -5,6 +5,11 @@ namespace App\Providers\Filament;
 use App\Filament\Resources\Partners\PartnerResource;
 use App\Filament\Resources\Products\ProductResource;
 use App\Filament\Pages\PageContent\NsiGroupPage;
+use App\Filament\Pages\PageContent\KinshasaProductionCenterPage;
+use App\Filament\Pages\PageContent\ReferencesPage;
+use App\Filament\Pages\PageContent\SolutionsMonetiquePage;
+use App\Filament\Pages\PageContent\SoftwareExpertisePage;
+use App\Filament\Pages\PageContent\ConsultingAdvisoryPage;
 use App\Models\Page;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -35,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ->sort(-100);
 
         $aboutItems = Page::whereIn('template', ['about', 'references'])
-            ->where('slug', '!=', 'nsi-group')
+            ->whereNotIn('slug', ['nsi-group', 'references'])
             ->orderBy('order')
             ->get()
             ->map(fn (Page $about) => NavigationItem::make($about->title_fr ?? $about->slug)
@@ -51,13 +56,20 @@ class AdminPanelProvider extends PanelProvider
             ->group('About')
             ->sort(10));
 
+        $aboutItems[] = NavigationItem::make('References')
+            ->url(fn () => ReferencesPage::getUrl())
+            ->icon(Heroicon::OutlinedRectangleStack)
+            ->group('About')
+            ->sort(11);
+
         $aboutItems[] = NavigationItem::make('Kinshasa Production Center')
-            ->url(fn () => route('page.show', ['locale' => 'fr', 'slug' => 'centre-de-personnalisation-de-kinshasa-2']))
+            ->url(fn () => KinshasaProductionCenterPage::getUrl())
             ->icon(Heroicon::OutlinedBuildingOffice2)
             ->group('About')
             ->sort(12);
 
         $solutionItems = Page::where('template', 'solution')
+            ->whereNotIn('slug', ['solutions-monetiques', 'software-expertise', 'consulting-advisory-services'])
             ->orderBy('order')
             ->get()
             ->map(fn (Page $solution) => NavigationItem::make($solution->title_fr ?? $solution->slug)
@@ -66,6 +78,24 @@ class AdminPanelProvider extends PanelProvider
                 ->group('Solutions')
                 ->sort(30))
             ->all();
+
+        array_unshift($solutionItems, NavigationItem::make('Solutions Monétiques')
+            ->url(fn () => SolutionsMonetiquePage::getUrl())
+            ->icon(Heroicon::OutlinedLightBulb)
+            ->group('Solutions')
+            ->sort(30));
+
+        $solutionItems[] = NavigationItem::make('Software Expertise')
+            ->url(fn () => SoftwareExpertisePage::getUrl())
+            ->icon(Heroicon::OutlinedLightBulb)
+            ->group('Solutions')
+            ->sort(31);
+
+        $solutionItems[] = NavigationItem::make('Consulting & Advisory')
+            ->url(fn () => ConsultingAdvisoryPage::getUrl())
+            ->icon(Heroicon::OutlinedLightBulb)
+            ->group('Solutions')
+            ->sort(32);
 
         $partnerItems = Page::where('template', 'partner')
             ->orderBy('order')
