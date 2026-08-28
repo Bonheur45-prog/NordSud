@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use App\Filament\Resources\Partners\PartnerResource;
 use App\Filament\Resources\Products\ProductResource;
+use App\Filament\Pages\PageContent\NsiGroupPage;
 use App\Models\Page;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -34,6 +35,7 @@ class AdminPanelProvider extends PanelProvider
             ->sort(-100);
 
         $aboutItems = Page::whereIn('template', ['about', 'references'])
+            ->where('slug', '!=', 'nsi-group')
             ->orderBy('order')
             ->get()
             ->map(fn (Page $about) => NavigationItem::make($about->title_fr ?? $about->slug)
@@ -42,6 +44,12 @@ class AdminPanelProvider extends PanelProvider
                 ->group('About')
                 ->sort(10))
             ->all();
+
+        array_unshift($aboutItems, NavigationItem::make('NSI Group')
+            ->url(fn () => NsiGroupPage::getUrl())
+            ->icon(Heroicon::OutlinedInformationCircle)
+            ->group('About')
+            ->sort(10));
 
         $aboutItems[] = NavigationItem::make('Kinshasa Production Center')
             ->url(fn () => route('page.show', ['locale' => 'fr', 'slug' => 'centre-de-personnalisation-de-kinshasa-2']))
