@@ -10,6 +10,8 @@ use App\Filament\Pages\PageContent\ReferencesPage;
 use App\Filament\Pages\PageContent\SolutionsMonetiquePage;
 use App\Filament\Pages\PageContent\SoftwareExpertisePage;
 use App\Filament\Pages\PageContent\ConsultingAdvisoryPage;
+use App\Filament\Pages\PageContent\BankCardPage;
+use App\Filament\Pages\PageContent\SecuredDocumentsPage;
 use App\Models\Page;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -114,6 +116,7 @@ class AdminPanelProvider extends PanelProvider
             ->sort(59);
 
         $productItems = Page::where('template', 'product')
+            ->whereNotIn('slug', ['bank-card', 'secured-documents'])
             ->orderBy('order')
             ->get()
             ->map(fn (Page $product) => NavigationItem::make($product->title_fr ?? $product->slug)
@@ -122,6 +125,18 @@ class AdminPanelProvider extends PanelProvider
                 ->group('Products')
                 ->sort(40))
             ->all();
+
+            array_unshift($productItems, NavigationItem::make('Bank Cards')
+                ->url(fn () => BankCardPage::getUrl())
+                ->icon(Heroicon::OutlinedCreditCard)
+                ->group('Products')
+                ->sort(40));
+
+            $productItems[] = NavigationItem::make('Secured Documents')
+                ->url(fn () => SecuredDocumentsPage::getUrl())
+                ->icon(Heroicon::OutlinedDocumentCheck)
+                ->group('Products')
+                ->sort(41);
 
         $productItems[] = NavigationItem::make('Add New Product')
             ->url(fn () => ProductResource::getUrl('create'))
