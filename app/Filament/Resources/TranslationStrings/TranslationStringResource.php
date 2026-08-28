@@ -20,6 +20,8 @@ class TranslationStringResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?int $navigationSort = 120;
+
     protected static ?string $recordTitleAttribute = 'key';
 
     public static function form(Schema $schema): Schema
