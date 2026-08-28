@@ -15,6 +15,7 @@ use App\Filament\Pages\PageContent\SecuredDocumentsPage;
 use App\Filament\Pages\PageContent\GroupJoosPage;
 use App\Filament\Pages\PageContent\KonaIPage;
 use App\Filament\Pages\PageContent\VervePage;
+use App\Filament\Pages\PageContent\ContactByCountryPage;
 use App\Models\Page;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -167,7 +168,7 @@ class AdminPanelProvider extends PanelProvider
             ->sort(49);
 
         $contactItem = NavigationItem::make('Contact Page')
-            ->url(fn () => route('contact.show', ['locale' => 'fr']))
+            ->url(fn () => ContactByCountryPage::getUrl())
             ->icon(Heroicon::OutlinedEnvelope)
             ->sort(60);
 

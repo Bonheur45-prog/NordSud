@@ -51,35 +51,61 @@ class HomePage extends EditsSinglePage
                                 ->label('Background image')
                                 ->image()
                                 ->directory('pages/home/hero'),
+                            Grid::make(2)->schema([
+                                TranslatedField::pair('cta_label', 'Button label', required: false),
+                                TextInput::make('cta_link')
+                                    ->label('Button link')
+                                    ->helperText('e.g. /contact'),
+                            ]),
                         ])
                         ->addActionLabel('Add slide')
                         ->collapsed()
                         ->itemLabel(fn (array $state): string => filled($state['headline']['fr'] ?? null) ? $state['headline']['fr'] : 'Slide')
                         ->minItems(1),
-                    Grid::make(2)->schema([
+                        Grid::make(2)->schema([
                         TranslatedField::pair('content.hero.cta_label', 'Button label', required: false),
                         TextInput::make('content.hero.cta_link')
                             ->label('Button link')
-                            ->helperText('e.g. /contact'),
+                            ->helperText('Legacy fallback used only when a slide has no CTA.'),
                     ]),
                 ]),
 
-            Section::make('Press Spotlight')
-                ->description('The single featured news item shown just under the hero slider.')
+            Section::make('Featured Spotlight')
+                ->description('The featured story or campaign shown directly below the hero slider.')
                 ->collapsed()
                 ->schema([
                     TranslatedField::pair('content.press_spotlight.headline', 'Headline', required: false),
+                    TranslatedField::pairTextarea('content.press_spotlight.body', 'Spotlight text', required: false, rows: 3),
                     FileUpload::make('content.press_spotlight.image')
                         ->label('Image')
                         ->image()
-                        ->directory('pages/home'),
+                        ->directory('pages/home/kenya-spotlight'),
                     TextInput::make('content.press_spotlight.link')
                         ->label('Link')
-                        ->helperText('URL of the press article this links to.'),
+                        ->helperText('URL of the featured story, campaign, or related page.'),
+                ]),
+
+            Section::make('Digital Banking Feature')
+                ->description('The dark video feature section introducing digital banking channels.')
+                ->collapsed()
+                ->schema([
+                    TranslatedField::pair('content.digital_banking.headline', 'Headline', required: false),
+                    TranslatedField::pairTextarea('content.digital_banking.body', 'Body text', required: false, rows: 3),
+                    FileUpload::make('content.digital_banking.video')
+                        ->label('Video file')
+                        ->directory('pages/home/digital-banking'),
+                    FileUpload::make('content.digital_banking.poster')
+                        ->label('Video poster image')
+                        ->image()
+                        ->directory('pages/home/digital-banking'),
+                    FileUpload::make('content.digital_banking.background_image')
+                        ->label('Background image')
+                        ->image()
+                        ->directory('pages/home/digital-banking'),
                 ]),
 
             Section::make('Secondary Banner')
-                ->description('The dark full-width banner with an embedded video.')
+                ->description('Legacy secondary banner content retained for compatibility with existing homepage data.')
                 ->collapsed()
                 ->schema([
                     TranslatedField::pair('content.secondary_banner.headline', 'Headline', required: false),
@@ -121,6 +147,10 @@ class HomePage extends EditsSinglePage
                         TranslatedField::pair('content.stats_banner.cta_label', 'Button label', required: false),
                         TextInput::make('content.stats_banner.cta_link')->label('Button link'),
                     ]),
+                    FileUpload::make('content.stats_banner.background_image')
+                        ->label('Background image')
+                        ->image()
+                        ->directory('pages/home/stats'),
                 ]),
 
             Section::make('News Feed')
@@ -132,6 +162,21 @@ class HomePage extends EditsSinglePage
                 ->description('This section pulls automatically from the shared Client References list (see "Client References" in the sidebar) — nothing to edit here.')
                 ->collapsed()
                 ->schema([]),
+
+            Section::make('Contact CTA')
+                ->description('The final contact section with address details and the message form.')
+                ->collapsed()
+                ->schema([
+                    TranslatedField::pair('content.contact.headline', 'Headline', required: false),
+                    TranslatedField::pairTextarea('content.contact.body', 'Supporting text', required: false, rows: 3),
+                    TextInput::make('content.contact.link')
+                        ->label('Contact page link')
+                        ->default('/contact'),
+                    FileUpload::make('content.contact.background_image')
+                        ->label('Background image')
+                        ->image()
+                        ->directory('pages/home/contact'),
+                ]),
         ];
     }
 }
