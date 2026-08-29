@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ $locale }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $page?->title() ?? 'Contact par pays' }}</title>
-</head>
-<body>
-    <main>
+@extends('layouts.app')
+
+@section('content')
+    <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
         <h1>{{ $page?->title() ?? 'Contact par pays' }}</h1>
 
         @if (session('success'))
@@ -47,6 +42,5 @@
 
             <button type="submit">Send message</button>
         </form>
-    </main>
-</body>
-</html>
+    </div>
+@endsection
