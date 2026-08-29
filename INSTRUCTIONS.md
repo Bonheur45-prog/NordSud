@@ -1,105 +1,97 @@
-# NordSud CMS — files to apply locally
+# Batch: Critical fixes + conflicting-editors resolution
 
-These are ONLY the new/changed files from this session — drop each one into
-your project at the SAME relative path (overwriting where a file already
-exists). Nothing here touches your database directly except two new
-migration files, which are additive (they CREATE new tables — they do not
-touch `pages`, `translation_strings`, `press_posts`, or anything you've
-already imported).
+## What this fixes
 
-## 1. Copy the files
+1. **The whole admin panel was broken.** `app/Filament/AdminPanelProvider.php`
+   declared `namespace App\Providers\Filament` but sat in the wrong folder.
+   Composer's autoloader explicitly skips files like this (you can see it
+   yourself: run `composer dump-autoload` on your current code and read the
+   warning it prints). Since `bootstrap/providers.php` tells Laravel to load
+   `App\Providers\Filament\AdminPanelProvider`, and that class was
+   unloadable, the admin panel could not boot. Same bug, same fix, for
+   `CmsOverviewWidget`.
 
-Copy every file in this folder into your project (`D:\PROJECTS\NordSud\NordSud`
-or wherever your XAMPP project root is), preserving the folder structure:
+2. **Any artisan command could crash before migrations ran.** The old
+   `AdminPanelProvider` queried the database directly, unguarded, every
+   time the panel booted — including moments before the `pages` table
+   exists. Now wrapped so only that specific "table missing yet" case is
+   handled quietly; anything else still surfaces normally.
 
-```
-app/Filament/Support/TranslatedField.php                          (NEW)
-app/Filament/Pages/PageContent/EditsSinglePage.php                (NEW)
-app/Filament/Pages/PageContent/HomePage.php                       (NEW)
-app/Models/Partner.php                                            (NEW)
-app/Models/ClientReference.php                                    (NEW)
-app/Models/User.php                                                (CHANGED — adds canAccessPanel)
-database/migrations/2024_01_01_000009_create_client_references_table.php  (NEW)
-database/migrations/2024_01_01_000010_create_partners_table.php   (NEW)
-app/Filament/Resources/Partners/PartnerResource.php                (NEW)
-app/Filament/Resources/Partners/Schemas/PartnerForm.php            (NEW)
-app/Filament/Resources/Partners/Tables/PartnersTable.php           (NEW)
-app/Filament/Resources/Partners/Pages/ListPartners.php             (NEW)
-app/Filament/Resources/Partners/Pages/CreatePartner.php            (NEW)
-app/Filament/Resources/Partners/Pages/EditPartner.php              (NEW)
-tests/Feature/AdminBootTest.php                                    (NEW, optional)
-tests/Feature/PartnerFormTest.php                                  (NEW, optional)
-tests/Feature/HomePageContentTest.php                              (NEW, optional)
-```
+3. **The real bug you asked me to fix**: `PartnerResource`/`ProductResource`
+   (the generic "add a new one" forms) and the dedicated pages you already
+   have (`GroupJoosPage`, `KonaIPage`, `VervePage`, `BankCardPage`,
+   `SecuredDocumentsPage`) were BOTH able to edit the exact same database
+   rows, using two different, incompatible content shapes. Opening Group
+   JOOS through the generic form and hitting Save would have silently
+   wiped its certificates/production-sites/capacity data. Now:
+   - Group JOOS, KONA I, VERVE, Bank Card, Secured Documents are edited
+     ONLY through their dedicated page — the generic resource can no
+     longer even reach those rows (verified by a real test: it 404s).
+   - A brand-new partner or product you add later (no dedicated page
+     exists for it yet) is still fully editable through the generic
+     "+ Add New Partner" / "+ Add New Product" flow, exactly as before.
+   - The sidebar routes each item to whichever editor is actually
+     correct for it automatically — you don't have to remember which is
+     which.
 
-**Important about `app/Models/User.php`**: I changed this file to add one
-method (`canAccessPanel`). If you've made your own edits to User.php since
-the zip you gave me, don't blindly overwrite — just add this method by hand
-instead:
-
-```php
-use Filament\Models\Contracts\FilamentUser;
-use Filament\Panel;
-
-class User extends Authenticatable implements FilamentUser
-{
-    // ...existing code...
-
-    public function canAccessPanel(Panel $panel): bool
-    {
-        return true;
-    }
-}
-```
-
-## 2. Run the new migrations
-
-In your XAMPP project, with Apache/MySQL running:
+## Files to copy in (overwrite at the same path)
 
 ```
-php artisan migrate
+app/Providers/Filament/AdminPanelProvider.php   (NEW location — see below)
+app/Filament/Widgets/CmsOverviewWidget.php       (NEW location — see below)
+app/Filament/Support/DedicatedPageRegistry.php   (NEW file)
+app/Filament/Resources/Partners/PartnerResource.php    (CHANGED)
+app/Filament/Resources/Products/ProductResource.php    (CHANGED)
+tests/Feature/PartnerEditorConflictTest.php      (NEW — proves the fix)
+tests/Feature/AdminBootTest.php                  (CHANGED — removed a
+                                                    stale test for a
+                                                    route that no longer
+                                                    exists on purpose)
 ```
 
-**Do NOT run `migrate:fresh`** — that would wipe your already-imported
-content (the 408 translation strings, suspect-flagged rows, etc.). Plain
-`migrate` only runs the two new migration files and creates two new empty
-tables: `client_references` and `partners`.
-
-## 3. Check it in the browser
-
-- Go to `/admin/partners` — you should see an empty Partners list with a
-  "New partner" button. Try creating "Group JOOS", "KONA I", and "VERVE"
-  from the screenshots you sent me — each can have as much or as little
-  filled in as it actually needs (KONA I doesn't need certifications/stats,
-  JOOS does).
-- Go to `/admin/home-page` — this is the new pattern: no template picker,
-  just the Home page's real content top-to-bottom (Hero Slider, Press
-  Spotlight, Secondary Banner, Section Highlights, Stats/CTA Banner), each
-  section collapsible. Fill in the hero slides and save.
-
-## 4. (Optional) Run the automated tests
-
-If you want to verify these work without manually clicking through forms —
-this runs against a temporary in-memory database, completely separate from
-your real MySQL data, so it's safe to run anytime:
+## Files to DELETE from your project
 
 ```
-php artisan test --filter=AdminBootTest
-php artisan test --filter=PartnerFormTest
-php artisan test --filter=HomePageContentTest
+app/Filament/AdminPanelProvider.php          — old, broken location
+app/Widgets/CmsOverviewWidget.php            — old, broken location
+app/Filament/Resources/Partners/Pages/ListPartners.php   — no longer used
+app/Filament/Resources/Products/Pages/ListProducts.php   — no longer used
+app/Models/Partner.php                       — orphaned, nothing uses it
 ```
 
-All 3 should show green/PASS. These are the same tests I ran here before
-handing this to you — I'm including them so you can independently confirm
-what I'm telling you actually works, not just take my word for it.
+**Note on `app/Models/Partner.php`**: this is a leftover from an early
+version of the project before Partners moved to using the `Page` model.
+I checked — nothing in the codebase references it anymore, it's safe to
+delete. I did NOT touch its database migration
+(`2024_01_01_000010_create_partners_table.php`) or the `partners` table
+itself, since dropping a table is a destructive change I won't make
+without you explicitly asking for it — if you want that table gone too,
+say so and I'll do it properly with a real down-migration.
 
-## What's deliberately NOT included yet
+## No new migrations in this batch
 
-Per the "do it all, but review as we go" approach — this batch is Home +
-Partners only, so you can review the pattern before I replicate it across
-the remaining 9 pages (NSI Group, References, Kinshasa Production Center,
-Solutions Monétiques, Software Expertise, Consulting Advisory, Bank Card,
-Secured Documents, Contact, Legal Notices) and the nav-group/dashboard
-polish (items 1, 6, 7 from the earlier plan). Once you've clicked through
-Home and Partners and you're happy with the pattern, tell me and I'll
-continue with the rest in the same reviewable batches.
+Nothing to run via `php artisan migrate` this time — every change here is
+PHP logic, not schema.
+
+## How to verify it worked
+
+1. Copy the files in, delete the ones listed above.
+2. `composer dump-autoload` — should now run with NO "does not comply with
+   psr-4" warnings (compare to before: you'll see the difference directly).
+3. Visit `/admin` — the Partners and Products groups should show your real
+   partner/product names (Group JOOS, KONA I, VERVE, etc.) directly in the
+   sidebar, plus an "Add New Partner"/"Add New Product" link. No "All
+   Partners" list page in between.
+4. Try opening Group JOOS from the sidebar — you should land on its full
+   dedicated form (Hero, Facts, Certificates, Production Sites, Capacity),
+   not a generic logo+paragraphs form.
+5. (Optional) Run the tests — these run against a separate in-memory
+   database, safe to run anytime:
+   ```
+   php artisan test --filter=PartnerEditorConflictTest
+   php artisan test --filter=AdminBootTest
+   ```
+   Both should be all green. `PartnerEditorConflictTest` specifically
+   proves: Group JOOS is unreachable through the generic editor (blocks
+   the data-loss path), still fully editable through its dedicated page,
+   and a brand-new partner still works through the generic "+ Add" flow.

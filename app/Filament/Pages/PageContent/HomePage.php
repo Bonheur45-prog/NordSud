@@ -33,7 +33,7 @@ class HomePage extends EditsSinglePage
 
     protected static ?string $navigationLabel = 'Home Page';
 
-    protected static bool $shouldRegisterNavigation = false;
+    protected static bool $shouldRegisterNavigation = true;
 
     protected static string|UnitEnum|null $navigationGroup = null; // top-level, not nested
 

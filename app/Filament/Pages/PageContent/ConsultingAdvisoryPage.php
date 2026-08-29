@@ -16,8 +16,10 @@ class ConsultingAdvisoryPage extends EditsSinglePage
     protected static string $defaultTitleFr = 'Consulting & Advisory';
 
     protected static ?string $navigationLabel = 'Consulting & Advisory';
+    protected static string|\UnitEnum|null $navigationGroup = 'Solutions';
 
-    protected static bool $shouldRegisterNavigation = false;
+
+    protected static bool $shouldRegisterNavigation = true;
 
     protected function contentSchema(): array
     {

@@ -4,177 +4,30 @@ namespace App\Providers\Filament;
 
 use App\Filament\Resources\Partners\PartnerResource;
 use App\Filament\Resources\Products\ProductResource;
-use App\Filament\Pages\PageContent\NsiGroupPage;
-use App\Filament\Pages\PageContent\KinshasaProductionCenterPage;
-use App\Filament\Pages\PageContent\ReferencesPage;
-use App\Filament\Pages\PageContent\SolutionsMonetiquePage;
-use App\Filament\Pages\PageContent\SoftwareExpertisePage;
-use App\Filament\Pages\PageContent\ConsultingAdvisoryPage;
-use App\Filament\Pages\PageContent\BankCardPage;
-use App\Filament\Pages\PageContent\SecuredDocumentsPage;
-use App\Filament\Pages\PageContent\GroupJoosPage;
-use App\Filament\Pages\PageContent\KonaIPage;
-use App\Filament\Pages\PageContent\VervePage;
-use App\Filament\Pages\PageContent\ContactByCountryPage;
+use App\Filament\Support\DedicatedPageRegistry;
 use App\Models\Page;
 use Filament\Http\Middleware\Authenticate;
-use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationItem;
-use Filament\Pages\Dashboard;
+use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Icons\Heroicon;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
+use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
-use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Illuminate\Cookie\Middleware\EncryptCookies;
 
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
-        $pageTableExists = Schema::hasTable('pages');
-
-        $homeItem = NavigationItem::make('Home Page')
-            ->url(fn () => \App\Filament\Pages\PageContent\HomePage::getUrl())
-            ->icon(Heroicon::OutlinedHome)
-            ->sort(-100);
-
-        $aboutItems = $pageTableExists ? Page::whereIn('template', ['about', 'references'])
-            ->whereNotIn('slug', ['nsi-group', 'references', 'centre-de-personnalisation-de-kinshasa-2'])
-            ->orderBy('order')
-            ->get()
-            ->map(fn (Page $about) => NavigationItem::make($about->title_fr ?? $about->slug)
-                ->url(fn () => route('page.show', ['locale' => 'fr', 'slug' => $about->slug]))
-                ->icon(Heroicon::OutlinedInformationCircle)
-                ->group('About')
-                ->sort(10))
-            ->all() : [];
-
-        array_unshift($aboutItems, NavigationItem::make('NSI Group')
-            ->url(fn () => NsiGroupPage::getUrl())
-            ->icon(Heroicon::OutlinedInformationCircle)
-            ->group('About')
-            ->sort(10));
-
-        $aboutItems[] = NavigationItem::make('References')
-            ->url(fn () => ReferencesPage::getUrl())
-            ->icon(Heroicon::OutlinedRectangleStack)
-            ->group('About')
-            ->sort(11);
-
-        $aboutItems[] = NavigationItem::make('Kinshasa Production Center')
-            ->url(fn () => KinshasaProductionCenterPage::getUrl())
-            ->icon(Heroicon::OutlinedBuildingOffice2)
-            ->group('About')
-            ->sort(12);
-
-        $solutionItems = $pageTableExists ? Page::where('template', 'solution')
-            ->whereNotIn('slug', ['solutions-monetiques', 'software-expertise', 'consulting-advisory', 'consulting-advisory-services'])
-            ->orderBy('order')
-            ->get()
-            ->map(fn (Page $solution) => NavigationItem::make($solution->title_fr ?? $solution->slug)
-                ->url(fn () => route('page.show', ['locale' => 'fr', 'slug' => $solution->slug]))
-                ->icon(Heroicon::OutlinedLightBulb)
-                ->group('Solutions')
-                ->sort(30))
-            ->all() : [];
-
-        array_unshift($solutionItems, NavigationItem::make('Solutions Monétiques')
-            ->url(fn () => SolutionsMonetiquePage::getUrl())
-            ->icon(Heroicon::OutlinedLightBulb)
-            ->group('Solutions')
-            ->sort(30));
-
-        $solutionItems[] = NavigationItem::make('Software Expertise')
-            ->url(fn () => SoftwareExpertisePage::getUrl())
-            ->icon(Heroicon::OutlinedLightBulb)
-            ->group('Solutions')
-            ->sort(31);
-
-        $solutionItems[] = NavigationItem::make('Consulting & Advisory')
-            ->url(fn () => ConsultingAdvisoryPage::getUrl())
-            ->icon(Heroicon::OutlinedLightBulb)
-            ->group('Solutions')
-            ->sort(32);
-
-        $partnerItems = $pageTableExists ? Page::where('template', 'partner')
-            ->whereNotIn('slug', ['group-joos', 'kona-i', 'verve'])
-            ->orderBy('order')
-            ->get()
-            ->map(fn (Page $partner) => NavigationItem::make($partner->title_fr ?? $partner->slug)
-                ->url(fn () => PartnerResource::getUrl('edit', ['record' => $partner]))
-                ->icon(Heroicon::OutlinedBuildingOffice2)
-                ->group('Partners')
-                ->sort(50))
-            ->all() : [];
-
-        array_unshift($partnerItems, NavigationItem::make('Group JOOS')
-            ->url(fn () => GroupJoosPage::getUrl())
-            ->icon(Heroicon::OutlinedBuildingOffice2)
-            ->group('Partners')
-            ->sort(50));
-
-        $partnerItems[] = NavigationItem::make('KONA I')
-            ->url(fn () => KonaIPage::getUrl())
-            ->icon(Heroicon::OutlinedBuildingOffice2)
-            ->group('Partners')
-            ->sort(51);
-
-        $partnerItems[] = NavigationItem::make('VERVE')
-            ->url(fn () => VervePage::getUrl())
-            ->icon(Heroicon::OutlinedBuildingOffice2)
-            ->group('Partners')
-            ->sort(52);
-
-        $partnerItems[] = NavigationItem::make('Add New Partner')
-            ->url(fn () => PartnerResource::getUrl('create'))
-            ->icon(Heroicon::OutlinedPlusCircle)
-            ->group('Partners')
-            ->sort(59);
-
-        $productItems = $pageTableExists ? Page::where('template', 'product')
-            ->whereNotIn('slug', ['bank-card', 'secured-documents'])
-            ->orderBy('order')
-            ->get()
-            ->map(fn (Page $product) => NavigationItem::make($product->title_fr ?? $product->slug)
-                ->url(fn () => ProductResource::getUrl('edit', ['record' => $product]))
-                ->icon(Heroicon::OutlinedCreditCard)
-                ->group('Products')
-                ->sort(40))
-            ->all() : [];
-
-            array_unshift($productItems, NavigationItem::make('Bank Cards')
-                ->url(fn () => BankCardPage::getUrl())
-                ->icon(Heroicon::OutlinedCreditCard)
-                ->group('Products')
-                ->sort(40));
-
-            $productItems[] = NavigationItem::make('Secured Documents')
-                ->url(fn () => SecuredDocumentsPage::getUrl())
-                ->icon(Heroicon::OutlinedDocumentCheck)
-                ->group('Products')
-                ->sort(41);
-
-        $productItems[] = NavigationItem::make('Add New Product')
-            ->url(fn () => ProductResource::getUrl('create'))
-            ->icon(Heroicon::OutlinedPlusCircle)
-            ->group('Products')
-            ->sort(49);
-
-        $contactItem = NavigationItem::make('Contact Page')
-            ->url(fn () => ContactByCountryPage::getUrl())
-            ->icon(Heroicon::OutlinedEnvelope)
-            ->sort(60);
-
         return $panel
             ->default()
             ->id('admin')
@@ -183,24 +36,16 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
+            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
+            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
-                Dashboard::class,
+                Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                \App\Filament\Widgets\CmsOverviewWidget::class,
             ])
-            ->navigationItems([
-                $homeItem,
-                ...$aboutItems,
-                ...$solutionItems,
-                ...$productItems,
-                ...$partnerItems,
-                $contactItem,
-            ])
+            ->navigationItems($this->buildDynamicNavigationItems())
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -215,5 +60,87 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+    }
+
+    /**
+     * Wrapped in try/catch: this runs every time the panel boots, which
+     * includes contexts before migrations have run yet (a fresh clone,
+     * `composer install`, CI, or the app-boot phase in some test setups).
+     * Only the "table doesn't exist yet" case is swallowed — narrowed to
+     * QueryException specifically, so any other failure surfaces loudly
+     * instead of silently producing an empty sidebar.
+     *
+     * Public (not protected) so this can be tested directly without
+     * depending on full HTTP-request boot-order timing.
+     */
+    public function buildDynamicNavigationItems(): array
+    {
+        try {
+            $partnerItems = $this->itemsFor(
+                template: 'partner',
+                group: 'Partners',
+                dedicatedLookup: fn (string $slug) => DedicatedPageRegistry::dedicatedPartnerPageFor($slug),
+                genericEditUrl: fn (Page $page) => PartnerResource::getUrl('edit', ['record' => $page]),
+                genericCreateUrl: fn () => PartnerResource::getUrl('create'),
+                addLabel: 'Add New Partner',
+                icon: Heroicon::OutlinedBuildingOffice2,
+            );
+
+            $productItems = $this->itemsFor(
+                template: 'product',
+                group: 'Products',
+                dedicatedLookup: fn (string $slug) => DedicatedPageRegistry::dedicatedProductPageFor($slug),
+                genericEditUrl: fn (Page $page) => ProductResource::getUrl('edit', ['record' => $page]),
+                genericCreateUrl: fn () => ProductResource::getUrl('create'),
+                addLabel: 'Add New Product',
+                icon: Heroicon::OutlinedCreditCard,
+            );
+        } catch (\Illuminate\Database\QueryException) {
+            return [];
+        }
+
+        return [...$partnerItems, ...$productItems];
+    }
+
+    /**
+     * @param  \Closure(string): ?string  $dedicatedLookup
+     * @param  \Closure(Page): string  $genericEditUrl
+     * @param  \Closure(): string  $genericCreateUrl
+     * @return array<NavigationItem>
+     */
+    protected function itemsFor(
+        string $template,
+        string $group,
+        \Closure $dedicatedLookup,
+        \Closure $genericEditUrl,
+        \Closure $genericCreateUrl,
+        string $addLabel,
+        Heroicon $icon,
+    ): array {
+        $items = Page::where('template', $template)
+            ->orderBy('order')
+            ->get()
+            ->map(function (Page $page) use ($dedicatedLookup, $genericEditUrl, $group, $icon) {
+                $dedicatedPageClass = $dedicatedLookup($page->slug);
+
+                $url = $dedicatedPageClass
+                    ? fn () => $dedicatedPageClass::getUrl()
+                    : fn () => $genericEditUrl($page);
+
+                return NavigationItem::make($page->title_fr ?? $page->slug)
+                    ->url($url)
+                    ->icon($icon)
+                    ->group($group)
+                    ->sort(10);
+            })
+            ->all();
+
+        $items[] = NavigationItem::make($addLabel)
+            ->url($genericCreateUrl)
+            ->icon(Heroicon::OutlinedPlusCircle)
+            ->group($group)
+            ->sort(99);
+
+        return $items;
     }
 }

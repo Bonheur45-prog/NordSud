@@ -16,8 +16,10 @@ class NsiGroupPage extends EditsSinglePage
     protected static string $defaultTitleFr = 'NSI Group';
 
     protected static ?string $navigationLabel = 'NSI Group';
+    protected static string|\UnitEnum|null $navigationGroup = 'About';
 
-    protected static bool $shouldRegisterNavigation = false;
+
+    protected static bool $shouldRegisterNavigation = true;
 
     protected function contentSchema(): array
     {

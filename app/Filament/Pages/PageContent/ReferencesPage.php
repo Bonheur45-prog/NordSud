@@ -15,8 +15,10 @@ class ReferencesPage extends EditsSinglePage
     protected static string $defaultTitleFr = 'Références';
 
     protected static ?string $navigationLabel = 'References';
+    protected static string|\UnitEnum|null $navigationGroup = 'About';
 
-    protected static bool $shouldRegisterNavigation = false;
+
+    protected static bool $shouldRegisterNavigation = true;
 
     protected function contentSchema(): array
     {

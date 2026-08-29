@@ -15,8 +15,10 @@ class KinshasaProductionCenterPage extends EditsSinglePage
     protected static string $defaultTitleFr = 'Centre de Production Kinshasa';
 
     protected static ?string $navigationLabel = 'Kinshasa Production Center';
+    protected static string|\UnitEnum|null $navigationGroup = 'About';
 
-    protected static bool $shouldRegisterNavigation = false;
+
+    protected static bool $shouldRegisterNavigation = true;
 
     protected function contentSchema(): array
     {

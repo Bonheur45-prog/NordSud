@@ -15,13 +15,6 @@ class AdminBootTest extends TestCase
         return User::factory()->create();
     }
 
-    public function test_partners_index_page_renders(): void
-    {
-        $this->actingAs($this->authenticatedUser())
-            ->get('/admin/partners')
-            ->assertOk();
-    }
-
     public function test_glossary_terms_index_renders(): void
     {
         $this->actingAs($this->authenticatedUser())

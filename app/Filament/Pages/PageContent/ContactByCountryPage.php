@@ -18,8 +18,10 @@ class ContactByCountryPage extends EditsSinglePage
     protected static string $defaultTitleFr = 'Contact par pays';
 
     protected static ?string $navigationLabel = 'Contact par pays';
+    protected static string|\UnitEnum|null $navigationGroup = null; // top-level, not nested
 
-    protected static bool $shouldRegisterNavigation = false;
+
+    protected static bool $shouldRegisterNavigation = true;
 
     protected function contentSchema(): array
     {

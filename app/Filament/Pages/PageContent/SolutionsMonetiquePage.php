@@ -16,8 +16,10 @@ class SolutionsMonetiquePage extends EditsSinglePage
     protected static string $defaultTitleFr = 'Solutions Monétiques';
 
     protected static ?string $navigationLabel = 'Solutions Monétiques';
+    protected static string|\UnitEnum|null $navigationGroup = 'Solutions';
 
-    protected static bool $shouldRegisterNavigation = false;
+
+    protected static bool $shouldRegisterNavigation = true;
 
     protected function contentSchema(): array
     {
