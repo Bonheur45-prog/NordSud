@@ -15,6 +15,7 @@ class Page extends Model
         'meta_title_fr', 'meta_title_en',
         'meta_description_fr', 'meta_description_en',
         'content',
+        'featured_image',
     ];
 
     protected $casts = [

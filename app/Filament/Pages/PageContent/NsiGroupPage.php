@@ -6,6 +6,7 @@ use App\Filament\Support\TranslatedField;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Schemas\Components\Section;
+use Filament\Support\Icons\Heroicon;
 
 class NsiGroupPage extends EditsSinglePage
 {
@@ -18,6 +19,7 @@ class NsiGroupPage extends EditsSinglePage
     protected static ?string $navigationLabel = 'NSI Group';
     protected static string|\UnitEnum|null $navigationGroup = 'About';
 
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingOffice;
 
     protected static bool $shouldRegisterNavigation = true;
 

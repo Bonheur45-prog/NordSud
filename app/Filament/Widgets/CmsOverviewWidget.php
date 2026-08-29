@@ -13,17 +13,22 @@ class CmsOverviewWidget extends BaseWidget
     protected function getStats(): array
     {
         $totalPages = Page::count();
-        $pagesNeedingReview = Page::get()->filter(
-            fn (Page $page) => collect($page->content['blocks'] ?? [])->contains('needs_review', true)
-        )->count();
+
+        // NOTE: there used to be a "pages needing review" stat here that
+        // checked content['blocks'] for a needs_review flag. That was a
+        // leftover from the generic block-editor architecture. Every page
+        // now has its own bespoke content shape (Home uses hero/stats/
+        // highlights, Partner uses logo/paragraphs, etc.) with no shared
+        // "blocks" key — so that check silently always returned 0. Removed
+        // rather than left in as a permanently-wrong "All clear" badge.
+        // If a real per-template "needs attention" signal is wanted later,
+        // it should be defined per dedicated page, not generically here.
 
         $missingTranslations = TranslationString::whereNull('en')->count();
         $suspectStrings = TranslationString::where('suspect_source_language', true)->count();
 
         return [
-            Stat::make('Pages', $totalPages)
-                ->description($pagesNeedingReview > 0 ? "{$pagesNeedingReview} need review" : 'All clear')
-                ->color($pagesNeedingReview > 0 ? 'warning' : 'success'),
+            Stat::make('Pages', $totalPages),
 
             Stat::make('Missing English translations', $missingTranslations)
                 ->description($missingTranslations > 0 ? 'Needs translating' : 'All translated')

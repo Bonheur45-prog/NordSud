@@ -12,6 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Illuminate\Validation\ClosureValidationRule;
+use Filament\Support\Icons\Heroicon;
 use UnitEnum;
 
 /**
@@ -32,6 +33,8 @@ class HomePage extends EditsSinglePage
     protected static string $defaultTitleFr = 'Accueil';
 
     protected static ?string $navigationLabel = 'Home Page';
+
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedHome;
 
     protected static bool $shouldRegisterNavigation = true;
 

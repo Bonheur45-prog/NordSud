@@ -6,6 +6,7 @@ use App\Filament\Support\TranslatedField;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Schemas\Components\Section;
+use Filament\Support\Icons\Heroicon;
 
 class SoftwareExpertisePage extends EditsSinglePage
 {
@@ -18,6 +19,7 @@ class SoftwareExpertisePage extends EditsSinglePage
     protected static ?string $navigationLabel = 'Software Expertise';
     protected static string|\UnitEnum|null $navigationGroup = 'Solutions';
 
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedCodeBracket;
 
     protected static bool $shouldRegisterNavigation = true;
 

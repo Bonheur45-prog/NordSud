@@ -5,6 +5,7 @@ namespace App\Filament\Pages\PageContent;
 use App\Filament\Support\TranslatedField;
 use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Components\Section;
+use Filament\Support\Icons\Heroicon;
 
 class KinshasaProductionCenterPage extends EditsSinglePage
 {
@@ -17,6 +18,7 @@ class KinshasaProductionCenterPage extends EditsSinglePage
     protected static ?string $navigationLabel = 'Kinshasa Production Center';
     protected static string|\UnitEnum|null $navigationGroup = 'About';
 
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedCog8Tooth;
 
     protected static bool $shouldRegisterNavigation = true;
 

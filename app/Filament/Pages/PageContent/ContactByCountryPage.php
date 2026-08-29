@@ -8,6 +8,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Components\Section;
+use Filament\Support\Icons\Heroicon;
 
 class ContactByCountryPage extends EditsSinglePage
 {
@@ -20,6 +21,7 @@ class ContactByCountryPage extends EditsSinglePage
     protected static ?string $navigationLabel = 'Contact par pays';
     protected static string|\UnitEnum|null $navigationGroup = null; // top-level, not nested
 
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedMapPin;
 
     protected static bool $shouldRegisterNavigation = true;
 

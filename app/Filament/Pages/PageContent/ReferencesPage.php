@@ -5,6 +5,7 @@ namespace App\Filament\Pages\PageContent;
 use App\Filament\Support\TranslatedField;
 use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Components\Section;
+use Filament\Support\Icons\Heroicon;
 
 class ReferencesPage extends EditsSinglePage
 {
@@ -17,6 +18,7 @@ class ReferencesPage extends EditsSinglePage
     protected static ?string $navigationLabel = 'References';
     protected static string|\UnitEnum|null $navigationGroup = 'About';
 
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedTrophy;
 
     protected static bool $shouldRegisterNavigation = true;
 
