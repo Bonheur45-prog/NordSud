@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function show(string $locale): View
     {
-        $page = Page::published()->where('slug', 'contact')->first();
+        $page = Page::published()->where('slug', 'contact')->firstOrFail();
 
         return view('pages.contact', [
             'page' => $page,

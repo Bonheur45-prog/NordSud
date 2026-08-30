@@ -11,6 +11,8 @@
 @import 'components/navbar.css';
 @import 'components/mobile-menu.css';
 @import 'components/footer.css';
+@import 'components/contact.css';
+@import 'components/home.css';
 
 :root {
     /* Sampled from the real NSI Group logo: blue gradient mark + orange

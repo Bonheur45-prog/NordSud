@@ -83,20 +83,27 @@ class HomePage extends EditsSinglePage
                         ]),
                 ]),
 
-            Section::make('Featured Spotlight')
-                ->description('The featured story or campaign shown directly below the hero slider.')
-                ->collapsed()
+            Section::make('Featured Spotlights')
+                ->description('The featured stories/events shown directly below the hero slider. Add as many as you want to highlight — they display side by side.')
                 ->schema([
-                    TranslatedField::pair('content.press_spotlight.headline', 'Headline', required: false),
-                    TranslatedField::pairTextarea('content.press_spotlight.body', 'Spotlight text', required: false, rows: 3),
-                    FileUpload::make('content.press_spotlight.image')
-                        ->label('Image')
-                        ->image()
-                        ->directory('pages/home/kenya-spotlight'),
-                    TextInput::make('content.press_spotlight.link')
-                        ->label('Link')
-                        ->rules([$this->linkRule()])
-                        ->helperText('URL of the featured story, campaign, or related page.'),
+                    Repeater::make('content.spotlights')
+                        ->label('Spotlights')
+                        ->schema([
+                            TranslatedField::pair('headline', 'Headline'),
+                            TranslatedField::pairTextarea('body', 'Spotlight text / link caption', required: false, rows: 2),
+                            FileUpload::make('image')
+                                ->label('Image')
+                                ->image()
+                                ->directory('pages/home/spotlights'),
+                            TextInput::make('link')
+                                ->label('Link')
+                                ->rules([$this->linkRule()])
+                                ->helperText('URL of the featured story, campaign, or related page — internal path like /press/slug, or a full external https:// URL.'),
+                        ])
+                        ->addActionLabel('Add spotlight')
+                        ->collapsed()
+                        ->itemLabel(fn (array $state): string => filled($state['headline']['fr'] ?? null) ? $state['headline']['fr'] : 'Spotlight')
+                        ->minItems(0),
                 ]),
 
             Section::make('Digital Banking Feature')
