@@ -10,6 +10,7 @@ window.Alpine = Alpine;
 Alpine.data('navbar', () => ({
     scrolled: false,
     openGroup: null,
+    hoverTimeout: null,
 
     init() {
         this.onScroll();
@@ -20,12 +21,39 @@ Alpine.data('navbar', () => ({
         this.scrolled = window.scrollY > 20;
     },
 
-    toggleGroup(key) {
-        this.openGroup = this.openGroup === key ? null : key;
+    openGroupOnHover(key) {
+        clearTimeout(this.hoverTimeout);
+        this.openGroup = key;
+    },
+
+    closeGroupsOnLeave() {
+        this.hoverTimeout = setTimeout(() => {
+            this.openGroup = null;
+        }, 150);
     },
 
     closeGroups() {
+        clearTimeout(this.hoverTimeout);
         this.openGroup = null;
+    },
+}));
+
+/**
+ * Language dropdown selector with hover behavior
+ */
+Alpine.data('languageDropdown', () => ({
+    open: false,
+    closeTimeout: null,
+
+    openLanguageDropdown() {
+        clearTimeout(this.closeTimeout);
+        this.open = true;
+    },
+
+    closeLanguageDropdown() {
+        this.closeTimeout = setTimeout(() => {
+            this.open = false;
+        }, 150);
     },
 }));
 
@@ -35,6 +63,11 @@ Alpine.data('navbar', () => ({
  */
 Alpine.data('mobileMenu', () => ({
     open: false,
+
+    toggle() {
+        this.open = !this.open;
+        document.body.style.overflow = this.open ? 'hidden' : '';
+    },
 
     show() {
         this.open = true;

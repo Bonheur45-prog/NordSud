@@ -4,7 +4,7 @@
     $locale = app()->getLocale();
 @endphp
 
-<div x-data="mobileMenu" @open-mobile-menu.window="show()">
+<div x-data="mobileMenu" @open-mobile-menu.window="show()" @close-mobile-menu.window="hide()" @toggle-mobile-menu.window="toggle()">
     <div class="mobile-menu-backdrop" x-show="open" x-cloak x-transition.opacity @click="hide()"></div>
 
     <aside class="mobile-menu" x-show="open" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0">
@@ -18,7 +18,7 @@
         </div>
 
         <div class="mobile-menu__body">
-            <a href="{{ route('home', ['locale' => $locale]) }}" class="mobile-menu__link">
+            <a href="{{ route('home', ['locale' => $locale]) }}" class="mobile-menu__link" @click="hide()">
                 {{ t('nav.home') }}
             </a>
 
@@ -26,21 +26,21 @@
                 @continue($group['children']->isEmpty())
                 <div class="mobile-menu__group-label">{{ t($group['label_key']) }}</div>
                 @foreach ($group['children'] as $child)
-                    <a href="{{ route('page.show', ['locale' => $locale, 'slug' => $child->slug]) }}" class="mobile-menu__link">
+                    <a href="{{ route('page.show', ['locale' => $locale, 'slug' => $child->slug]) }}" class="mobile-menu__link" @click="hide()">
                         {{ $child->title($locale) }}
                     </a>
                 @endforeach
             @endforeach
 
             <div class="mobile-menu__group-label">&nbsp;</div>
-            <a href="{{ route('press.index', ['locale' => $locale]) }}" class="mobile-menu__link">
+            <a href="{{ route('press.index', ['locale' => $locale]) }}" class="mobile-menu__link" @click="hide()">
                 {{ t('nav.press') }}
             </a>
-            <a href="{{ route('contact.show', ['locale' => $locale]) }}" class="mobile-menu__link">
+            <a href="{{ route('contact.show', ['locale' => $locale]) }}" class="mobile-menu__link" @click="hide()">
                 {{ t('nav.contact') }}
             </a>
 
-            <a href="{{ route('contact.show', ['locale' => $locale]) }}" class="mobile-menu__cta">
+            <a href="{{ route('contact.show', ['locale' => $locale]) }}" class="mobile-menu__cta" @click="hide()">
                 {{ t('cta.contact_us') }}
             </a>
         </div>

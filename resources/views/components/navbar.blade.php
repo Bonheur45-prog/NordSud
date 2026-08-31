@@ -11,17 +11,19 @@
         </a>
 
         <nav class="navbar__links">
-            <a href="{{ route('home', ['locale' => $locale]) }}" class="navbar__link">
+            <a href="{{ route('home', ['locale' => $locale]) }}" class="navbar__link" @click="closeGroups()">
                 {{ t('nav.home') }}
             </a>
 
             @foreach ($groups as $group)
                 @continue($group['children']->isEmpty())
-                <div class="navbar__group" :data-open="openGroup === '{{ $group['key'] }}'">
+                <div class="navbar__group" :data-open="openGroup === '{{ $group['key'] }}'" @mouseenter="openGroupOnHover('{{ $group['key'] }}')" @mouseleave="closeGroupsOnLeave()">
                     <button
                         type="button"
                         class="navbar__link navbar__group-trigger"
-                        @click="toggleGroup('{{ $group['key'] }}')"
+                        @click="openGroupOnHover('{{ $group['key'] }}')"
+                        :aria-expanded="openGroup === '{{ $group['key'] }}'"
+                        :aria-controls="'dropdown-{{ $group['key'] }}'"
                     >
                         {{ t($group['label_key']) }}
                         <svg class="navbar__chevron" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,9 +31,9 @@
                         </svg>
                     </button>
 
-                    <div class="navbar__dropdown" x-show="openGroup === '{{ $group['key'] }}'" x-cloak x-transition>
+                    <div id="dropdown-{{ $group['key'] }}" class="navbar__dropdown" x-show="openGroup === '{{ $group['key'] }}'" x-cloak x-transition>
                         @foreach ($group['children'] as $child)
-                            <a href="{{ route('page.show', ['locale' => $locale, 'slug' => $child->slug]) }}" class="navbar__dropdown-link">
+                            <a href="{{ route('page.show', ['locale' => $locale, 'slug' => $child->slug]) }}" class="navbar__dropdown-link" @click="closeGroups()">
                                 {{ $child->title($locale) }}
                             </a>
                         @endforeach
@@ -39,10 +41,10 @@
                 </div>
             @endforeach
 
-            <a href="{{ route('press.index', ['locale' => $locale]) }}" class="navbar__link">
+            <a href="{{ route('press.index', ['locale' => $locale]) }}" class="navbar__link" @click="closeGroups()">
                 {{ t('nav.press') }}
             </a>
-            <a href="{{ route('contact.show', ['locale' => $locale]) }}" class="navbar__link">
+            <a href="{{ route('contact.show', ['locale' => $locale]) }}" class="navbar__link" @click="closeGroups()">
                 {{ t('nav.contact') }}
             </a>
         </nav>
@@ -57,7 +59,7 @@
             <button
                 type="button"
                 class="navbar__hamburger"
-                @click="$dispatch('open-mobile-menu')"
+                @click="$dispatch('toggle-mobile-menu')"
                 aria-label="{{ t('nav.menu') }}"
             >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
