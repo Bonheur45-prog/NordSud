@@ -46,7 +46,7 @@ class NsiGroupPage extends EditsSinglePage
                         ->addActionLabel('Add paragraph')
                         ->collapsed()
                         ->itemLabel(fn (array $state): string => filled($state['fr'] ?? null)
-                            ? str($state['fr'])->limit(60)
+                            ? (string) str($state['fr'])->limit(60)
                             : 'Paragraph')
                         ->minItems(1),
                 ]),

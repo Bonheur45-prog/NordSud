@@ -5,6 +5,7 @@ namespace App\Filament\Pages\PageContent;
 use App\Filament\Support\TranslatedField;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 
 class GroupJoosPage extends EditsSinglePage
@@ -72,13 +73,17 @@ class GroupJoosPage extends EditsSinglePage
                     Repeater::make('content.certificates.items')
                         ->label('Certificates')
                         ->schema([
-                            TranslatedField::pairTextareaAtRoot('Certificate', required: true, rows: 2),
+                            Toggle::make('heading')
+                                ->label('Category heading')
+                                ->helperText('Turn on for a category label like "QUALITÉ:" or "ENVIRONNEMENT:" — shown without a checkmark, above the items that follow it. Leave off for a normal checked certificate/standard.')
+                                ->default(false),
+                            TranslatedField::pairTextareaAtRoot('Certificate / heading text', required: true, rows: 2),
                         ])
-                        ->addActionLabel('Add certificate')
+                        ->addActionLabel('Add certificate or heading')
                         ->collapsible()
                         ->reorderable()
                         ->itemLabel(fn (array $state): string => filled($state['fr'] ?? null)
-                            ? str($state['fr'])->limit(70)
+                            ? (($state['heading'] ?? false) ? '— '.str($state['fr'])->limit(60).' (heading)' : str($state['fr'])->limit(70))
                             : 'Certificate')
                         ->minItems(1),
                     FileUpload::make('content.certificates.image')
@@ -91,7 +96,8 @@ class GroupJoosPage extends EditsSinglePage
             Section::make('Production Sites')
                 ->description('The three production-site images and their captions.')
                 ->schema([
-                    Repeater::make('content.production_sites')
+                    TranslatedField::pair('content.production_sites.title', 'Section title', required: true),
+                    Repeater::make('content.production_sites.items')
                         ->label('Sites')
                         ->schema([
                             TranslatedField::pair('name', 'Site name', required: true),

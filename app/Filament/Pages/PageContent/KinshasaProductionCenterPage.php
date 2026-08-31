@@ -65,9 +65,9 @@ class KinshasaProductionCenterPage extends EditsSinglePage
                 ]),
 
             Section::make('Closing')
-                ->description('The final paragraph shown at the bottom of the page.')
+                ->description('An optional final paragraph shown at the bottom of the page — the original site has no closing paragraph, so this is empty until you decide to add one.')
                 ->schema([
-                    TranslatedField::pairRichText('content.closing.text', 'Closing text', required: true),
+                    TranslatedField::pairRichText('content.closing.text', 'Closing text', required: false),
                 ]),
         ];
     }

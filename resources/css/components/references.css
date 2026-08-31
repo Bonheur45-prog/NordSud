@@ -1,0 +1,81 @@
+.references-hero {
+    position: relative;
+    background-color: var(--nsi-ink);
+    background-size: cover;
+    background-position: center;
+    padding: 4.5rem 0;
+}
+
+.references-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 15, 22, 0.55) 0%, rgba(12, 15, 22, 0.35) 45%, rgba(12, 15, 22, 0.65) 100%);
+}
+
+.references-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.references-hero__title {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    text-align: center;
+}
+
+.references-page {
+    padding: 3rem 0 4rem;
+}
+
+.references-intro {
+    max-width: 640px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--nsi-body);
+}
+
+.references-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.5rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.references-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+}
+
+.references-logo img {
+    max-width: 160px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0;
+    transition: transform 0.2s ease;
+}
+
+.references-logo:hover img {
+    transform: scale(1.06);
+}
+
+@media (max-width: 900px) {
+    .references-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .references-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

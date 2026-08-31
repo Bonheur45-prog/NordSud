@@ -38,7 +38,11 @@
                         <div class="contact-addresses">
                             @foreach ($addresses as $entry)
                                 <div class="contact-address">
-                                    <div class="contact-address__icon">●</div>
+                                    <div class="contact-address__icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                            <path d="M12 21s6-5.686 6-11a6 6 0 1 0-12 0c0 5.314 6 11 6 11Zm0-8.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" fill="currentColor"/>
+                                        </svg>
+                                    </div>
                                     <div class="contact-address__body">
                                         <div class="contact-card__country">{{ $page->trans(data_get($entry, 'country')) }}</div>
                                         <div class="contact-card__body">{{ $page->trans(data_get($entry, 'address')) }}</div>
@@ -55,8 +59,15 @@
                         <div class="contact-phones">
                             @foreach ($telephones as $entry)
                                 <div class="contact-phone-item">
-                                    <span class="contact-phone-item__label">{{ $page->trans(data_get($entry, 'country')) }}</span>
-                                    <span class="contact-phone-item__value">{{ $page->trans(data_get($entry, 'details')) }}</span>
+                                    <span class="contact-phone-item__icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                            <path d="M6.6 10.8a15.43 15.43 0 0 0 6.6 6.6l2.2-2.2a1.1 1.1 0 0 1 1.13-.26c1.24.41 2.58.63 3.94.63a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.36.22 2.7.63 3.94.12.4.05.83-.27 1.12L6.6 10.8Z" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <div class="contact-phone-item__text">
+                                        <span class="contact-phone-item__label">{{ $page->trans(data_get($entry, 'country')) }}</span>
+                                        <span class="contact-phone-item__value">{{ $page->trans(data_get($entry, 'details')) }}</span>
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
@@ -149,11 +160,13 @@
 
         @if ($addresses)
             <section class="contact-map" aria-label="Contact map">
-                <div class="contact-map__frame">
-                    <div class="contact-map__pin contact-map__pin--one"></div>
-                    <div class="contact-map__pin contact-map__pin--two"></div>
-                    <div class="contact-map__pin contact-map__pin--three"></div>
-                </div>
+                <iframe
+                    title="Contact map"
+                    src="https://www.google.com/maps?q=Bali,Indonesia&z=6&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                </iframe>
             </section>
         @endif
     </div>
