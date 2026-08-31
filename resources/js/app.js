@@ -80,4 +80,35 @@ Alpine.data('mobileMenu', () => ({
     },
 }));
 
+/**
+ * Mobile menu with accordion-style collapsible groups
+ */
+Alpine.data('mobileMenuData', () => ({
+    open: false,
+    openGroups: [],
+
+    toggle() {
+        this.open = !this.open;
+        document.body.style.overflow = this.open ? 'hidden' : '';
+    },
+
+    show() {
+        this.open = true;
+        document.body.style.overflow = 'hidden';
+    },
+
+    hide() {
+        this.open = false;
+        document.body.style.overflow = '';
+    },
+
+    toggleGroup(key) {
+        if (this.openGroups.includes(key)) {
+            this.openGroups = this.openGroups.filter(g => g !== key);
+        } else {
+            this.openGroups.push(key);
+        }
+    },
+}));
+
 Alpine.start();

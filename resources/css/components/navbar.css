@@ -16,7 +16,7 @@
 .navbar__inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2.5rem;
     height: 76px;
     display: flex;
     align-items: center;
@@ -25,6 +25,7 @@
 }
 
 .navbar__logo img {
+    margin-right: 100px;
     height: 90px;
     width: auto;
     display: block;
@@ -34,12 +35,12 @@
     display: none;
     align-items: center;
     overflow: visible;
-    gap: 1.25rem;
+    gap: 1.35rem;
 }
 
 .navbar__link {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: #1f2937;
@@ -55,6 +56,8 @@
 }
 
 .navbar__group {
+    font-size: 0.85rem;
+    font-weight: 700;
     position: relative;
 }
 
@@ -106,6 +109,7 @@
     padding: 0.65rem 0.9rem;
     border-radius: 0.5rem;
     font-size: 0.9rem;
+    font-weight: 600;
     color: #374151;
     text-decoration: none;
     transition: background 0.12s ease;
@@ -113,7 +117,7 @@
 
 .navbar__dropdown-link:hover {
     background: #f9fafb;
-    color: #111827;
+    color: #1a3267;
 }
 
 .navbar__actions {
