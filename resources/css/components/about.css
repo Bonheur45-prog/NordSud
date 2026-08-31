@@ -20,8 +20,8 @@
 
 .about-hero__title {
     color: #fff;
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 3rem;
+    font-weight: 700;
     margin: 0;
     text-align: center;
 }
@@ -70,9 +70,14 @@
 }
 
 .about-block__image {
-    max-width: 100%;
-    margin: 0 auto 1.5rem;
-    border-radius: 6px;
+  width: 100%;             
+  max-width: 400px;        
+  height: 300px;          
+  object-fit: cover;      
+  object-position: center; 
+  display: block;          
+  margin: 0 auto 1.5rem;   
+  border-radius: 6px;      
 }
 
 .about-block__text {
