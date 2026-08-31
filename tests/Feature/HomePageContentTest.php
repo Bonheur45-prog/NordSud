@@ -56,9 +56,11 @@ class HomePageContentTest extends TestCase
                     'cta_label' => ['fr' => 'Contactez-nous', 'en' => 'Contact us'],
                     'cta_link' => '/contact',
                 ],
-                'press_spotlight' => [
-                    'headline' => ['fr' => 'NSI au Kenya', 'en' => 'NSI in Kenya'],
-                    'link' => '/press/nsi-kenya',
+                'spotlights' => [
+                    [
+                        'headline' => ['fr' => 'NSI au Kenya', 'en' => 'NSI in Kenya'],
+                        'link' => '/press/nsi-kenya',
+                    ],
                 ],
                 'secondary_banner' => [
                     'headline' => ['fr' => 'Titre secondaire', 'en' => 'Secondary title'],
@@ -82,7 +84,7 @@ class HomePageContentTest extends TestCase
         $this->assertEquals('Bienvenue', $page->content['hero']['slides'][0]['headline']['fr']);
         $this->assertEquals('Contactez-nous', $page->content['hero']['cta_label']['fr']);
         $this->assertEquals('/contact', $page->content['hero']['cta_link']);
-        $this->assertEquals('NSI au Kenya', $page->content['press_spotlight']['headline']['fr']);
+        $this->assertEquals('NSI au Kenya', $page->content['spotlights'][0]['headline']['fr']);
         $this->assertEquals('Titre secondaire', $page->content['secondary_banner']['headline']['fr']);
         $this->assertEquals('Solutions Monétiques', $page->content['highlights'][0]['title']['fr']);
         $this->assertEquals('Plus de 60 banques', $page->content['stats_banner']['headline']['fr']);
