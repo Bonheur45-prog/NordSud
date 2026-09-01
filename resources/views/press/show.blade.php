@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="press-page">
     <div class="press-hero">
         <div class="press-hero__overlay"></div>
         <div class="container press-hero__inner">
@@ -245,4 +246,5 @@
             }
         })();
     </script>
+    </div>
 @endsection

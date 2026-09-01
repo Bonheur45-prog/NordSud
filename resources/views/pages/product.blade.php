@@ -8,6 +8,7 @@
 @endphp
 
 @section('content')
+    <div class="product-page">
     <div class="product-hero" @if($heroImage) style="background-image: url('{{ asset('storage/'.$heroImage) }}');" @endif>
         <div class="container">
             <h1 class="product-hero__title" x-data x-intersect.once="$el.classList.add('is-visible')">{{ $page->title() }}</h1>
@@ -63,4 +64,5 @@
             </div>
         @endforeach
     @endif
+    </div>
 @endsection

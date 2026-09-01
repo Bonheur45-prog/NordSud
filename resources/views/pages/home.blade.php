@@ -34,6 +34,8 @@
 
 @section('content')
 
+    <div class="home-page">
+
     {{-- Hero Slider --}}
     @if ($slides)
         <section class="home-hero" id="home-hero">
@@ -351,5 +353,7 @@
             }
         })();
     </script>
+
+    </div>
 
 @endsection

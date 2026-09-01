@@ -60,6 +60,8 @@
 
 @section('content')
 
+    <div class="partner-page">
+
     {{-- Hero Banner --}}
     <div class="partner-hero" @if ($heroImg = data_get($hero, 'image')) style="background-image: url('{{ asset('storage/'.$heroImg) }}');" @endif>
         <div class="partner-hero__overlay"></div>
@@ -298,4 +300,5 @@
             }
         })();
     </script>
+    </div>
 @endsection

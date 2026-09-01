@@ -20,6 +20,7 @@
 @endphp
 
 @section('content')
+    <div class="contact-page-shell">
     <div class="contact-hero" @if ($heroImage) style="background-image: url('{{ asset('storage/'.$heroImage) }}');" @endif>
         <div class="contact-hero__pattern"></div>
         <div class="container">
@@ -169,5 +170,6 @@
                 </iframe>
             </section>
         @endif
+    </div>
     </div>
 @endsection

@@ -21,6 +21,7 @@
 
 @section('content')
 
+    <div class="about-page-shell">
     <div class="about-hero" @if ($heroImage) style="background-image: url('{{ asset('storage/'.$heroImage) }}');" @endif>
         <div class="container">
             <h1 class="about-hero__title">{{ $page?->title() }}</h1>
@@ -87,5 +88,7 @@
             }
         })();
     </script>
+
+    </div>
 
 @endsection
