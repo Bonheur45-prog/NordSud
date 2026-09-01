@@ -19,11 +19,14 @@ class PressPostForm
     {
         return $schema
             ->components([
-                Grid::make(3)
+                Grid::make(1)
                     ->schema([
                         TextInput::make('slug')
                             ->required()
                             ->helperText('Shared across languages, e.g. "nsi-group-kenya".'),
+                    ]),
+                Grid::make(2)
+                    ->schema([
                         Select::make('type')
                             ->options([
                                 'press' => 'Press article',
@@ -39,7 +42,7 @@ class PressPostForm
                             ->required()
                             ->default('draft'),
                     ]),
-                Grid::make(3)
+                Grid::make(1)
                     ->schema([
                         Select::make('author_id')
                             ->label('Author')
@@ -52,6 +55,9 @@ class PressPostForm
                                 TextInput::make('role_en')->label('Role (English)'),
                             ])
                             ->helperText('Managed under Press Authors in the sidebar.'),
+                    ]),
+                Grid::make(2)
+                    ->schema([
                         Select::make('tags')
                             ->label('Tags')
                             ->relationship('tags', 'name_fr')

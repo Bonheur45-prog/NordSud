@@ -1,15 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+    {{--
+        PRESS PAGE SETTINGS EDITING:
+        To edit the Press index page (hero section, headings, descriptions):
+        1. Go to Filament Admin > Press Page Settings (in the sidebar)
+        2. Upload/edit hero background image, eyebrow text, main heading, subtitle, and description
+        3. Save the changes
+        All changes appear immediately on the public Press page.
+    --}}
     <div class="press-page">
-    <div class="press-hero">
+    <div class="press-hero" @if ($pageSettings?->hero_background_image) style="background-image: url('{{ asset('storage/'.$pageSettings->hero_background_image) }}')" @endif>
         <div class="press-hero__overlay"></div>
         <div class="container press-hero__inner">
-            <h1 class="press-hero__title">{{ t('press.index_title') }}</h1>
+            <h1 class="press-hero__title">{{ $pageSettings?->{'heading_' . $locale} ?? t('press.index_title') }}</h1>
+            @if ($pageSettings?->{'hero_subtitle_' . $locale})
+                <p class="press-hero__subtitle">{{ $pageSettings->{'hero_subtitle_' . $locale} }}</p>
+            @endif
             <nav class="press-hero__breadcrumb" aria-label="Breadcrumb">
                 <a href="{{ route('home', ['locale' => $locale]) }}">{{ t('press.breadcrumb_home') }}</a>
                 <span aria-hidden="true">/</span>
-                <span class="press-hero__breadcrumb-current">{{ t('press.index_title') }}</span>
+                <span class="press-hero__breadcrumb-current">{{ $pageSettings?->{'heading_' . $locale} ?? t('press.index_title') }}</span>
             </nav>
         </div>
     </div>
@@ -19,8 +30,13 @@
             <div class="press-index__main">
                 @if (! $search && ! $activeTag)
                     <div class="press-index__heading reveal">
-                        <span class="press-index__eyebrow">{{ t('press.eyebrow') }}</span>
-                        <h2>{{ t('press.index_heading') }}</h2>
+                        <span class="press-index__eyebrow">{{ $pageSettings?->{'eyebrow_' . $locale} ?? t('press.eyebrow') }}</span>
+                        <h2>{{ $pageSettings?->{'heading_' . $locale} ?? t('press.index_heading') }}</h2>
+                        @if ($pageSettings?->{'description_' . $locale})
+                            <div class="press-index__description reveal">
+                                {!! $pageSettings->{'description_' . $locale} !!}
+                            </div>
+                        @endif
                     </div>
                 @else
                     <div class="press-index__filter-bar reveal">

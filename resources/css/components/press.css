@@ -26,20 +26,23 @@
 /* ---------- Hero ---------- */
 .press-hero {
     position: relative;
-    background: var(--nsi-ink, #12151c);
+    background: var(--nsi-ink, #12151c) center / cover no-repeat;
     overflow: hidden;
-    min-height: 300px;
+    min-height: 400px;
     align-items: center;
+    display: flex;
 }
 
 .press-hero__overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(120% 140% at 15% 20%, rgba(29, 95, 174, 0.28), transparent 55%);
+    background: linear-gradient(180deg, rgba(12, 15, 22, 0.55) 0%, rgba(12, 15, 22, 0.35) 45%, rgba(12, 15, 22, 0.7) 100%);
+    z-index: 1;
 }
 
 .press-hero__inner {
     position: relative;
+    z-index: 2;
     padding: 3.25rem 0 2.5rem;
 }
 
@@ -49,6 +52,14 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     margin: 0 0 0.75rem;
+}
+
+.press-hero__subtitle {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+    max-width: 600px;
 }
 
 .press-hero__breadcrumb {
@@ -111,6 +122,24 @@
     color: var(--nsi-ink, #12151c);
     margin: 0;
     letter-spacing: -0.02em;
+}
+
+.press-index__description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 1.5rem;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.press-index__description p {
+    margin: 1rem 0;
+}
+
+.press-index__description p:first-child {
+    margin-top: 0;
 }
 
 .press-index__filter-bar {

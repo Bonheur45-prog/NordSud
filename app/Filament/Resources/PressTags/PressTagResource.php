@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PressTagResource extends Resource
 {
@@ -24,7 +25,9 @@ class PressTagResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name_fr';
 
-    protected static ?string $navigationLabel = 'Press Tags';
+    protected static ?string $navigationLabel = 'Tags';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Press';
 
     public static function form(Schema $schema): Schema
     {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PressComment;
 use App\Models\PressPost;
+use App\Models\PressPageSettings;
 use App\Models\PressTag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -46,6 +47,7 @@ class PressController extends Controller
             'activeTag' => $activeTag,
             'popularPosts' => $this->popularPosts($locale),
             'popularTags' => $this->popularTags(),
+            'pageSettings' => PressPageSettings::first(),
         ]);
     }
 

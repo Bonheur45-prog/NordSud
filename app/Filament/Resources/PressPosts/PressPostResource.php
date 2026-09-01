@@ -14,14 +14,17 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PressPostResource extends Resource
 {
     protected static ?string $model = PressPost::class;
 
+    protected static string|UnitEnum|null $navigationGroup = 'Press';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?int $navigationSort = 100;
+    protected static ?int $navigationSort = 101;
 
     protected static ?string $recordTitleAttribute = 'slug';
 
