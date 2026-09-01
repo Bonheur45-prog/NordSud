@@ -43,9 +43,9 @@
 .product-band {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 5rem;
     align-items: center;
-    padding: 2.5rem 1.5rem;
+    padding: 1.5rem 0rem;
     max-width: 1000px;
 }
 .product-band__image {
