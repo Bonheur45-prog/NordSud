@@ -5,6 +5,7 @@ namespace App\Filament\Resources\PressPosts;
 use App\Filament\Resources\PressPosts\Pages\CreatePressPost;
 use App\Filament\Resources\PressPosts\Pages\EditPressPost;
 use App\Filament\Resources\PressPosts\Pages\ListPressPosts;
+use App\Filament\Resources\PressPosts\RelationManagers\CommentsRelationManager;
 use App\Filament\Resources\PressPosts\Schemas\PressPostForm;
 use App\Filament\Resources\PressPosts\Tables\PressPostsTable;
 use App\Models\PressPost;
@@ -37,7 +38,7 @@ class PressPostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            CommentsRelationManager::class,
         ];
     }
 

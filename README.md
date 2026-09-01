@@ -1,59 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Press Pages (listing + detail) — changes
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Drop these files into your project at the matching paths. Two files are
+**edits to existing files**, not new ones — check the diff before
+overwriting:
+- `app/Filament/Resources/PressPosts/PressPostResource.php`
+- `app/Http/Middleware/SetLocale.php`
+- `routes/web.php`
+- `resources/css/app.css`
 
-## About Laravel
+Everything else is new.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## What this adds
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Schema**: `press_authors`, `press_tags`, `press_post_press_tag` pivot,
+`press_comments`, plus `author_id` / `is_featured` on `press_posts`.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Admin (`/admin`)**:
+- **Press Authors** and **Press Tags** — new resources under the sidebar.
+- **Press Posts** — the editor now has an Author select, multi-select
+  Tags, a "Popular Posts" featured toggle, and the body field is a rich
+  editor (use the quote-block button for pull-quotes). A **Comments**
+  tab lets you moderate — approve, edit, backdate, or delete comments.
 
-## Learning Laravel
+**Public site**:
+- `/{locale}/press` — hero, search (`?q=`), tag filter (`?tag=slug`),
+  card grid with date badges, sidebar (search / popular posts / popular
+  tags).
+- `/{locale}/press/{slug}` — cover image, author card, tags, share
+  links (Facebook/WhatsApp/X/LinkedIn), previous/next navigation,
+  comments, and a **working** comment form: submissions are held
+  unapproved until you approve them in `/admin` → Press Posts → open a
+  post → Comments tab. A honeypot field blocks basic bots.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+**Fix included**: `SetLocale` middleware now also sets Carbon's locale
+per-request. Without this, `translatedFormat()` (used for article dates)
+would silently render in English even on `/fr/...` pages — a latent bug
+in the original stub views, not something this change introduced.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## After copying the files in
 
-## Laravel Sponsors
+```bash
+npm run build
+php artisan migrate --force
+php artisan db:seed --class=PressContentSeeder --force
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+The seeder creates 2 authors, 8 tags, and 4 real NSI Group press posts
+(partnership renewal, EMV compliance, a security-audit checklist, and a
+fraud-prevention piece) with realistic comment data. It's idempotent —
+safe to re-run without duplicating anything already in the database.
 
-### Premium Partners
+Image fields (author avatars, post cover images) are left blank — upload
+those via `/admin` as with everything else on this project.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Running the tests
 
-## Contributing
+```bash
+php artisan test --filter=PressPageBuildoutTest
+php artisan test --filter=PressFlowTest
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+21 tests total, all passing against a clean migration: search, tag
+filtering, the popular-posts sidebar, author/tag/comment display,
+prev/next navigation, the full comment moderation flow (submit → hidden
+→ approved → visible), the honeypot, validation, and the new admin
+resources. (There is one pre-existing, unrelated failure in
+`HomePageContentTest` — a `press_spotlight` key mismatch on the Home
+page seeder — not touched or introduced by this change.)

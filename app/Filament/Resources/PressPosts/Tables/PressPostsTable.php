@@ -6,9 +6,11 @@ use App\Models\PressPost;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class PressPostsTable
@@ -36,6 +38,15 @@ class PressPostsTable
                     ->getStateUsing(fn (PressPost $record) => $record->translations->firstWhere('locale', 'en')?->title)
                     ->placeholder('— missing —')
                     ->color(fn ($state) => filled($state) ? null : 'danger'),
+                TextColumn::make('author.name')
+                    ->label('Author')
+                    ->placeholder('—'),
+                IconColumn::make('is_featured')
+                    ->label('Featured')
+                    ->boolean(),
+                TextColumn::make('comments_count')
+                    ->counts('comments')
+                    ->label('Comments'),
                 TextColumn::make('status')
                     ->badge()
                     ->color(fn (string $state) => $state === 'published' ? 'success' : 'gray'),
@@ -55,6 +66,8 @@ class PressPostsTable
                         'draft' => 'Draft',
                         'published' => 'Published',
                     ]),
+                TernaryFilter::make('is_featured')
+                    ->label('Featured'),
             ])
             ->recordActions([
                 EditAction::make(),

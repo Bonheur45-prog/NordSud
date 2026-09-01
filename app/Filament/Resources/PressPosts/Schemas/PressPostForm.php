@@ -2,12 +2,14 @@
 
 namespace App\Filament\Resources\PressPosts\Schemas;
 
+use App\Models\PressTag;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
 
@@ -37,6 +39,34 @@ class PressPostForm
                             ->required()
                             ->default('draft'),
                     ]),
+                Grid::make(3)
+                    ->schema([
+                        Select::make('author_id')
+                            ->label('Author')
+                            ->relationship('author', 'name')
+                            ->searchable()
+                            ->preload()
+                            ->createOptionForm([
+                                TextInput::make('name')->required(),
+                                TextInput::make('role_fr')->label('Role (Français)'),
+                                TextInput::make('role_en')->label('Role (English)'),
+                            ])
+                            ->helperText('Managed under Press Authors in the sidebar.'),
+                        Select::make('tags')
+                            ->label('Tags')
+                            ->relationship('tags', 'name_fr')
+                            ->multiple()
+                            ->searchable()
+                            ->preload()
+                            ->getOptionLabelFromRecordUsing(fn (PressTag $tag): string => $tag->name_en
+                                ? "{$tag->name_fr} / {$tag->name_en}"
+                                : $tag->name_fr)
+                            ->helperText('Drives both the on-page tag chips and the "Popular Tags" sidebar.'),
+                        Toggle::make('is_featured')
+                            ->label('Show in "Popular Posts" sidebar')
+                            ->helperText('Curated by hand rather than auto-ranked by views.')
+                            ->inline(false),
+                    ]),
                 FileUpload::make('featured_image')
                     ->image()
                     ->directory('press')
@@ -61,10 +91,11 @@ class PressPostForm
                             ]),
                         TextInput::make('excerpt')
                             ->maxLength(500)
+                            ->helperText('Shown on listing cards and search results. Falls back to a trimmed excerpt of the body when left blank.')
                             ->columnSpanFull(),
-                        Textarea::make('body')
+                        RichEditor::make('body')
                             ->required()
-                            ->rows(6)
+                            ->helperText('Use the quote block in the toolbar for a pull-quote — it renders as a highlighted callout on the article page.')
                             ->columnSpanFull(),
                     ])
                     ->maxItems(2)

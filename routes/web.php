@@ -17,6 +17,7 @@ Route::prefix('{locale}')->middleware(SetLocale::class)->group(function () {
 
     Route::get('/press', [PressController::class, 'index'])->name('press.index');
     Route::get('/press/{slug}', [PressController::class, 'show'])->name('press.show');
+    Route::post('/press/{slug}/comments', [PressController::class, 'storeComment'])->name('press.comments.store');
 
     Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Symfony\Component\HttpFoundation\Response;
 
 class SetLocale
@@ -26,6 +27,10 @@ class SetLocale
         }
 
         app()->setLocale($locale);
+        // Without this, Carbon::translatedFormat() silently renders in
+        // whatever locale Carbon booted with (APP_LOCALE), regardless of
+        // which /fr or /en route the visitor is actually on.
+        Carbon::setLocale($locale);
 
         return $next($request);
     }
