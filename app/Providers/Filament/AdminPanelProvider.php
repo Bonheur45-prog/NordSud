@@ -33,8 +33,20 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('NSI Group')
+            ->brandLogo(asset('images/nsi-logo.png'))
+            ->brandLogoHeight('4.6rem')
+            ->favicon(asset('images/nsi-logo.png'))
+            ->renderHook(
+                \Filament\View\PanelsRenderHook::TOPBAR_LOGO_AFTER,
+                fn () => view('filament.cms-wordmark'),
+            )
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#1d5fae',
+                'danger' => '#f5a623',
+                'warning' => '#f5a623',
+                'success' => '#1d5fae',
+                'info' => '#1d5fae',
             ])
             ->sidebarCollapsibleOnDesktop()
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
