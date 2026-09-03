@@ -74,13 +74,16 @@ class PublicNavigation
     }
 
     /**
-     * Footer "Solutions" column — Solutions, Products, and Partners
-     * together, matching the footer's single combined column.
+     * Footer "Solutions" column — Solutions and Products only.
      */
     public function footerSolutionLinks(): Collection
     {
         return $this->pagesForTemplate('solution')
-            ->merge($this->pagesForTemplate('product'))
-            ->merge($this->pagesForTemplate('partner'));
+            ->merge($this->pagesForTemplate('product'));
+    }
+
+    public function footerPartnerLinks(): Collection
+    {
+        return $this->pagesForTemplate('partner');
     }
 }

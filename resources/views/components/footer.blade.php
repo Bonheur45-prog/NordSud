@@ -3,15 +3,14 @@
     $locale = app()->getLocale();
     $companyLinks = $nav->footerCompanyLinks();
     $solutionLinks = $nav->footerSolutionLinks();
+    $partnerLinks = $nav->footerPartnerLinks();
 
-    // Static per-country contact summary — matches the old site's 4
-    // countries. Kept here rather than modeled as pages, since it's a
-    // small, rarely-changing fixed list, not editable content per se.
+    // Static per-country contact summary for the footer.
     $countries = [
         ['name' => 'Rwanda', 'phone' => '+250 731 552 696'],
-        ['name' => 'RD Congo', 'phone' => '+243 999 854 064'],
         ['name' => 'Burundi', 'phone' => '+257 79 591 466'],
         ['name' => 'Tanzania', 'phone' => '+255 713 689 686'],
+        ['name' => 'Kenya', 'phone' => '+254 768 068326', 'location' => 'Tatu City, Nairobi, Kenya'],
     ];
 @endphp
 
@@ -83,11 +82,27 @@
             </div>
 
             <div>
+                <div class="footer__heading">{{ t('nav.partners') }}</div>
+                <ul class="footer__links">
+                    @foreach ($partnerLinks as $page)
+                        <li>
+                            <a href="{{ route('page.show', ['locale' => $locale, 'slug' => $page->slug]) }}" class="footer__link">
+                                {{ $page->title($locale) }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <div>
                 <div class="footer__heading">{{ t('footer.get_in_touch') }}</div>
                 @foreach ($countries as $country)
                     <div class="footer__country">
                         <strong>{{ $country['name'] }}</strong>
                         {{ $country['phone'] }}
+                        @if (! empty($country['location']))
+                            <span>{{ $country['location'] }}</span>
+                        @endif
                     </div>
                 @endforeach
                 <a href="{{ route('contact.show', ['locale' => $locale]) }}" class="footer__contact-cta">
