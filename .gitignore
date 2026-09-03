@@ -1,4 +1,5 @@
 *.log
+nordsud_cms_backup.sql
 .DS_Store
 .env
 .env.backup

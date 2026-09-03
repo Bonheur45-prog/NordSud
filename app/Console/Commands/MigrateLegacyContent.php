@@ -37,7 +37,6 @@ class MigrateLegacyContent extends Command
         'group-joos' => ['fr' => 'partenaire-commercial-groupe-joos', 'en' => 'business-partner-group-joos', 'template' => 'partner'],
         'solutions-monetiques' => ['fr' => 'solutions-monetiques', 'en' => 'electronic-banking-solutions', 'template' => 'solution'],
         'software-expertise' => ['fr' => 'expertise-logiciel', 'en' => 'software-expertise', 'template' => 'solution'],
-        'consulting-advisory' => ['fr' => 'consulting-advisory-services', 'en' => 'consulting-advisory-services', 'template' => 'solution'],
         'bank-card' => ['fr' => 'carte-bancaire', 'en' => 'payment-cards', 'template' => 'product'],
         'secured-documents' => ['fr' => 'documents-securises', 'en' => 'secured-documents', 'template' => 'product'],
         'contact' => ['fr' => 'nous-contacter', 'en' => null, 'template' => 'contact'],

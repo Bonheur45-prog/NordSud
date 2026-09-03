@@ -245,8 +245,6 @@ class HomePage extends EditsSinglePage
                 'centre-de-personnalisation-de-kinshasa-2',
                 'solutions-monetiques',
                 'software-expertise',
-                'consulting-advisory',
-                'consulting-advisory-services',
                 'bank-card',
                 'secured-documents',
                 'group-joos',
