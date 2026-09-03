@@ -38,7 +38,7 @@
             @endif
         </div>
     @else
-        {{-- Generic sections layout (Solutions Monétiques, Consulting & Advisory) --}}
+        {{-- Generic sections layout for solution pages. --}}
         <div class="product-intro container" x-data x-intersect.once="$el.classList.add('is-visible')">
             @if ($introHasHeading)
                 <h2 class="product-band__title">{{ $page->trans($content['introduction']['heading'] ?? null, $locale) }}</h2>

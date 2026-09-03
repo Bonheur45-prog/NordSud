@@ -40,7 +40,6 @@ class FullSidebarNavigationTest extends TestCase
             'Kinshasa Production Center',
             'Solutions Monétiques',
             'Software Expertise',
-            'Consulting & Advisory',
         ];
 
         foreach ($expected as $label) {

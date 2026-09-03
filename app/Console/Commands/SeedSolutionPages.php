@@ -7,11 +7,7 @@ use Illuminate\Console\Command;
 
 /**
  * Seeds Solutions Monétiques and Software Expertise with real text from
- * the old site's PDF captures. Consulting & Advisory is deliberately NOT
- * seeded here — no PDF capture of its real content was provided, so its
- * dedicated page ships with an empty/default form rather than invented
- * placeholder copy. Fill it in via /admin once the real content is
- * available, or provide the PDF and re-run a follow-up seeder.
+ * the old site's PDF captures.
  *
  * Usage: php artisan seed:solution-pages
  */
@@ -25,9 +21,6 @@ class SeedSolutionPages extends Command
     {
         $this->seedSolutionsMonetiques();
         $this->seedSoftwareExpertise();
-
-        $this->newLine();
-        $this->warn("Consulting & Advisory was NOT seeded — no source PDF was provided for its real content. Fill it in via /admin.");
 
         return self::SUCCESS;
     }
