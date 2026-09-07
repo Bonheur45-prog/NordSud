@@ -11,10 +11,6 @@
     $telephones = data_get($content, 'telephones', []);
     $formIntro = $page?->trans(data_get($content, 'form.introduction'));
     $formFields = data_get($content, 'form.fields', []);
-    $mapAddress = $addresses[0] ?? null;
-    $mapQuery = $mapAddress
-        ? trim($page?->trans(data_get($mapAddress, 'address')) ?: $page?->trans(data_get($mapAddress, 'country')))
-        : 'Kigali, Rwanda';
 
     // Known submission columns (see contact_submissions migration). An
     // admin can relabel/reorder/hide these via the repeater, but adding a
@@ -163,17 +159,6 @@
             </section>
         </div>
 
-        @if ($addresses)
-            <section class="contact-map" aria-label="Contact map">
-                <iframe
-                    title="Contact map"
-                    src="https://www.google.com/maps?q={{ rawurlencode($mapQuery) }}&z=15&output=embed"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    allowfullscreen>
-                </iframe>
-            </section>
-        @endif
     </div>
     </div>
 @endsection
