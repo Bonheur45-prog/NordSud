@@ -73,7 +73,12 @@ jobs:
             cp -R public/css /homez.2247/finpayw/www/
             cp -R public/fonts /homez.2247/finpayw/www/
             cp -R public/images /homez.2247/finpayw/www/
+            cp -R public/js /homez.2247/finpayw/www/
+            mkdir -p /homez.2247/finpayw/www/livewire-5346a406
+            cp vendor/livewire/livewire/dist/livewire.min.js /homez.2247/finpayw/www/livewire-5346a406/livewire.min.js
             test -f .env
             test -f vendor/autoload.php
             test -f /homez.2247/finpayw/www/build/manifest.json
+            test -f /homez.2247/finpayw/www/js/filament/filament/app.js
+            test -f /homez.2247/finpayw/www/livewire-5346a406/livewire.min.js
             php -r 'require "vendor/autoload.php"; require "bootstrap/app.php"; echo "Laravel bootstrap OK\n";'
