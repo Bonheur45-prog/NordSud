@@ -1,6 +1,6 @@
 .references-page-shell .container {
     max-width: 1280px;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 0 1.5rem;
 }
 
@@ -47,10 +47,11 @@
 .references-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2.5rem;
+    gap: clamp(1rem, 3vw, 2.5rem);
     align-items: center;
     justify-items: center;
-    margin: auto 10%;
+    width: min(100%, 1080px);
+    margin: 0 auto;
 }
 
 .references-logo {
@@ -62,7 +63,7 @@
 }
 
 .references-logo img {
-    max-width: 160px;
+    max-width: min(160px, 100%);
     max-height: 80px;
     width: auto;
     height: auto;
@@ -82,7 +83,30 @@
 }
 
 @media (max-width: 560px) {
+    .references-page-shell .container {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .references-page {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+    }
+
+    .references-intro {
+        margin-bottom: 2rem;
+    }
+
     .references-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem 0.75rem;
+    }
+
+    .references-logo {
+        height: 76px;
+    }
+
+    .references-logo img {
+        max-height: 64px;
     }
 }
