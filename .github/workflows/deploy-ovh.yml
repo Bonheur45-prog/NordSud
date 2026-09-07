@@ -41,6 +41,7 @@ jobs:
           tar --exclude='.env*' \
               --exclude='.git' \
               --exclude='node_modules' \
+              --exclude='./deploy.tar.gz' \
               --exclude='storage/app/public' \
               --exclude='public/storage' \
               --exclude='public/index.php' \
