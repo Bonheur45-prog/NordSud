@@ -1,0 +1,78 @@
+name: Deploy to OVH
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammath/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, bcmath, intl, pdo_mysql
+          tools: composer:v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install PHP dependencies
+        run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader --no-scripts
+
+      - name: Install and build frontend
+        run: npm ci && npm run build
+
+      - name: Create deployment archive
+        run: |
+          tar --exclude='.env*' \
+              --exclude='.git' \
+              --exclude='node_modules' \
+              --exclude='storage/app/public' \
+              --exclude='public/storage' \
+              --exclude='public/index.php' \
+              -czf deploy.tar.gz .
+
+      - name: Upload deployment archive
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.OVH_HOST }}
+          username: ${{ secrets.OVH_USERNAME }}
+          port: ${{ secrets.OVH_SSH_PORT || 22 }}
+          key: ${{ secrets.OVH_SSH_PRIVATE_KEY }}
+          source: deploy.tar.gz
+          target: /homez.2247/finpayw/nordsud-app
+
+      - name: Extract and activate deployment
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.OVH_HOST }}
+          username: ${{ secrets.OVH_USERNAME }}
+          port: ${{ secrets.OVH_SSH_PORT || 22 }}
+          key: ${{ secrets.OVH_SSH_PRIVATE_KEY }}
+          script: |
+            set -eu
+            cd /homez.2247/finpayw/nordsud-app
+            tar -xzf deploy.tar.gz --overwrite
+            rm -f deploy.tar.gz
+            cp -R public/build /homez.2247/finpayw/www/
+            cp -R public/css /homez.2247/finpayw/www/
+            cp -R public/fonts /homez.2247/finpayw/www/
+            cp -R public/images /homez.2247/finpayw/www/
+            test -f .env
+            test -f vendor/autoload.php
+            test -f /homez.2247/finpayw/www/build/manifest.json
+            php -r 'require "vendor/autoload.php"; require "bootstrap/app.php"; echo "Laravel bootstrap OK\n";'

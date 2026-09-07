@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: nordsud-cms
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /up
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        sync: false          # set manually to your Render URL once assigned
+      - key: APP_KEY
+        sync: false          # set manually - generate locally with: php artisan key:generate --show
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        sync: false          # from PlanetScale connection details
+      - key: DB_PORT
+        value: 3306
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: FILESYSTEM_DISK
+        value: s3
+      - key: AWS_ACCESS_KEY_ID
+        sync: false          # Cloudflare R2 credentials
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_DEFAULT_REGION
+        value: auto
+      - key: AWS_BUCKET
+        sync: false
+      - key: AWS_ENDPOINT
+        sync: false          # Cloudflare R2 endpoint URL
+      - key: AWS_USE_PATH_STYLE_ENDPOINT
+        value: "true"
+      - key: RUN_MIGRATIONS
+        value: "false"
