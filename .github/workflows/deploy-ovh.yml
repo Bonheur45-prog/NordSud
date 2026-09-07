@@ -38,14 +38,14 @@ jobs:
 
       - name: Create deployment archive
         run: |
-          tar --exclude='.env*' \
+            tar --exclude='.env*' \
               --exclude='.git' \
               --exclude='node_modules' \
-              --exclude='./deploy.tar.gz' \
               --exclude='storage/app/public' \
               --exclude='public/storage' \
               --exclude='public/index.php' \
-              -czf deploy.tar.gz .
+              -czf "$RUNNER_TEMP/deploy.tar.gz" .
+            cp "$RUNNER_TEMP/deploy.tar.gz" deploy.tar.gz
 
       - name: Upload deployment archive
         uses: appleboy/scp-action@v0.1.7
