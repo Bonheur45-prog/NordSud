@@ -7,8 +7,30 @@
 
 .press-page .container {
     max-width: 1280px;
-    margin: 50px 60px;
-    padding: 0 1.5rem;
+    margin: 24px auto;
+    padding: 0 1.1rem;
+}
+
+@media (min-width: 640px) {
+    .press-page .container {
+        margin: 32px auto;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .press-page .container {
+        margin: 50px auto;
+        padding: 0 3.75rem; /* preserves the original 60px desktop spacing */
+    }
+}
+
+/* Hero already controls its own vertical spacing via .press-hero__inner's
+   padding — cancel the generic container margin here so it doesn't stack
+   on top and push the hero content down unexpectedly. */
+.press-hero .container {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .sr-only {
@@ -938,5 +960,47 @@
 
     .press-author-card {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 640px) {
+    .press-hero {
+        min-height: 280px;
+    }
+
+    .press-hero__inner {
+        padding: 2.25rem 0 1.75rem;
+    }
+
+    .press-index__filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+    }
+
+    .press-index__clear {
+        white-space: normal;
+    }
+
+    .press-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem 1.25rem;
+    }
+
+    .press-sidebar__box {
+        padding: 1.1rem;
+    }
+
+    .press-comment-form {
+        padding: 1.25rem;
+    }
+
+    .press-show__footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .press-show__share {
+        width: 100%;
     }
 }
