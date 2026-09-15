@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="press-page">
-    <div class="press-hero">
+    <div class="press-hero" @if ($post->featured_image) style="background-image: url('{{ asset('storage/'.$post->featured_image) }}')" @endif>
         <div class="press-hero__overlay"></div>
         <div class="container press-hero__inner">
-            <h1 class="press-hero__title">{{ t('press.show_title') }}</h1>
+            <h1 class="press-hero__title">{{ $translation?->title }}</h1>
             <nav class="press-hero__breadcrumb" aria-label="Breadcrumb">
                 <a href="{{ route('home', ['locale' => $locale]) }}">{{ t('press.breadcrumb_home') }}</a>
                 <span aria-hidden="true">/</span>
@@ -19,14 +19,6 @@
     <section class="press-show">
         <div class="container press-show__layout">
             <div class="press-show__main">
-                @if ($post->featured_image)
-                    <img src="{{ asset('storage/'.$post->featured_image) }}" alt="" class="press-show__cover reveal">
-                @else
-                    <div class="press-show__cover press-show__cover--placeholder reveal" aria-hidden="true"></div>
-                @endif
-
-                <h2 class="press-show__title reveal">{{ $translation?->title }}</h2>
-
                 <div class="press-show__meta reveal">
                     @if ($post->author)
                         <span class="press-show__meta-item">

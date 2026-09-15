@@ -239,4 +239,34 @@ class PressPageBuildoutTest extends TestCase
         $response->assertOk();
         $response->assertSee('July');
     }
+
+    public function test_show_page_hero_uses_the_featured_image_and_real_title(): void
+    {
+        $post = $this->makePost(['featured_image' => 'press/test-cover.jpg']);
+        $post->translations()->first()->update(['title' => 'Un Titre Article Specifique Unique']);
+
+        $response = $this->get('/fr/press/'.$post->slug);
+        $html = $response->getContent();
+
+        $response->assertOk();
+        // The real article title renders once, inside the hero banner —
+        // not as a second duplicate heading further down the page.
+        $this->assertSame(1, substr_count($html, 'Un Titre Article Specifique Unique'));
+        $this->assertStringContainsString(
+            "background-image: url('".asset('storage/press/test-cover.jpg')."')",
+            $html
+        );
+        // No separate cover-image block anymore — the hero *is* the cover.
+        $this->assertStringNotContainsString('press-show__cover', $html);
+    }
+
+    public function test_show_page_hero_falls_back_gracefully_without_a_featured_image(): void
+    {
+        $post = $this->makePost(['featured_image' => null]);
+
+        $response = $this->get('/fr/press/'.$post->slug);
+
+        $response->assertOk();
+        $response->assertDontSee('background-image', false);
+    }
 }
