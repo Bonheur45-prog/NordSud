@@ -86,8 +86,9 @@
 
 .press-hero__breadcrumb {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem 0.5rem;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.65);
 }
@@ -119,6 +120,7 @@
     .press-index__layout,
     .press-show__layout {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 }
 
@@ -267,8 +269,9 @@
 
 .press-card__meta {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 1.1rem;
+    gap: 0.4rem 1.1rem;
     font-size: 0.82rem;
     color: #9ca3af;
     margin-bottom: 0.5rem;
@@ -473,28 +476,11 @@
     color: var(--nsi-blue, #1d5fae);
 }
 
-/* ---------- Show: cover, title, meta ---------- */
-.press-show__cover {
-    width: 100%;
-    aspect-ratio: 16 / 8;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1.75rem;
-}
-
-.press-show__cover--placeholder {
-    background: linear-gradient(135deg, #eef1f5, #e3e7ee);
-}
-
-.press-show__title {
-    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-    font-weight: 800;
-    color: var(--nsi-ink, #12151c);
-    letter-spacing: -0.01em;
-    line-height: 1.25;
-    margin: 0 0 1rem;
-}
-
+/* ---------- Show: meta row ----------
+   The cover image + title used to live here as separate elements; the
+   featured image and title now live in .press-hero above instead (see
+   press/show.blade.php), so this section starts straight at the meta
+   row (author / date / comment count). */
 .press-show__meta {
     display: flex;
     flex-wrap: wrap;
@@ -1002,5 +988,36 @@
 
     .press-show__share {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Show-page hero titles are now real article titles (previously
+       always the short generic "Détail de l'actualité" label) — some
+       run long, e.g. "Comment la personnalisation sécurisée évite une
+       fraude coûteuse sur les cartes". Give them a tighter floor and
+       line-height on small phones so they wrap cleanly instead of
+       ballooning the hero's height. */
+    .press-hero__title {
+        font-size: clamp(1.4rem, 6.5vw, 1.9rem);
+        line-height: 1.25;
+    }
+
+    .press-hero__inner {
+        padding: 1.9rem 0 1.5rem;
+    }
+
+    .press-card__date-badge {
+        top: 0.6rem;
+        left: 0.6rem;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .press-author-card {
+        padding: 1.25rem;
+    }
+
+    .press-comment-form {
+        padding: 1rem;
     }
 }

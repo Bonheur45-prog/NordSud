@@ -1,69 +1,91 @@
-# Press Pages (listing + detail) — changes
+# Round 3 changes — Solutions cleanup, footer CMS control, press hero, mobile
 
-Drop these files into your project at the matching paths. Two files are
-**edits to existing files**, not new ones — check the diff before
-overwriting:
-- `app/Filament/Resources/PressPosts/PressPostResource.php`
-- `app/Http/Middleware/SetLocale.php`
-- `routes/web.php`
-- `resources/css/app.css`
+**Important:** this round I only had your source directories to work from
+(no `composer.json`, `artisan`, `vendor/`, `public/`), so I could not spin
+up a server or run the test suite locally like in earlier rounds. Everything
+below is written and reviewed carefully against the actual code and your
+existing conventions, but you'll want to verify on your host the way we
+just did with the migration issue — happy to help debug anything that
+doesn't look right.
 
-Everything else is new.
+## 1. Solutions dropdown — the two extra items
 
-## What this adds
+New migration: `2026_09_14_000001_remove_unimplemented_solution_pages.php`.
 
-**Schema**: `press_authors`, `press_tags`, `press_post_press_tag` pivot,
-`press_comments`, plus `author_id` / `is_featured` on `press_posts`.
+Your existing `2026_09_03_000001_remove_consulting_advisory_page.php`
+guessed the exact slugs of the two unimplemented pages
+(`consulting-advisory`, `consulting-advisory-services`) — if those guesses
+didn't match what's actually in your database, it would have silently
+deleted 0 rows (which is very likely why they're still showing).
 
-**Admin (`/admin`)**:
-- **Press Authors** and **Press Tags** — new resources under the sidebar.
-- **Press Posts** — the editor now has an Author select, multi-select
-  Tags, a "Popular Posts" featured toggle, and the body field is a rich
-  editor (use the quote-block button for pull-quotes). A **Comments**
-  tab lets you moderate — approve, edit, backdate, or delete comments.
-
-**Public site**:
-- `/{locale}/press` — hero, search (`?q=`), tag filter (`?tag=slug`),
-  card grid with date badges, sidebar (search / popular posts / popular
-  tags).
-- `/{locale}/press/{slug}` — cover image, author card, tags, share
-  links (Facebook/WhatsApp/X/LinkedIn), previous/next navigation,
-  comments, and a **working** comment form: submissions are held
-  unapproved until you approve them in `/admin` → Press Posts → open a
-  post → Comments tab. A honeypot field blocks basic bots.
-
-**Fix included**: `SetLocale` middleware now also sets Carbon's locale
-per-request. Without this, `translatedFormat()` (used for article dates)
-would silently render in English even on `/fr/...` pages — a latent bug
-in the original stub views, not something this change introduced.
-
-## After copying the files in
+This new one is exclusion-based instead: it deletes any `solution`-template
+page that **isn't** one of the two real ones (`solutions-monetiques`,
+`software-expertise` — the canonical list from your own
+`MigrateLegacyContent` command). Safe regardless of what the extra pages
+were actually named.
 
 ```bash
-npm run build
 php artisan migrate --force
-php artisan db:seed --class=PressContentSeeder --force
 ```
 
-The seeder creates 2 authors, 8 tags, and 4 real NSI Group press posts
-(partnership renewal, EMV compliance, a security-audit checklist, and a
-fraud-prevention piece) with realistic comment data. It's idempotent —
-safe to re-run without duplicating anything already in the database.
+## 2. Footer — full CMS control
 
-Image fields (author avatars, post cover images) are left blank — upload
-those via `/admin` as with everything else on this project.
+Two separate things were hardcoded in `footer.blade.php`; both are now
+editable from `/admin`:
 
-## Running the tests
+- **Per-country phone numbers** — instead of a second hardcoded copy, the
+  footer now reads the *same* `content.telephones` data your existing
+  "Contact par pays" editor already manages. Edit it there and the footer
+  updates automatically — one source of truth.
+- **Social media links** (Facebook/Instagram/X/LinkedIn) — new **Footer
+  Settings** page in `/admin` (mirrors your existing Press Page Settings
+  pattern). The migration seeds it with your current live URLs, so nothing
+  changes visually until you edit them. A blank field hides that icon.
 
 ```bash
-php artisan test --filter=PressPageBuildoutTest
-php artisan test --filter=PressFlowTest
+php artisan migrate --force
 ```
 
-21 tests total, all passing against a clean migration: search, tag
-filtering, the popular-posts sidebar, author/tag/comment display,
-prev/next navigation, the full comment moderation flow (submit → hidden
-→ approved → visible), the honeypot, validation, and the new admin
-resources. (There is one pre-existing, unrelated failure in
-`HomePageContentTest` — a `press_spotlight` key mismatch on the Home
-page seeder — not touched or introduced by this change.)
+Then check `/admin/footer-settings`.
+
+## 3. Press detail hero
+
+The show page used to have a small generic dark hero ("Détail de
+l'actualité") followed by a separate cover-image block and a second title
+below it. Now the featured image is the hero background, with the post's
+real title overlaid on it — same treatment as your partner pages. Removed
+the now-redundant duplicate cover/title markup and dead CSS.
+
+No migration needed — this only touches `press/show.blade.php` and reuses
+the `featured_image` field you already have (not the two unused
+`hero_image` / `hero_background_image` columns that got added to
+`press_posts` at some point — neither is referenced anywhere in the
+codebase; I left them alone rather than dropping columns on a live DB
+without asking, but flagging them in case you want them cleaned up later).
+
+## 4. Mobile responsiveness
+
+Audited the full `press.css` (much of the responsive work was already
+done). Found and fixed a few real gaps:
+- Card meta row (author + comment count) could overflow on narrow cards —
+  now wraps.
+- Hero breadcrumb could overflow on very narrow phones — now wraps.
+- Hero title needed a tighter size/line-height for **real** article
+  titles at small widths (previously always the short generic label, so
+  this wasn't an issue before).
+- Slightly tighter spacing when the sidebar stacks below the main content
+  on mobile.
+
+## Running the tests once you have the full project set up
+
+```bash
+php artisan test --filter=FooterSettingsTest
+php artisan test --filter=PressPageBuildoutTest
+```
+
+`FooterSettingsTest` is new (5 tests: social links render, blank fields
+hide their icon, country data comes from the Contact page, the footer
+doesn't break when either settings/Contact page is missing, and the admin
+page loads). `PressPageBuildoutTest` gained 2 tests for the hero merge
+(uses the featured image + real title once, no duplicate; falls back
+cleanly with no image).
