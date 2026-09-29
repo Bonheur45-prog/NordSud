@@ -65,7 +65,8 @@
     margin: 0 0 0.75rem;
 }
 .product-band__description {
-    font-size: 0.95rem;
+    font-size: 1.35rem;
+    font-weight: 600;
     line-height: 1.7;
     color: #374151;
     margin-bottom: 0.75rem;
@@ -79,7 +80,7 @@
     position: relative;
     padding-left: 1.25rem;
     margin-bottom: 0.5rem;
-    font-size: 0.92rem;
+    font-size: 1.19rem;
     line-height: 1.6;
     color: #4b5563;
 }
@@ -98,7 +99,7 @@
     max-width: 760px;
     padding: 1rem 1.5rem 3.5rem;
     text-align: left;
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     line-height: 1.7;
     color: #374151;
     margin: 0 auto;
@@ -115,6 +116,7 @@
 .solution-checklist__points {
     list-style: none;
     padding: 0;
+    font-size: 1.35rem;
     margin: 1.25rem 0 0;
 }
 .solution-checklist__points li {
