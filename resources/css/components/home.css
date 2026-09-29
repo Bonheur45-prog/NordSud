@@ -106,7 +106,7 @@
 }
 
 .home-hero__subline {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     opacity: 0.95;
     margin: 0 0 1.75rem;
 }
@@ -224,7 +224,7 @@
 
 .home-spotlight__link {
     color: var(--nsi-blue);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 700;
     text-decoration: none;
     max-width: 360px;
@@ -266,13 +266,14 @@
 }
 
 .home-video__headline {
-    font-size: 2.9rem;
+    font-size: clamp(2rem, 4vw, 2.9rem);
     font-weight: 600;
     margin: 0 2rem 1rem;
 }
 
 .home-video__body {
     max-width: 640px;
+    font-size: 1.3rem;
     margin: 0 auto 2rem;
     opacity: 0.9;
 }
@@ -284,22 +285,38 @@
 
 .home-video__player video {
     width: 100%;
-    width: 680px; 
-    height: 370px; 
+    max-width: 680px;
+    aspect-ratio: 680 / 370;
+    height: auto;
     object-fit: cover;
     border-radius: 4px;
     display: block;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
+@media (max-width: 600px) {
+    .home-video {
+        padding: 1.5rem 0;
+    }
+
+    .home-video__headline {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .home-video__body {
+        margin-bottom: 1.5rem;
+    }
+}
+
 /* ---------- Section Highlights ---------- */
 .home-highlights {
-    padding: 2rem 4rem;
+    padding: 2rem clamp(1rem, 4vw, 4rem);
     text-align: center;
 }
 
 .home-highlights__heading {
-    font-size: 3.25rem;
+    font-size: clamp(2rem, 5vw, 3.25rem);
     font-weight: 700;
     color: var(--nsi-ink);
     margin: 0 0 1rem;
@@ -307,6 +324,7 @@
 
 .home-highlights__intro {
     max-width: 680px;
+    font-size: 1.35rem;
     margin: 0 auto 2.5rem;
     color: var(--nsi-body);
 }
@@ -314,7 +332,7 @@
 .home-highlights__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: clamp(1rem, 2.5vw, 2rem);
 }
 
 @media (max-width: 900px) {
@@ -324,6 +342,15 @@
 }
 
 @media (max-width: 600px) {
+    .home-highlights {
+        padding-top: 1.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .home-highlights__intro {
+        margin-bottom: 1.75rem;
+    }
+
     .home-highlights__grid {
         grid-template-columns: 1fr;
     }
@@ -364,7 +391,7 @@
 }
 
 .home-highlight-card__description {
-    font-size: 0.95rem; 
+    font-size: 1.05rem; 
     line-height: 1.6; 
     color: var(--nsi-body);
     opacity: 0.85; 
@@ -390,7 +417,7 @@
 
 .home-stats__headline {
     color: #fff;
-    font-size: 1.9rem;
+    font-size: 2.25rem;
     line-height: 1.35;
     font-weight: 700;
     margin: 0;
@@ -509,13 +536,13 @@
 }
 
 .home-news-card__excerpt {
-    font-size: 0.9rem;
+    font-size: 1.09rem;
     color: var(--nsi-body);
     margin: 0 0 0.5rem;
 }
 
 .home-news-card__more {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--nsi-blue);
     text-decoration: none;
     font-weight: 600;
@@ -611,7 +638,7 @@
     max-width: 580px;
     margin: 0 auto 2rem;
     opacity: 0.9;
-    font-size: 1.05rem;
+    font-size: 1.45rem;
 }
 
 .home-contact-cta__button {
@@ -622,7 +649,7 @@
     color: #fff;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1.35rem;
     padding: 1rem 2.4rem;
     border-radius: 999px;
     box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.5);

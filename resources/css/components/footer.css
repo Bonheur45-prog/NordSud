@@ -207,11 +207,19 @@
     }
 }
 
+<<<<<<< HEAD
 /* Tablet: brand block across the top, then the three link columns
    (Entreprise, Solutions, Nous contacter) side by side. */
 @media (min-width: 768px) and (max-width: 1199px) {
     .footer__grid {
         grid-template-columns: repeat(3, 1fr);
+=======
+/* Tablet: 5 narrow columns are too cramped for the larger text,
+   so use 2 columns with the brand block across the top. */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+>>>>>>> 02962b28a60fbea2b851a76ff88677d2cc3699b4
         gap: 2.5rem 2rem;
     }
 
@@ -222,4 +230,8 @@
     .footer__tagline {
         max-width: 32rem;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 02962b28a60fbea2b851a76ff88677d2cc3699b4

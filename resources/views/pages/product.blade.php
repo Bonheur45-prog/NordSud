@@ -39,9 +39,9 @@
         @endforeach
 
         @if (isset($content['closing']))
-            <p class="product-closing container" x-data x-intersect.once="$el.classList.add('is-visible')">
+            <div class="product-closing container" x-data x-intersect.once="$el.classList.add('is-visible')">
                 {!! $page->trans($content['closing'], $locale) !!}
-            </p>
+            </div>
         @endif
     @else
         {{-- Generic sections layout (Bank Card, and any future product using the same shape) --}}
