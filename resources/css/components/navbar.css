@@ -249,3 +249,32 @@
         display: none;
     }
 }
+
+/* Hamburger layout (below the 1024px desktop breakpoint).
+   The 100px logo margin only exists to space the desktop links away from
+   the logo. On narrow screens it squeezed the language pill until the flag
+   wrapped above "FR". Desktop (1024px and up) is not affected by this block. */
+@media (max-width: 1023px) {
+    .navbar__logo img {
+        margin-right: 0;
+    }
+
+    .navbar__actions {
+        flex-shrink: 0;
+    }
+
+    .navbar__lang-switch {
+        white-space: nowrap;
+    }
+}
+
+/* Small phones: give the logo + pill + hamburger a little more room. */
+@media (max-width: 400px) {
+    .navbar__inner {
+        padding: 0 1rem;
+    }
+
+    .navbar__actions {
+        gap: 0.6rem;
+    }
+}

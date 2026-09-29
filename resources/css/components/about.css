@@ -44,7 +44,7 @@
 }
 
 .about-intro__paragraph {
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     line-height: 1.7;
     color: var(--nsi-body);
     margin: 0 0 1.25rem;
@@ -90,7 +90,7 @@
     text-align: left;
     color: var(--nsi-body);
     line-height: 1.7;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 .about-block__text p {
