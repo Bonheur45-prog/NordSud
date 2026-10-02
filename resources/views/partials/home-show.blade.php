@@ -13,7 +13,7 @@
         ->filter(fn ($s) => filled($page->trans(data_get($s, 'headline'))))
         ->values();
 
-    $size = $pick(data_get($cfg, 'show_size'), ['medium', 'large', 'full'], 'large');
+    $size = $pick(data_get($cfg, 'show_size'), ['w600', 'w700', 'w800', 'medium', 'large', 'full'], 'large');
     $musicOn = (bool) data_get($cfg, 'show_music', true);
     $musicFile = data_get($cfg, 'show_music_file');
 

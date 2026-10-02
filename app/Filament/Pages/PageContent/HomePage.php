@@ -134,6 +134,9 @@ class HomePage extends EditsSinglePage
                     Select::make('content.digital_banking.show_size')
                         ->label('Frame size')
                         ->options([
+                            'w600' => 'Small (600px wide)',
+                            'w700' => '700px wide',
+                            'w800' => '800px wide',
                             'medium' => 'Medium (900px wide)',
                             'large' => 'Large (1100px wide)',
                             'full' => 'Full width of the page',

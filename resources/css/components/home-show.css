@@ -4,7 +4,7 @@
    Sizes use container units (cqw) so the whole show scales with its frame.
    ========================================================================== */
 .hs{--o:var(--nsi-orange,#f5a623);--b:var(--nsi-blue,#2f6df6);--bg:#0b1220;--tx:#fff;position:relative;isolation:isolate;width:100%;max-width:1100px;aspect-ratio:16/9;margin:0 auto;overflow:hidden;container-type:inline-size;border-radius:6px;background:var(--bg);color:#fff;text-align:left;font-family:inherit;box-shadow:0 20px 50px rgba(0,0,0,.4)}
-.hs--medium{max-width:900px}.hs--full{max-width:100%}
+.hs--w600{max-width:600px}.hs--w700{max-width:700px}.hs--w800{max-width:800px}.hs--medium{max-width:900px}.hs--full{max-width:100%}
 .hs-sc{position:absolute;inset:0;display:flex;padding:0 6cqw;visibility:hidden;opacity:0}
 .hs-sc.hs-on{visibility:visible;opacity:1;z-index:2}
 .hs-sc.hs-out{visibility:visible;opacity:0;z-index:1;transition:opacity 1s .25s}
