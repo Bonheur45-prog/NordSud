@@ -8,6 +8,8 @@ use App\Models\PressPost;
 use Closure;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
@@ -123,6 +125,99 @@ class HomePage extends EditsSinglePage
                         ->label('Background image')
                         ->image()
                         ->directory('pages/home/digital-banking'),
+                ]),
+
+            Section::make('Video Section Show')
+                ->description('A cinematic slideshow that REPLACES the video player in the section above. Leave the scene list empty to keep showing the video. In a headline, put [square brackets] around one word to highlight it in orange. Scenes play in order — drag to reorder, copy a scene with the duplicate button.')
+                ->collapsed()
+                ->schema([
+                    Select::make('content.digital_banking.show_size')
+                        ->label('Frame size')
+                        ->options([
+                            'medium' => 'Medium (900px wide)',
+                            'large' => 'Large (1100px wide)',
+                            'full' => 'Full width of the page',
+                        ])
+                        ->default('large')
+                        ->helperText('Everything inside the show (text, card, controls) scales with the frame.'),
+                    Toggle::make('content.digital_banking.show_music')
+                        ->label('Play background music')
+                        ->default(true)
+                        ->helperText('Browsers only allow sound after a first click or tap, so music starts then. Visitors can mute it.'),
+                    FileUpload::make('content.digital_banking.show_music_file')
+                        ->label('Music file (optional)')
+                        ->acceptedFileTypes(['audio/mpeg', 'audio/mp4', 'audio/ogg'])
+                        ->directory('pages/home/show')
+                        ->helperText('MP3, ideally under 3 MB, licensed for commercial web use. Leave empty to use the built-in generated ambient music.'),
+                    Repeater::make('content.digital_banking.show_scenes')
+                        ->label('Scenes')
+                        ->schema([
+                            FileUpload::make('image')
+                                ->label('Image (optional)')
+                                ->image()
+                                ->directory('pages/home/show')
+                                ->helperText('Landscape, at least 1600px wide, WebP or JPG under 400 KB. Without an image the scene uses the drawn background below.'),
+                            FileUpload::make('logo')
+                                ->label('Logo badge (optional)')
+                                ->image()
+                                ->directory('pages/home/show')
+                                ->helperText('Shown on a white card on the right of the scene, e.g. a subsidiary or partner logo (transparent PNG, about 1000px wide).'),
+                            Grid::make(3)->schema([
+                                Select::make('background')
+                                    ->label('Drawn background (no image)')
+                                    ->options(['net' => 'Digital grid', 'doc' => 'Security pattern', 'code' => 'Code lines'])
+                                    ->default('net'),
+                                Select::make('focal')
+                                    ->label('Keep this part of the image visible')
+                                    ->options(['center' => 'Center', 'top' => 'Top', 'bottom' => 'Bottom', 'left' => 'Left', 'right' => 'Right'])
+                                    ->default('center'),
+                                TextInput::make('duration')
+                                    ->label('Seconds on screen')
+                                    ->numeric()->minValue(3)->maxValue(20)->default(6.5),
+                            ]),
+                            TranslatedField::pair('chapter', 'Chapter name (progress bar)'),
+                            TranslatedField::pair('headline', 'Headline'),
+                            TranslatedField::pairTextarea('subline', 'Sub-line', required: false, rows: 2),
+                            Grid::make(3)->schema([
+                                Select::make('layout')
+                                    ->label('Layout')
+                                    ->options(['full' => 'Full image', 'split' => 'Split (text left, image right)'])
+                                    ->default('full'),
+                                Select::make('align')
+                                    ->label('Text position')
+                                    ->options(['l' => 'Left', 'c' => 'Center', 'r' => 'Right'])
+                                    ->default('l'),
+                                Select::make('motion')
+                                    ->label('Image movement')
+                                    ->options(['zi' => 'Slow zoom in', 'zo' => 'Slow zoom out', 'pl' => 'Pan left', 'pr' => 'Pan right', 'st' => 'Still'])
+                                    ->default('zi'),
+                                Select::make('transition')
+                                    ->label('Transition into this scene')
+                                    ->options(['fade' => 'Fade', 'focus' => 'Focus pull (blur to sharp)', 'zoom' => 'Zoom through', 'wipe' => 'Orange wipe'])
+                                    ->default('fade'),
+                                Select::make('text_animation')
+                                    ->label('Headline animation')
+                                    ->options(['mask' => 'Rise from a line', 'words' => 'Word by word', 'fade' => 'Fade up', 'slide' => 'Slide in'])
+                                    ->default('mask'),
+                                Select::make('subline_style')
+                                    ->label('Sub-line style')
+                                    ->options(['fade' => 'Fade up', 'type' => 'Typewriter'])
+                                    ->default('fade'),
+                            ]),
+                            Grid::make(2)->schema([
+                                TranslatedField::pair('cta_label', 'Button label', required: false),
+                                TextInput::make('cta_link')
+                                    ->label('Button links to')
+                                    ->rules([$this->linkRule()])
+                                    ->helperText('e.g. /contact'),
+                            ]),
+                        ])
+                        ->addActionLabel('Add scene')
+                        ->collapsed()
+                        ->cloneable()
+                        ->reorderable()
+                        ->maxItems(12)
+                        ->itemLabel(fn (array $state): string => filled($state['chapter']['fr'] ?? null) ? $state['chapter']['fr'] : 'Scene'),
                 ]),
 
             Section::make('Secondary Banner')

@@ -109,11 +109,13 @@
 
     {{-- Digital Banking Feature (falls back to Secondary Banner if empty) --}}
     @php
-        $videoSection = data_get($digitalBanking, 'headline') || data_get($digitalBanking, 'video')
+        $videoSection = data_get($digitalBanking, 'headline') || data_get($digitalBanking, 'video') || data_get($digitalBanking, 'show_scenes')
             ? $digitalBanking
             : $secondaryBanner;
+        $hasShow = collect(data_get($videoSection, 'show_scenes', []))
+            ->contains(fn ($scene) => filled($page->trans(data_get($scene, 'headline'))));
     @endphp
-    @if (data_get($videoSection, 'headline') || data_get($videoSection, 'video'))
+    @if ($hasShow || data_get($videoSection, 'headline') || data_get($videoSection, 'video'))
         <section class="home-video" id="home-video">
             @if ($bg = data_get($videoSection, 'background_image'))
                 <div class="home-video__bg" id="home-video-bg" style="background-image: url('{{ asset('storage/'.$bg) }}');"></div>
@@ -126,7 +128,9 @@
                 @if ($body = $page->trans(data_get($videoSection, 'body')))
                     <p class="home-video__body">{{ $body }}</p>
                 @endif
-                @if ($video = data_get($videoSection, 'video'))
+                @if ($hasShow)
+                    @include('partials.home-show', ['cfg' => $videoSection, 'page' => $page, 'locale' => $locale, 'resolveLink' => $resolveLink])
+                @elseif ($video = data_get($videoSection, 'video'))
                     <div class="home-video__player">
                         <video controls
                                @if ($poster = data_get($videoSection, 'poster')) poster="{{ asset('storage/'.$poster) }}" @endif>

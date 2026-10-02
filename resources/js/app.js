@@ -1,4 +1,5 @@
 import './bootstrap';
+import './home-show';
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
