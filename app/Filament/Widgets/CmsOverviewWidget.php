@@ -29,6 +29,7 @@ class CmsOverviewWidget extends BaseWidget
         // every {fr, en} pair / *_en column in pages, press and settings
         // (see App\Support\MissingTranslations). Counting only the first
         // made the card show 0 while page content still fell back to French.
+        // Draft pages / posts are not counted: visitors can't see them.
         $missingStrings = TranslationString::where(fn ($q) => $q->whereNull('en')->orWhere('en', ''))->count();
         $missingContent = MissingTranslations::count();
         $missingTranslations = $missingStrings + $missingContent;
@@ -39,7 +40,7 @@ class CmsOverviewWidget extends BaseWidget
 
             Stat::make('Missing English translations', $missingTranslations)
                 ->description($missingTranslations > 0
-                    ? "{$missingContent} in pages & press · {$missingStrings} in strings"
+                    ? "{$missingContent} on published pages & press · {$missingStrings} in strings"
                     : 'All translated')
                 ->color($missingTranslations > 0 ? 'danger' : 'success'),
 

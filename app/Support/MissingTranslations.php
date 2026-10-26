@@ -27,7 +27,12 @@ use App\Models\PressTag;
 class MissingTranslations
 {
     /**
-     * @return list<array{source: string, id: int, label: string, field: string, fr: string}>
+     * Every item carries the status of what it belongs to: a page's or press
+     * post's own status ('published' / 'draft'), or 'published' for tags,
+     * authors, press page settings and glossary terms, which have no draft
+     * state and are always live.
+     *
+     * @return list<array{source: string, id: int, label: string, status: string, field: string, fr: string}>
      */
     public static function collect(): array
     {
@@ -36,12 +41,12 @@ class MissingTranslations
         foreach (Page::orderBy('id')->get() as $page) {
             foreach (['title', 'meta_title', 'meta_description'] as $base) {
                 if (self::isMissing($page->{"{$base}_fr"}, $page->{"{$base}_en"})) {
-                    $items[] = self::item('page', $page->id, $page->slug, "{$base}_en", $page->{"{$base}_fr"});
+                    $items[] = self::item('page', $page->id, $page->slug, (string) $page->status, "{$base}_en", $page->{"{$base}_fr"});
                 }
             }
 
             self::walk(is_array($page->content) ? $page->content : [], 'content', function (string $path, string $fr) use (&$items, $page) {
-                $items[] = self::item('page', $page->id, $page->slug, $path, $fr);
+                $items[] = self::item('page', $page->id, $page->slug, (string) $page->status, $path, $fr);
             });
         }
 
@@ -56,7 +61,7 @@ class MissingTranslations
 
             foreach (['title', 'excerpt', 'body'] as $field) {
                 if (self::isMissing($fr->{$field}, $en?->{$field})) {
-                    $items[] = self::item('press_post', $post->id, (string) $post->slug, $field, $fr->{$field});
+                    $items[] = self::item('press_post', $post->id, (string) $post->slug, (string) $post->status, $field, $fr->{$field});
                 }
             }
         }
@@ -74,7 +79,7 @@ class MissingTranslations
                 foreach ($bases as $base) {
                     if (self::isMissing($row->{"{$base}_fr"}, $row->{"{$base}_en"})) {
                         $label = $labelColumn ? (string) $row->{$labelColumn} : "#{$row->id}";
-                        $items[] = self::item($source, $row->id, $label, "{$base}_en", $row->{"{$base}_fr"});
+                        $items[] = self::item($source, $row->id, $label, 'published', "{$base}_en", $row->{"{$base}_fr"});
                     }
                 }
             }
@@ -83,9 +88,19 @@ class MissingTranslations
         return $items;
     }
 
+    /**
+     * Missing English on things visitors can actually see. Draft pages and
+     * draft press posts are left out, so hidden content never keeps the
+     * dashboard above 0.
+     */
     public static function count(): int
     {
-        return count(self::collect());
+        return count(array_filter(self::collect(), fn (array $item) => self::isLive($item)));
+    }
+
+    public static function isLive(array $item): bool
+    {
+        return $item['status'] !== 'draft';
     }
 
     /**
@@ -130,8 +145,8 @@ class MissingTranslations
         return preg_replace('/[\s\x{00A0}]+/u', '', $text) !== '';
     }
 
-    private static function item(string $source, int $id, string $label, string $field, string $fr): array
+    private static function item(string $source, int $id, string $label, string $status, string $field, string $fr): array
     {
-        return compact('source', 'id', 'label', 'field', 'fr');
+        return compact('source', 'id', 'label', 'status', 'field', 'fr');
     }
 }
