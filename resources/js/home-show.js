@@ -259,11 +259,16 @@
                 fadeTo(.55, 2.5);
                 score(Math.max(cur, 0));
                 ui();
-            });
+            }).catch(function () { /* autoplay blocked — wait for the first click/tap */ });
         } catch (x) {}
     }
-    // Browsers only allow sound after a first click / tap / key: start then, if the show is visible
-    function maybeStart() { if (MUSIC && snd && !started && gest && vis) start(); }
+    // Sound is ON by default: try to start it as soon as the show is on screen.
+    // Browsers that allow autoplay with sound (e.g. Chrome for visitors who often
+    // play media on this site) start the music straight away. Browsers that block
+    // it leave the AudioContext suspended — nothing plays, nothing breaks — and the
+    // first click / tap / key anywhere on the page starts it instead (handlers below),
+    // with the "Click for sound" hint shown until then.
+    function maybeStart() { if (MUSIC && snd && !started && vis) start(); }
     ['pointerdown', 'keydown', 'touchend'].forEach(function (n) {
         addEventListener(n, function (e) {
             if (e.target && e.target.closest && e.target.closest('.hs-snd')) return;
