@@ -1,0 +1,1683 @@
+{
+ "legacy.home_8cf04a97": {
+  "mode": "swap",
+  "expect": "Home",
+  "fr": "Accueil"
+ },
+ "legacy.about_us_9e66e6bd": {
+  "mode": "swap",
+  "expect": "About Us",
+  "fr": "À notre propos"
+ },
+ "legacy.nsi_group_6d6c9bca": {
+  "mode": "swap",
+  "expect": "NSI Group",
+  "fr": "NSI Groupe"
+ },
+ "legacy.references_d95867de": {
+  "mode": "swap",
+  "expect": "References",
+  "fr": "Références"
+ },
+ "legacy.business_partner_group_joos_c1bfa07a": {
+  "mode": "swap",
+  "expect": "Business Partner: Group Joos",
+  "fr": "Partenaire Commercial : Groupe JOOS"
+ },
+ "legacy.nsi_solutions_b9259978": {
+  "mode": "swap",
+  "expect": "NSI Solutions",
+  "fr": "Solutions NSI"
+ },
+ "legacy.electronic_banking_solutions_9479babe": {
+  "mode": "swap",
+  "expect": "Electronic Banking Solutions",
+  "fr": "Solutions Monétiques"
+ },
+ "legacy.software_expertise_876af864": {
+  "mode": "swap",
+  "expect": "Software Expertise",
+  "fr": "Expertise Logiciel"
+ },
+ "legacy.consulting_advisory_services_bb59b9bc": {
+  "mode": "swap",
+  "expect": "Consulting Advisory Services",
+  "fr": "Conseil et Accompagnement"
+ },
+ "legacy.nsi_products_c33a49fa": {
+  "mode": "swap",
+  "expect": "NSI Products",
+  "fr": "Produits NSI"
+ },
+ "legacy.payment_cards_e088af66": {
+  "mode": "swap",
+  "expect": "Payment Cards",
+  "fr": "Cartes de Paiement"
+ },
+ "legacy.secured_documents_87b1604a": {
+  "mode": "swap",
+  "expect": "Secured Documents",
+  "fr": "Documents Sécurisés"
+ },
+ "legacy.jobs_12ceff22": {
+  "mode": "swap",
+  "expect": "Jobs",
+  "fr": "Emplois"
+ },
+ "legacy.press_93146f53": {
+  "mode": "swap",
+  "expect": "PRESS",
+  "fr": "PRESSE"
+ },
+ "legacy.contact_us_02d4482d": {
+  "mode": "swap",
+  "expect": "Contact us",
+  "fr": "Contactez-nous"
+ },
+ "legacy.nsi_nsi_electronic_payment_solutions_and_banking_equipment_4d736e45": {
+  "mode": "swap",
+  "expect": "NSI,  NSI electronic payment solutions and banking equipment",
+  "fr": "NSI, Solutions monétiques et équipements bancaires"
+ },
+ "legacy.nsi_group_end_to_end_solutions_secured_and_innovative_in_mea_130f22fa": {
+  "mode": "swap",
+  "expect": "\"NSI Group, end-to-end solutions, secured and innovative in means of payment\"",
+  "fr": "\"NSI Group, des solutions end-to-end, sécurisées et innovantes en moyens de paiement\""
+ },
+ "legacy.read_more_43340e6c": {
+  "mode": "swap",
+  "expect": "Read more",
+  "fr": "Lire la suite"
+ },
+ "legacy.name_49ee3087": {
+  "mode": "swap",
+  "expect": "Name",
+  "fr": "Nom"
+ },
+ "legacy.legal_notices_d648f2a6": {
+  "mode": "swap",
+  "expect": "Legal Notices",
+  "fr": "Mentions légales"
+ },
+ "legacy.website_15bbb9d0": {
+  "mode": "swap",
+  "expect": "Website",
+  "fr": "Site web"
+ },
+ "legacy.phone_bcc254b5": {
+  "mode": "swap",
+  "expect": "Phone",
+  "fr": "Téléphone"
+ },
+ "legacy.comment_0be84069": {
+  "mode": "swap",
+  "expect": "Comment",
+  "fr": "Commentaire"
+ },
+ "legacy.email_ce8ae9da": {
+  "mode": "swap",
+  "expect": "Email",
+  "fr": "E-mail"
+ },
+ "legacy.over_80_years_of_experience_1eb02744": {
+  "mode": "swap",
+  "expect": "Over 80 years of experience.",
+  "fr": "Plus de 80 ans d'expérience."
+ },
+ "legacy.family_business_8777a6ab": {
+  "mode": "swap",
+  "expect": "Family business.",
+  "fr": "Entreprise familiale."
+ },
+ "legacy.loyal_customers_a45a7984": {
+  "mode": "swap",
+  "expect": "Loyal customers.",
+  "fr": "Clients fidèles."
+ },
+ "legacy.management_controlled_by_an_external_board_of_directors_6e6d1bbd": {
+  "mode": "swap",
+  "expect": "Management controlled by an external board of directors.",
+  "fr": "Direction contrôlée par un conseil d'administration externe."
+ },
+ "legacy.diversity_of_products_and_services_e7169d8b": {
+  "mode": "swap",
+  "expect": "Diversity of products and services.",
+  "fr": "Diversité des produits et services."
+ },
+ "legacy.good_financial_health_2903c6dc": {
+  "mode": "swap",
+  "expect": "Good financial health.",
+  "fr": "Bonne santé financière."
+ },
+ "legacy.research_and_development_9beb0744": {
+  "mode": "swap",
+  "expect": "Research and development.",
+  "fr": "Recherche et développement."
+ },
+ "legacy.european_leader_de9e2b73": {
+  "mode": "swap",
+  "expect": "European leader.",
+  "fr": "Leader européen."
+ },
+ "legacy.part_of_a_printing_group_eforma_0d23918b": {
+  "mode": "swap",
+  "expect": "Part of a printing group (EFORMA).",
+  "fr": "Fait partie d'un groupe d'imprimerie (EFORMA)."
+ },
+ "legacy.guarantees_and_certifications_06e80dd0": {
+  "mode": "swap",
+  "expect": "Guarantees and certifications",
+  "fr": "Garanties et certifications"
+ },
+ "legacy.iso_14298_formerly_cwa_14641_22d3b402": {
+  "mode": "swap",
+  "expect": "ISO 14298 (formerly CWA 14641).",
+  "fr": "ISO 14298 (anciennement CWA 14641)."
+ },
+ "legacy.information_security_management_ac8eda1e": {
+  "mode": "swap",
+  "expect": "Information Security Management.",
+  "fr": "Gestion de la sécurité de l'information."
+ },
+ "legacy.system_iso_27001_bc3b4989": {
+  "mode": "swap",
+  "expect": "System ISO 27001.",
+  "fr": "Système ISO 27001."
+ },
+ "legacy.quality_8a96f855": {
+  "mode": "swap",
+  "expect": "Quality.",
+  "fr": "Qualité."
+ },
+ "legacy.quality_management_system_is0_9001_2005_e5bb26bc": {
+  "mode": "swap",
+  "expect": "Quality Management System IS0 9001-2005.",
+  "fr": "Système de management de la qualité ISO 9001-2005."
+ },
+ "legacy.system_conform_iso_27001_guidelines_6f296394": {
+  "mode": "swap",
+  "expect": "System conform ISO 27001 guidelines.",
+  "fr": "Système conforme aux directives ISO 27001."
+ },
+ "legacy.environment_0e32108d": {
+  "mode": "swap",
+  "expect": "Environment.",
+  "fr": "Environnement."
+ },
+ "legacy.3_production_sites_52d9de2f": {
+  "mode": "swap",
+  "expect": "3 production sites",
+  "fr": "3 sites de production"
+ },
+ "legacy.production_capacity_0f7159db": {
+  "mode": "swap",
+  "expect": "Production Capacity",
+  "fr": "Capacité de production"
+ },
+ "legacy.security_documents_printer_certification_db7c660b": {
+  "mode": "swap",
+  "expect": "Security documents printer certification",
+  "fr": "Certification des imprimeurs de documents de sécurité"
+ },
+ "legacy.printing_and_personalization_of_cards_347862d6": {
+  "mode": "swap",
+  "expect": "Printing and Personalization of Cards",
+  "fr": "Impression et personnalisation de cartes"
+ },
+ "legacy.processing_of_electronic_banking_outsourced_electronic_banki_c2fddd34": {
+  "mode": "swap",
+  "expect": "Processing of Electronic banking - Outsourced Electronic banking activity Management",
+  "fr": "Traitement de la monétique - Gestion externalisée de l'activité monétique"
+ },
+ "legacy.e_payments_utilities_invoices_operators_f06cb5df": {
+  "mode": "swap",
+  "expect": "E-payments (Utilities invoices, Operators)",
+  "fr": "Paiements électroniques (factures de services publics, opérateurs)"
+ },
+ "legacy.fully_automatic_control_of_operations_on_the_entire_producti_9f0119f4": {
+  "mode": "swap",
+  "expect": "Fully automatic control of operations on the entire production chain.",
+  "fr": "Contrôle entièrement automatique des opérations sur toute la chaîne de production."
+ },
+ "legacy.highly_secured_modules_for_order_follow_up_outstanding_items_eff1979e": {
+  "mode": "swap",
+  "expect": "Highly secured modules for order follow-up, outstanding items, inventory and delivery, as well as risk management.",
+  "fr": "Modules hautement sécurisés de suivi des commandes, des encours, des stocks et des livraisons, ainsi que de gestion des risques."
+ },
+ "legacy.adaptation_to_the_standards_and_features_of_security_documen_8b07fa71": {
+  "mode": "swap",
+  "expect": "Adaptation to the standards and features of security documents as defined by regulators in various countries.",
+  "fr": "Adaptation aux normes et aux caractéristiques des documents sécurisés définies par les régulateurs de différents pays."
+ },
+ "legacy.perfect_integration_of_modern_printers_digital_entering_plat_f4c44224": {
+  "mode": "swap",
+  "expect": "Perfect integration of modern printers, digital entering platforms, and personalisation devices of security documents.",
+  "fr": "Intégration parfaite des imprimantes modernes, des plateformes de saisie numérique et des dispositifs de personnalisation des documents sécurisés."
+ },
+ "legacy.the_three_main_lines_of_our_consulting_offer_0e2f7faf": {
+  "mode": "swap",
+  "expect": "The three main lines of our consulting offer",
+  "fr": "Les trois axes principaux de notre offre de conseil"
+ },
+ "legacy.strategy_digital_marketing_98ac9af8": {
+  "mode": "swap",
+  "expect": "Strategy & Digital Marketing",
+  "fr": "Stratégie et marketing digital"
+ },
+ "legacy.segmentation_and_marketing_mix_c92825a5": {
+  "mode": "swap",
+  "expect": "Segmentation and Marketing Mix.",
+  "fr": "Segmentation et mix marketing."
+ },
+ "legacy.marketing_plan_b329686b": {
+  "mode": "swap",
+  "expect": "Marketing plan.",
+  "fr": "Plan marketing."
+ },
+ "legacy.study_of_opportunities_and_feasibility_ab8b842d": {
+  "mode": "swap",
+  "expect": "Study of opportunities and feasibility.",
+  "fr": "Étude des opportunités et de faisabilité."
+ },
+ "legacy.electronic_banking_multichannel_79109915": {
+  "mode": "swap",
+  "expect": "Electronic banking & Multichannel",
+  "fr": "Monétique et multicanal"
+ },
+ "legacy.definition_of_a_strategic_vision_bc46bb00": {
+  "mode": "swap",
+  "expect": "Definition of a strategic vision.",
+  "fr": "Définition d'une vision stratégique."
+ },
+ "legacy.economic_and_financial_steering_06dd8f55": {
+  "mode": "swap",
+  "expect": "Economic and Financial steering.",
+  "fr": "Pilotage économique et financier."
+ },
+ "legacy.project_owner_ea603197": {
+  "mode": "swap",
+  "expect": "Project Owner",
+  "fr": "Maîtrise d'ouvrage"
+ },
+ "legacy.management_and_project_steering_08c5fcdf": {
+  "mode": "swap",
+  "expect": "Management and Project steering.",
+  "fr": "Gestion et pilotage de projet."
+ },
+ "legacy.nis_offers_a_full_service_including_7799fa7f": {
+  "mode": "swap",
+  "expect": "NIS offers a full service including:",
+  "fr": "NSI propose un service complet comprenant :"
+ },
+ "legacy.a_fully_industrialized_and_secured_service_proposal_e068cf09": {
+  "mode": "swap",
+  "expect": "A fully industrialized and secured service proposal",
+  "fr": "Une offre de service entièrement industrialisée et sécurisée"
+ },
+ "legacy.proven_organization_and_processes_d5e103be": {
+  "mode": "swap",
+  "expect": "Proven Organization and processes",
+  "fr": "Organisation et processus éprouvés"
+ },
+ "legacy.electronic_payments_sales_representative_mf_53a6a203": {
+  "mode": "swap",
+  "expect": "Electronic payments sales representative (M/F)",
+  "fr": "Commercial(e) en paiements électroniques (H/F)"
+ },
+ "legacy.18_may_2019_88210ba6": {
+  "mode": "swap",
+  "expect": "18 May 2019",
+  "fr": "18 mai 2019"
+ },
+ "legacy.nsi_burundi_signs_up_fenacobu_for_providing_them_with_the_ns_db89d6e1": {
+  "mode": "swap",
+  "expect": "NSI Burundi signs up FENACOBU for providing them with the NSI electronic payment solution",
+  "fr": "NSI Burundi signe un contrat de fourniture de la solution de paiement électronique NSI avec la FENACOBU"
+ },
+ "legacy.bujumbura_launch_efff10b7": {
+  "mode": "swap",
+  "expect": "Bujumbura Launch.",
+  "fr": "Lancement de Bujumbura."
+ },
+ "legacy.nsi_team_visiting_a_home_community_for_orphans_and_victims_o_047c1f99": {
+  "mode": "swap",
+  "expect": "NSI team visiting a home community for orphans and victims of the 1994 genocide.",
+  "fr": "L'équipe NSI en visite dans une communauté d'accueil pour orphelins et victimes du génocide de 1994."
+ },
+ "legacy.active_presence_of_nsi_at_the_2017_cape_town_seamless_africa_e01b8aa9": {
+  "mode": "swap",
+  "expect": "Active presence of NSI at the 2017 Cape Town Seamless Africa show.",
+  "fr": "Présence active de NSI au salon Seamless Africa 2017 au Cap."
+ },
+ "legacy.nsi_group_management_team_convention_in_the_kivu_lake_region_6ff5934f": {
+  "mode": "swap",
+  "expect": "NSI Group Management team convention in the Kivu Lake region",
+  "fr": "Convention de l'équipe de direction de NSI Group dans la région du lac Kivu"
+ },
+ "legacy.nsi_group_sets_up_nsi_tanzania_ltd_91ec8084": {
+  "mode": "swap",
+  "expect": "NSI Group sets up NSI Tanzania Ltd",
+  "fr": "NSI Group crée NSI Tanzania Ltd"
+ },
+ "legacy.find_us_at_the_office_55840a6e": {
+  "mode": "swap",
+  "expect": "Find us at the office",
+  "fr": "Retrouvez-nous au bureau"
+ },
+ "legacy.bucharest_26ba3224": {
+  "mode": "swap",
+  "expect": "Bucharest",
+  "fr": "Bucarest"
+ },
+ "legacy.romania_0c7d5ae4": {
+  "mode": "swap",
+  "expect": "Romania",
+  "fr": "Roumanie"
+ },
+ "legacy.give_us_a_ring_79164cc3": {
+  "mode": "swap",
+  "expect": "Give us a ring",
+  "fr": "Appelez-nous"
+ },
+ "legacy.mon_fri_800_2200_304d31f1": {
+  "mode": "swap",
+  "expect": "Mon - Fri, 8:00-22:00",
+  "fr": "Lun - Ven, 8:00-22:00"
+ },
+ "legacy.legal_information_e722dcbd": {
+  "mode": "swap",
+  "expect": "Legal Information",
+  "fr": "Informations légales"
+ },
+ "legacy.fiscal_code_29109287_f48b52b8": {
+  "mode": "swap",
+  "expect": "Fiscal code: 29109287",
+  "fr": "Code fiscal : 29109287"
+ },
+ "legacy.registry_of_commerce_j40111242011_bdf0735e": {
+  "mode": "swap",
+  "expect": "Registry of Commerce: J40/11124/2011",
+  "fr": "Registre du commerce : J40/11124/2011"
+ },
+ "legacy.address_dd7bf230": {
+  "mode": "swap",
+  "expect": "Address",
+  "fr": "Adresse"
+ },
+ "legacy.unlimited_monetics_solutions_amp_security_printing_3a5125aa": {
+  "mode": "swap",
+  "expect": "UNLIMITED MONETICS SOLUTIONS &amp; SECURITY PRINTING",
+  "fr": "SOLUTIONS MONÉTIQUES ILLIMITÉES ET IMPRESSION SÉCURITAIRE"
+ },
+ "legacy.the_nsi_group_is_present_in_burundi_congo_drc_morocco_rwanda_d3c60347": {
+  "mode": "swap",
+  "expect": "The NSI group is present in Burundi, Congo (DRC), Morocco, Rwanda and Tanzania.",
+  "fr": "Le groupe NSI est présent au Burundi, au Congo (RDC), au Maroc, au Rwanda et en Tanzanie."
+ },
+ "legacy.payment_solutions_ae34cc3e": {
+  "mode": "swap",
+  "expect": "Payment solutions",
+  "fr": "Solutions de paiement"
+ },
+ "legacy.nsi_provides_card_creation_services_processing_electronic_pa_c3c6f835": {
+  "mode": "swap",
+  "expect": "NSI provides card creation services, processing electronic payments, e-payments, etc.",
+  "fr": "NSI propose des services de création de cartes, de traitement des paiements électroniques, de paiements en ligne, etc."
+ },
+ "legacy.cards_cd81f9f5": {
+  "mode": "swap",
+  "expect": "Cards",
+  "fr": "Cartes"
+ },
+ "legacy.nsi_manages_the_personalization_of_cards_and_pin_codes_cards_a4377753": {
+  "mode": "swap",
+  "expect": "NSI manages the personalization of cards and PIN codes, cards issuance, instant issuance of cards, etc.",
+  "fr": "NSI gère la personnalisation des cartes et des codes PIN, l'émission de cartes, l'émission instantanée de cartes, etc."
+ },
+ "legacy.partners_amp_references_e2df9b15": {
+  "mode": "swap",
+  "expect": "Partners &amp; References",
+  "fr": "Partenaires &amp; Références"
+ },
+ "legacy.we_have_their_trust_and_we_work_together_to_always_ensure_yo_31e99774": {
+  "mode": "swap",
+  "expect": "We have their trust and we work together to always ensure you a quality return.",
+  "fr": "Nous avons leur confiance et travaillons ensemble pour toujours vous garantir un retour de qualité."
+ },
+ "legacy.secured_documents_85684537": {
+  "mode": "swap",
+  "expect": "Secured documents",
+  "fr": "Documents sécurisés"
+ },
+ "legacy.consulting_amp_support_1aff7661": {
+  "mode": "swap",
+  "expect": "Consulting &amp; support",
+  "fr": "Conseil &amp; accompagnement"
+ },
+ "legacy.about_hestia_3df35018": {
+  "mode": "swap",
+  "expect": "About Hestia",
+  "fr": "À propos de Hestia"
+ },
+ "legacy.need_more_details_please_check_our_full_documentation_for_de_1995b992": {
+  "mode": "swap",
+  "expect": "Need more details? Please check our full documentation for detailed information on how to use Hestia.",
+  "fr": "Besoin de plus de détails ? Consultez notre documentation complète pour savoir comment utiliser Hestia."
+ },
+ "legacy.meet_our_team_558e0257": {
+  "mode": "swap",
+  "expect": "Meet our team",
+  "fr": "Rencontrez notre équipe"
+ },
+ "legacy.ceo_858904c3": {
+  "mode": "swap",
+  "expect": "CEO",
+  "fr": "PDG"
+ },
+ "legacy.marketing_specialist_30476e9f": {
+  "mode": "swap",
+  "expect": "Marketing Specialist",
+  "fr": "Spécialiste marketing"
+ },
+ "legacy.graphic_designer_d6c84896": {
+  "mode": "swap",
+  "expect": "Graphic Designer",
+  "fr": "Graphiste"
+ },
+ "legacy.lead_developer_29943a37": {
+  "mode": "swap",
+  "expect": "Lead Developer",
+  "fr": "Développeur principal"
+ },
+ "legacy.choose_a_plan_for_your_next_project_992494d8": {
+  "mode": "swap",
+  "expect": "Choose a plan for your next project",
+  "fr": "Choisissez une offre pour votre prochain projet"
+ },
+ "legacy.basic_package_a8d9b3e4": {
+  "mode": "swap",
+  "expect": "Basic Package",
+  "fr": "Forfait de base"
+ },
+ "legacy.domain_eae639a7": {
+  "mode": "swap",
+  "expect": "Domain",
+  "fr": "Domaine"
+ },
+ "legacy.storage_8c4aa541": {
+  "mode": "swap",
+  "expect": "Storage",
+  "fr": "Stockage"
+ },
+ "legacy.bandwidth_7d724e4b": {
+  "mode": "swap",
+  "expect": "Bandwidth",
+  "fr": "Bande passante"
+ },
+ "legacy.databases_ea2ef9b0": {
+  "mode": "swap",
+  "expect": "Databases",
+  "fr": "Bases de données"
+ },
+ "legacy.free_download_364c92b4": {
+  "mode": "swap",
+  "expect": "Free Download",
+  "fr": "Téléchargement gratuit"
+ },
+ "legacy.premium_package_3944ada3": {
+  "mode": "swap",
+  "expect": "Premium Package",
+  "fr": "Forfait premium"
+ },
+ "legacy.unlimited_545f6c2f": {
+  "mode": "swap",
+  "expect": "Unlimited",
+  "fr": "Illimité"
+ },
+ "legacy.order_now_ceda7c15": {
+  "mode": "swap",
+  "expect": "Order Now",
+  "fr": "Commander maintenant"
+ },
+ "legacy.what_clients_say_db9e5aa8": {
+  "mode": "swap",
+  "expect": "What clients say",
+  "fr": "Ce que disent nos clients"
+ },
+ "legacy.business_owner_bf547a0c": {
+  "mode": "swap",
+  "expect": "Business Owner",
+  "fr": "Chef d'entreprise"
+ },
+ "legacy.independent_artist_1e832b17": {
+  "mode": "swap",
+  "expect": "Independent Artist",
+  "fr": "Artiste indépendant"
+ },
+ "legacy.freelancer_e2b02091": {
+  "mode": "swap",
+  "expect": "Freelancer",
+  "fr": "Freelance"
+ },
+ "legacy.get_in_touch_6bcc7d36": {
+  "mode": "swap",
+  "expect": "Get in Touch",
+  "fr": "Contactez-nous"
+ },
+ "legacy.change_this_subtitle_in_the_customizer_40825074": {
+  "mode": "swap",
+  "expect": "Change this subtitle in the Customizer",
+  "fr": "Modifiez ce sous-titre dans le Customizer"
+ },
+ "legacy.oops_that_page_canrsquot_be_found_d3b0a4ab": {
+  "mode": "swap",
+  "expect": "Oops! That page can&rsquo;t be found.",
+  "fr": "Oups ! Cette page est introuvable."
+ },
+ "legacy.test_home_9de4efd2": {
+  "mode": "swap",
+  "expect": "test home",
+  "fr": "accueil test"
+ },
+ "legacy.press_0610123b": {
+  "mode": "swap",
+  "expect": "Press",
+  "fr": "Presse"
+ },
+ "legacy.unlimited_monetics_solutions_security_printing_33adc77b": {
+  "mode": "swap",
+  "expect": "UNLIMITED MONETICS SOLUTIONS & SECURITY PRINTING",
+  "fr": "SOLUTIONS MONÉTIQUES ILLIMITÉES ET IMPRESSION SÉCURITAIRE"
+ },
+ "legacy.nsi_electronic_payment_solutions_and_banking_equipment_b421f837": {
+  "mode": "swap",
+  "expect": "NSI electronic payment solutions and banking equipment",
+  "fr": "Solutions monétiques et équipements bancaires NSI"
+ },
+ "legacy.previous_dd1f775e": {
+  "mode": "swap",
+  "expect": "Previous",
+  "fr": "Précédent"
+ },
+ "legacy.next_10ac3d04": {
+  "mode": "swap",
+  "expect": "Next",
+  "fr": "Suivant"
+ },
+ "legacy.city_57d056ed": {
+  "mode": "swap",
+  "expect": "City",
+  "fr": "Ville"
+ },
+ "legacy.send_94966d90": {
+  "mode": "swap",
+  "expect": "Send",
+  "fr": "Envoyer"
+ },
+ "legacy.company_1c76cbfe": {
+  "mode": "swap",
+  "expect": "Company",
+  "fr": "Entreprise"
+ },
+ "legacy.first_name_5352a6da": {
+  "mode": "swap",
+  "expect": "First name *",
+  "fr": "Prénom *"
+ },
+ "legacy.name_2688a544": {
+  "mode": "swap",
+  "expect": "Name *",
+  "fr": "Nom *"
+ },
+ "legacy.postal_code_572ed696": {
+  "mode": "swap",
+  "expect": "Postal code",
+  "fr": "Code postal"
+ },
+ "legacy.phone_3d94b3d0": {
+  "mode": "swap",
+  "expect": "Phone *",
+  "fr": "Téléphone *"
+ },
+ "legacy.nsi_group_is_growing_its_activities_in_the_field_of_electron_164ba671": {
+  "mode": "swap",
+  "expect": "NSI Group is growing its activities in the field of electronic payments.",
+  "fr": "NSI Group développe ses activités dans le domaine des paiements électroniques."
+ },
+ "legacy.payment_processing_f1c1725d": {
+  "mode": "swap",
+  "expect": "Payment processing",
+  "fr": "Traitement des paiements"
+ },
+ "legacy.mobile_banking_and_mobile_payments_f0f78b6e": {
+  "mode": "swap",
+  "expect": "Mobile banking and mobile payments",
+  "fr": "Banque mobile et paiements mobiles"
+ },
+ "legacy.money_transfer_98edc8d2": {
+  "mode": "swap",
+  "expect": "Money transfer",
+  "fr": "Transfert d'argent"
+ },
+ "legacy.this_development_requires_new_capabilities_within_the_group__dfedcb80": {
+  "mode": "swap",
+  "expect": "This development requires new capabilities within the Group and to this end, NSI is looking for a (m/f) e",
+  "fr": "Ce développement nécessite de nouvelles compétences au sein du Groupe et, à cette fin, NSI recherche un(e) "
+ },
+ "legacy.lectronic_payments_sales_representative_e560cb0c": {
+  "mode": "swap",
+  "expect": "lectronic payments sales representative",
+  "fr": "commercial(e) en paiements électroniques"
+ },
+ "legacy.mainly_charged_with_3d653d8e": {
+  "mode": "swap",
+  "expect": ", mainly charged with:",
+  "fr": ", principalement chargé(e) de :"
+ },
+ "legacy.being_aware_of_opportunities_regarding_new_partnerships_to_b_9b9df2d4": {
+  "mode": "swap",
+  "expect": "Being aware of opportunities regarding new partnerships to be set up in the field of electronic payments.",
+  "fr": "Repérer les opportunités de nouveaux partenariats à établir dans le domaine des paiements électroniques."
+ },
+ "legacy.skills_required_56fb585a": {
+  "mode": "swap",
+  "expect": "Skills required",
+  "fr": "Compétences requises"
+ },
+ "legacy.commercial_sales_and_results_oriented_attitudeg_business_min_96fa3d6f": {
+  "mode": "swap",
+  "expect": "Commercial sales and results oriented attitudeg (business minded)",
+  "fr": "Sens commercial et orientation résultats (esprit business)"
+ },
+ "legacy.oral_and_written_fluency_in_english_and_natural_direct_commu_dc3aa134": {
+  "mode": "swap",
+  "expect": "Oral and written fluency in English and natural direct communication skills",
+  "fr": "Aisance à l'oral et à l'écrit en anglais et excellent sens de la communication directe"
+ },
+ "legacy.analytical_mind_5ecd4efa": {
+  "mode": "swap",
+  "expect": "Analytical mind",
+  "fr": "Esprit analytique"
+ },
+ "legacy.location_and_territory_to_be_covered_9db49a57": {
+  "mode": "swap",
+  "expect": "Location and territory to be covered",
+  "fr": "Lieu et territoire à couvrir"
+ },
+ "legacy.incumbent_status_e1318796": {
+  "mode": "swap",
+  "expect": "Incumbent status:",
+  "fr": "Statut du poste :"
+ },
+ "legacy.expat_2e414c14": {
+  "mode": "swap",
+  "expect": "Expat",
+  "fr": "Expatrié"
+ },
+ "legacy.applications_must_be_sent_together_with_a_cv_to_olivier_dute_4014f00f": {
+  "mode": "swap",
+  "expect": "Applications must be sent together with a CV to Olivier Duterme:",
+  "fr": "Les candidatures doivent être envoyées avec un CV à Olivier Duterme :"
+ },
+ "legacy.categories_8c387769": {
+  "mode": "swap",
+  "expect": "Categories:",
+  "fr": "Catégories :"
+ },
+ "legacy.group_joos_68f61f72": {
+  "mode": "swap",
+  "expect": "Group JOOS",
+  "fr": "Groupe JOOS"
+ },
+ "legacy.english_version_578b782f": {
+  "mode": "swap",
+  "expect": "English version",
+  "fr": "Version anglaise"
+ },
+ "legacy.digital_banking_channels_for_small_and_medium_financial_inst_e006fb6e": {
+  "mode": "swap",
+  "expect": "Digital Banking Channels for Small and Medium Financial Institutions",
+  "fr": "Canaux bancaires digitaux pour les petites et moyennes institutions financières"
+ },
+ "legacy.nsi_group_to_set_base_in_kenya_26556ad3": {
+  "mode": "swap",
+  "expect": "NSI Group to set base in Kenya",
+  "fr": "NSI Group s'implante au Kenya"
+ },
+ "legacy.nsi_group_changes_its_visual_identity_c22bf247": {
+  "mode": "swap",
+  "expect": "NSI Group changes its visual identity",
+  "fr": "NSI Group change d'identité visuelle"
+ },
+ "legacy.tanzania_7f4fd753": {
+  "mode": "swap",
+  "expect": "Tanzania:",
+  "fr": "Tanzanie :"
+ },
+ "legacy.nord_sud_industries_apex_tower_groundfloor_lugoda_street_dar_97928c01": {
+  "mode": "swap",
+  "expect": "Nord Sud Industries Apex Tower, GroundFloor, Lugoda street Dar es Salaam, Tanzania",
+  "fr": "Nord Sud Industries Apex Tower, GroundFloor, Lugoda street Dar es Salaam, Tanzanie"
+ },
+ "legacy.tanzania_c03b1123": {
+  "mode": "swap",
+  "expect": "Tanzania",
+  "fr": "Tanzanie"
+ },
+ "legacy.recaptcha_challenge_expires_in_two_minutes_49259a5f": {
+  "mode": "swap",
+  "expect": "recaptcha challenge expires in two minutes",
+  "fr": "Le défi reCAPTCHA expire dans deux minutes"
+ },
+ "legacy.electronic_banking_2f942340": {
+  "mode": "swap",
+  "expect": "Electronic Banking",
+  "fr": "Monétique"
+ },
+ "legacy.products_068f80c7": {
+  "mode": "swap",
+  "expect": "Products",
+  "fr": "Produits"
+ },
+ "legacy.bank_cards_bb162dc7": {
+  "mode": "swap",
+  "expect": "Bank Cards",
+  "fr": "Cartes bancaires"
+ },
+ "legacy.partners_fd6df34e": {
+  "mode": "swap",
+  "expect": "Partners",
+  "fr": "Partenaires"
+ },
+ "legacy.a_statement_from_nsi_group_chairman_richard_michel_said_it_w_7e51f3bd": {
+  "mode": "swap",
+  "expect": "A statement from NSI Group chairman Richard Michel said it was to start an office in Nairobi in April.",
+  "fr": "Selon un communiqué du président de NSI Group, Richard Michel, la société ouvrira un bureau à Nairobi en avril."
+ },
+ "legacy.nsi_exists_in_rwanda_tanzania_burundi_dr_congo_and_djibouti__3abe2029": {
+  "mode": "swap",
+  "expect": "NSI exists in Rwanda, Tanzania, Burundi, DR Congo and Djibouti, It currently supplies cheques to 60 banks.",
+  "fr": "NSI est présent au Rwanda, en Tanzanie, au Burundi, en RD Congo et à Djibouti. Elle fournit actuellement des chèques à 60 banques."
+ },
+ "legacy.in_kenya_nsi_is_supplying_cheques_to_equity_bank_kcb_dtb_ncb_9b4d35fc": {
+  "mode": "swap",
+  "expect": "In Kenya, NSI is supplying cheques to Equity Bank, KCB, DTB, NCBA, and I&amp;M Bank",
+  "fr": "Au Kenya, NSI fournit des chèques à Equity Bank, KCB, DTB, NCBA et I&amp;M Bank"
+ },
+ "legacy.source_the_daily_nation_the_highest_circulation_kenyan_indep_418fe1d6": {
+  "mode": "swap",
+  "expect": "Source: The Daily Nation, the highest circulation Kenyan independent newspaper",
+  "fr": "Source : The Daily Nation, le quotidien indépendant kényan au plus fort tirage"
+ },
+ "legacy.nsi_group_opens_nsi_djibouti_d704377b": {
+  "mode": "swap",
+  "expect": "NSI Group opens NSI Djibouti",
+  "fr": "NSI Group ouvre NSI Djibouti"
+ },
+ "legacy.press_b_d6a1d6c3": {
+  "mode": "swap",
+  "expect": "PRESS-b",
+  "fr": "PRESSE-b"
+ },
+ "legacy.electronic_banking_d66a6112": {
+  "mode": "swap",
+  "expect": "ELECTRONIC BANKING",
+  "fr": "MONÉTIQUE"
+ },
+ "legacy.pan_african_group_2acb87e0": {
+  "mode": "swap",
+  "expect": "PAN-AFRICAN GROUP",
+  "fr": "GROUPE PANAFRICAIN"
+ },
+ "legacy.unlimited_electronic_banking_solutions_security_printing_6b515bc5": {
+  "mode": "swap",
+  "expect": "Unlimited Electronic Banking Solutions & Security Printing",
+  "fr": "Solutions monétiques illimitées et impression sécurisée"
+ },
+ "legacy.secure_and_innovative_end_to_end_solutions_for_electronic_pa_4a2e5d15": {
+  "mode": "swap",
+  "expect": "Secure and innovative end-to-end solutions for electronic payments, tailored for the African continent.",
+  "fr": "Des solutions de bout en bout sécurisées et innovantes pour les paiements électroniques, adaptées au continent africain."
+ },
+ "legacy.fenacobu_signs_up_with_nsi_burundi_for_providing_an_electron_1aaa3cd9": {
+  "mode": "swap",
+  "expect": "FENACOBU signs up with NSI Burundi for providing an Electronic Payment Solution",
+  "fr": "La FENACOBU signe avec NSI Burundi pour la fourniture d'une solution de paiement électronique"
+ },
+ "legacy.nsi_group_management_team_convention_in_the_kivu_lake_region_8a573767": {
+  "mode": "swap",
+  "expect": "NSI Group Management Team Convention in the Kivu Lake region",
+  "fr": "Convention de l'équipe de direction de NSI Group dans la région du lac Kivu"
+ },
+ "legacy.po_box_6209_kigali_rwanda_f236adf7": {
+  "mode": "swap",
+  "expect": "PO Box: 6209 Kigali Rwanda",
+  "fr": "BP : 6209 Kigali, Rwanda"
+ },
+ "legacy.comment_or_message_ad13bb04": {
+  "mode": "swap",
+  "expect": "Comment or message",
+  "fr": "Commentaire ou message"
+ },
+ "legacy.electronic_banking_processing_a1c17c3a": {
+  "mode": "swap",
+  "expect": "Electronic Banking Processing",
+  "fr": "Traitement monétique"
+ },
+ "legacy.e_payments_utilities_operators_invoices_08a945b1": {
+  "mode": "swap",
+  "expect": "E-payments: Utilities & Operators invoices",
+  "fr": "Paiements électroniques : factures des services publics et des opérateurs"
+ },
+ "legacy.a_full_service_offer_fb7f9667": {
+  "mode": "swap",
+  "expect": "A Full Service Offer",
+  "fr": "Une offre de service complète"
+ },
+ "legacy.a_fully_industrialized_and_secured_service_proposal_b8563ec7": {
+  "mode": "swap",
+  "expect": "A Fully Industrialized and Secured Service Proposal",
+  "fr": "Une offre de service entièrement industrialisée et sécurisée"
+ },
+ "legacy.proven_organization_and_processes_089c5cc2": {
+  "mode": "swap",
+  "expect": "Proven Organization and Processes",
+  "fr": "Organisation et processus éprouvés"
+ },
+ "legacy.good_overall_it_literacy_and_good_knowledge_of_electronic_pa_f5021854": {
+  "mode": "swap",
+  "expect": "Good overall IT literacy and good knowledge of electronic payment systems, core banking, monetics switches???",
+  "fr": "Bonne culture informatique générale et bonne connaissance des systèmes de paiement électronique, du core banking, des switchs monétiques…",
+  "en": "Good overall IT literacy and good knowledge of electronic payment systems, core banking, monetics switches…"
+ },
+ "legacy.we_are_keen_on_expanding_our_business_by_starting_a_branch_i_b151cc04": {
+  "mode": "swap",
+  "expect": "????We are keen on expanding our business by starting a branch in Kenya,???? Mr Michel said.",
+  "fr": "« Nous tenons à développer notre activité en ouvrant une succursale au Kenya », a déclaré M. Michel.",
+  "en": "“We are keen on expanding our business by starting a branch in Kenya,” Mr Michel said."
+ },
+ "legacy.de_la_rues_move_which_caught_the_financial_sector_by_surpris_aa457409": {
+  "mode": "swap",
+  "expect": "De La Rue???s move, which caught the financial sector by surprise, has resulted in a shortage of bank cheques.",
+  "fr": "Le retrait de De La Rue, qui a pris le secteur financier par surprise, a entraîné une pénurie de chèques bancaires.",
+  "en": "De La Rue’s move, which caught the financial sector by surprise, has resulted in a shortage of bank cheques."
+ },
+ "legacy.the_move_by_de_la_rue_to_quit_the_kenyan_market_is_however_s_95cfc382": {
+  "mode": "swap",
+  "expect": "The move by De La Rue to quit the Kenyan market is, however, said to have hastened efforts by NSI to enter Kenya.",
+  "fr": "Le retrait de De La Rue du marché kényan aurait toutefois accéléré les efforts de NSI pour s'implanter au Kenya."
+ },
+ "legacy.read_more_ada19d4e": {
+  "mode": "swap",
+  "expect": "Read More ??",
+  "fr": "Lire la suite »",
+  "en": "Read More »"
+ },
+ "legacy.nsi_burundi_signe_un_contrat_de_fourniture_de_la_solution_de_bc217918": {
+  "mode": "en",
+  "en": "NSI Burundi signs up FENACOBU for providing them with the NSI electronic payment solution",
+  "fr_fix": "NSI Burundi signe un contrat de fourniture de la solution de paiement électronique NSI avec la FENACOBU"
+ },
+ "legacy.conference_bujumbura_cd038224": {
+  "mode": "en",
+  "en": "Bujumbura Conference",
+  "fr_fix": "Conférence Bujumbura"
+ },
+ "legacy.nsi_en_visite_dans_une_communaute_dorphelins_et_de_victimes__bb162c39": {
+  "mode": "en",
+  "en": "NSI visiting a community of orphans and victims of the 1994 genocide",
+  "fr_fix": "NSI en visite dans une communauté d’orphelins et de victimes du génocide de 1994"
+ },
+ "legacy.nom_d4700b69": {
+  "mode": "en",
+  "en": "Name"
+ },
+ "legacy.e_mail_1e884e30": {
+  "mode": "en",
+  "en": "Email"
+ },
+ "legacy.commentaire_ou_message_b9a17054": {
+  "mode": "en",
+  "en": "Comment or message"
+ },
+ "legacy.envoyer_770a1a1e": {
+  "mode": "en",
+  "en": "Send"
+ },
+ "legacy.2019_nsi_tous_droits_reserves_84ea29ee": {
+  "mode": "en",
+  "en": "© 2019 - NSI - All rights reserved -",
+  "fr_fix": "© 2019 - NSI - Tous droits réservés -"
+ },
+ "legacy.nom_prenom_cca40620": {
+  "mode": "en",
+  "en": "Full name",
+  "fr_fix": "Nom & Prénom"
+ },
+ "legacy.message_4c2a8fe7": {
+  "mode": "en",
+  "en": "Message"
+ },
+ "legacy.ligne_de_texte_3cabc7c5": {
+  "mode": "en",
+  "en": "Text line"
+ },
+ "legacy.ville_92e2da12": {
+  "mode": "en",
+  "en": "City"
+ },
+ "legacy.telephone_301dc874": {
+  "mode": "en",
+  "en": "Phone",
+  "fr_fix": "Téléphone"
+ },
+ "legacy.entreprise_13752cc6": {
+  "mode": "en",
+  "en": "Company"
+ },
+ "legacy.prenom_36017636": {
+  "mode": "en",
+  "en": "First name",
+  "fr_fix": "Prénom"
+ },
+ "legacy.code_postal_ac5f9aa6": {
+  "mode": "en",
+  "en": "postal code"
+ },
+ "legacy.accueil_74fe31b5": {
+  "mode": "en",
+  "en": "Home"
+ },
+ "legacy.a_notre_propos_3ccf8a1f": {
+  "mode": "en",
+  "en": "About Us",
+  "fr_fix": "À notre propos"
+ },
+ "legacy.nsi_groupe_b049afcd": {
+  "mode": "en",
+  "en": "NSI Group"
+ },
+ "legacy.references_commerciales_9fea82bf": {
+  "mode": "en",
+  "en": "Commercial References",
+  "fr_fix": "Références Commerciales"
+ },
+ "legacy.partenaire_commercial_groupe_joos_606a1dd8": {
+  "mode": "en",
+  "en": "Business Partner: Group JOOS"
+ },
+ "legacy.solutions_nsi_ae488589": {
+  "mode": "en",
+  "en": "NSI Solutions"
+ },
+ "legacy.solutions_monetiques_d8e8a047": {
+  "mode": "en",
+  "en": "Electronic Banking Solutions"
+ },
+ "legacy.expertise_logiciel_4e3ea25a": {
+  "mode": "en",
+  "en": "Software Expertise"
+ },
+ "legacy.conseil_et_accompagnement_500b2750": {
+  "mode": "en",
+  "en": "Consulting Advisory Services"
+ },
+ "legacy.produits_nsi_fb15ad1a": {
+  "mode": "en",
+  "en": "NSI Products"
+ },
+ "legacy.carte_bancaire_d9991b59": {
+  "mode": "en",
+  "en": "Bank Card"
+ },
+ "legacy.documents_securises_fc1776a1": {
+  "mode": "en",
+  "en": "Secured Documents"
+ },
+ "legacy.emplois_d8a2c46c": {
+  "mode": "en",
+  "en": "Jobs"
+ },
+ "legacy.presse_0ecf18e6": {
+  "mode": "en",
+  "en": "PRESS"
+ },
+ "legacy.nous_contacter_e810f3e8": {
+  "mode": "en",
+  "en": "Contact Us"
+ },
+ "legacy.mentions_legales_6ba68484": {
+  "mode": "en",
+  "en": "Legal Notices"
+ },
+ "legacy.non_classe_adfa7521": {
+  "mode": "en",
+  "en": "Uncategorized",
+  "fr_fix": "Non classé"
+ },
+ "legacy.recherche_eac97105": {
+  "mode": "en",
+  "en": "Search…",
+  "fr_fix": "Recherche…"
+ },
+ "legacy.nsi_groupe_d33c174d": {
+  "mode": "en",
+  "en": "NSI GROUP"
+ },
+ "legacy.contactez_a9fbea96": {
+  "mode": "en",
+  "en": "Contact"
+ },
+ "legacy.avenue_kingabwa_3717_concession_lomata_limete_kinshasa_rdc_5aba8d70": {
+  "mode": "en",
+  "en": "Avenue Kingabwa, 3717 - Concession Lomata Limete / Kinshasa - DRC"
+ },
+ "legacy.nom_et_prenom_46eb4bf5": {
+  "mode": "en",
+  "en": "Full name",
+  "fr_fix": "Nom et prénom"
+ },
+ "legacy.participation_active_de_nsi_au_salon_seamless_africa_2017_ca_9f842493": {
+  "mode": "en",
+  "en": "Active participation of NSI at the Seamless Africa 2017 show in Cape Town",
+  "fr_fix": "Participation active de NSI au salon Seamless Africa 2017 Cape Town"
+ },
+ "legacy.nous_23300e00": {
+  "mode": "en",
+  "en": "us"
+ },
+ "legacy.nsi_solutions_monetiques_et_equipements_bancaires_f1c6ff09": {
+  "mode": "en",
+  "en": "NSI, NSI electronic payment solutions and banking equipment",
+  "fr_fix": "NSI, Solutions monétiques et équipements bancaires"
+ },
+ "legacy.nsi_group_des_solutions_end_to_end_securisees_et_innovantes__7b903648": {
+  "mode": "en",
+  "en": "\"NSI Group, end-to-end solutions, secured and innovative in means of payment\"",
+  "fr_fix": "\"NSI Group, des solutions end-to-end, sécurisées et innovantes en moyens de paiement\""
+ },
+ "legacy.solutions_monetiques_illimitees_et_impression_securitaire_97e9113a": {
+  "mode": "en",
+  "en": "\"UNLIMITED MONETICS SOLUTIONS & SECURITY PRINTING\"",
+  "fr_fix": "\"SOLUTIONS MONÉTIQUES ILLIMITÉES ET IMPRESSION SÉCURITAIRE\""
+ },
+ "legacy.contactez_nous_9ac7164d": {
+  "mode": "en",
+  "en": "Contact us:"
+ },
+ "legacy.adresse_50d46c2f": {
+  "mode": "en",
+  "en": "Address"
+ },
+ "legacy.limete_kinshasa_rdc_9ad30237": {
+  "mode": "en",
+  "en": "Limete / Kinshasa - DRC"
+ },
+ "legacy.lun_ven_800_2200_bcf1dc86": {
+  "mode": "en",
+  "en": "Mon - Fri, 8:00-22:00"
+ },
+ "legacy.e_mail_fd90e8dd": {
+  "mode": "en",
+  "en": "E-mail *"
+ },
+ "legacy.message_44f689bd": {
+  "mode": "en",
+  "en": "Message *"
+ },
+ "legacy.a_propos_36df9908": {
+  "mode": "en",
+  "en": "About",
+  "fr_fix": "À propos"
+ },
+ "legacy.references_51df9679": {
+  "mode": "en",
+  "en": "References",
+  "fr_fix": "Références"
+ },
+ "legacy.centre_de_production_kinshasa_79e05332": {
+  "mode": "en",
+  "en": "Kinshasa Production Center"
+ },
+ "legacy.produits_88c61ac2": {
+  "mode": "en",
+  "en": "Products"
+ },
+ "legacy.partenaires_def2efc1": {
+  "mode": "en",
+  "en": "Partners"
+ },
+ "legacy.contacts_9aa698f6": {
+  "mode": "en",
+  "en": "Contacts"
+ },
+ "legacy.nsi_group_simplante_au_kenya_2feda805": {
+  "mode": "en",
+  "en": "NSI Group sets up in Kenya"
+ },
+ "legacy.solutions_monetiques_et_equipements_bancaires_29fcc66c": {
+  "mode": "en",
+  "en": "Electronic Banking Solutions and Banking Equipment",
+  "fr_fix": "Solutions Monétiques et Équipements Bancaires"
+ },
+ "legacy.contactez_nous_871403bd": {
+  "mode": "en",
+  "en": "Contact us:"
+ },
+ "legacy.rd_congo_d5da8e7b": {
+  "mode": "en",
+  "en": "DR Congo:"
+ },
+ "legacy.nord_sud_industries_3717_avenue_kingabwa_limete_concession_l_e59513a4": {
+  "mode": "en",
+  "en": "Nord Sud Industries 37/17 Avenue Kingabwa Limete, Concession LOMATA, Kinshasa, DR Congo"
+ },
+ "legacy.lun_ven_900_1800_abb727f5": {
+  "mode": "en",
+  "en": "Mon - Fri, 9:00-18:00"
+ },
+ "legacy.rd_congo_979cf09a": {
+  "mode": "en",
+  "en": "DR Congo"
+ },
+ "legacy.envoyez_nous_un_message_32d233c3": {
+  "mode": "en",
+  "en": "Send us a message"
+ },
+ "legacy.presse_b_4c9c00ba": {
+  "mode": "en",
+  "en": "PRESS-b"
+ },
+ "legacy.2021_2023_nsi_group_tous_droits_reserves_e0fc7890": {
+  "mode": "en",
+  "en": "© 2021-2023 NSI Group - All rights reserved -",
+  "fr_fix": "© 2021-2023 NSI Group - Tous droits réservés -"
+ },
+ "legacy.lecteur_video_3ee90d7b": {
+  "mode": "en",
+  "en": "Video Player",
+  "fr_fix": "Lecteur vidéo"
+ },
+ "legacy.utilisez_les_fleches_hautbas_pour_augmenter_ou_diminuer_le_v_b1aa53e8": {
+  "mode": "en",
+  "en": "Use Up/Down Arrow keys to increase or decrease volume.",
+  "fr_fix": "Utilisez les flèches haut/bas pour augmenter ou diminuer le volume."
+ },
+ "legacy.lecture_7d6df6aa": {
+  "mode": "en",
+  "en": "Play"
+ },
+ "legacy.muet_13cb0b5e": {
+  "mode": "en",
+  "en": "Mute"
+ },
+ "legacy.plein_ecran_ba79580b": {
+  "mode": "en",
+  "en": "Fullscreen",
+  "fr_fix": "Plein écran"
+ },
+ "legacy.curseur_de_volume_0bc4a034": {
+  "mode": "en",
+  "en": "Volume Slider"
+ },
+ "legacy.curseur_de_temps_f9046fad": {
+  "mode": "en",
+  "en": "Time Slider"
+ },
+ "legacy.francais_e0545693": {
+  "mode": "copy"
+ },
+ "legacy.hellip_f14392b0": {
+  "mode": "copy"
+ },
+ "legacy.fsc_dc524ae1": {
+  "mode": "copy"
+ },
+ "legacy.pefc_0cb7b2d1": {
+  "mode": "copy"
+ },
+ "legacy.iso_14001_a93e0794": {
+  "mode": "copy"
+ },
+ "legacy.intergraf_iso_14298_43791f9c": {
+  "mode": "copy"
+ },
+ "legacy.strada_povernei_nr_20_fa27e724": {
+  "mode": "copy"
+ },
+ "legacy.michael_jordan_79255a6e": {
+  "mode": "copy"
+ },
+ "legacy.vertigo_studio_srl_c1a9745e": {
+  "mode": "copy"
+ },
+ "legacy.bld_mihail_kogalniceanu_nr_87652_bucharest_romania_1aaaa967": {
+  "mode": "copy"
+ },
+ "legacy.english_78463a38": {
+  "mode": "copy"
+ },
+ "legacy.t_e358efa4": {
+  "mode": "copy"
+ },
+ "legacy.nsi_monetique_eab521b8": {
+  "mode": "copy"
+ },
+ "legacy.nsi_group_97c5b638": {
+  "mode": "copy"
+ },
+ "legacy.desmond_purpleson_37e3225d": {
+  "mode": "copy"
+ },
+ "legacy.parsley_pepperspray_59e79dd0": {
+  "mode": "copy"
+ },
+ "legacy.desmond_eagle_c1c8a270": {
+  "mode": "copy"
+ },
+ "legacy.ruby_von_rails_84e950c8": {
+  "mode": "copy"
+ },
+ "legacy.1gb_208b4367": {
+  "mode": "copy"
+ },
+ "legacy.100gb_2f9289df": {
+  "mode": "copy"
+ },
+ "legacy.inverness_mckenzie_e6a884a0": {
+  "mode": "copy"
+ },
+ "legacy.hanson_deck_237d7ca3": {
+  "mode": "copy"
+ },
+ "legacy.natalya_undergrowth_9870982d": {
+  "mode": "copy"
+ },
+ "legacy.nsi_group_at_nsi_monetiquecom_40756d1f": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905logo_nsipng_8e33f5c0": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905solutionpng_05e5f0a1": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__c76dd3b0": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__132bf0bf": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__f19f8031": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__c9336fc5": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__2294b41a": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_1j_796aa7b1": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_19_70b56421": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_18_4f57ab8a": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_17_03468f3e": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_16_c6a84274": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_3j_6bef0764": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_2j_54f2e287": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_22_3f62375d": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_20_edff1113": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_21_c647587e": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905bdi_burundi_j_51ef5c46": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905visite_commun_9879470b": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905seamlessafric_72c072bf": {
+  "mode": "copy"
+ },
+ "legacy.nsi_monetique_85f24073": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_12_522c3443": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_13_7e69e577": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_14_5e116135": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_15_268ce62d": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_23_13295c73": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_24_f3555e75": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_4__91a193b9": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_5__7609cfe5": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_6__cd56cec3": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_7__773644df": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_8__015c64c5": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_9__6548d947": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_10_bc7f27de": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_11_780041d4": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_12_674120b9": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_13_c0990c71": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_14_564aca1a": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_15_6a43386e": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_23_a0e4df33": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_24_8b42061f": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_4j_30ecf7bd": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_5j_59e348a6": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_6j_29b5887f": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_7j_51d8aa48": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_8j_d66568bd": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_9j_7d51951f": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_10_e06e4c04": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905client_nsi_11_ccf971fa": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905preview_17903_745b1fee": {
+  "mode": "copy"
+ },
+ "legacy.avenue_kingabwa_3717_concession_lomata_40499165": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905nsi_buja_fena_0635e00b": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905bdi_burundi_j_53bb54e0": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905visite_commun_73c1d963": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905cartes1jpg_2584ef48": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__d88f09ba": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__65b77365": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905p403_printjpg_2b5831aa": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905group_joos_fo_a61e0472": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905iso_27001_150_19de3d9f": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905logo_iso_1429_c06fa6a0": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads2019055871_aangepas_a8328ee2": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905group_joos_lo_b2613029": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905group_joos_lo_44ab7e64": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905iso_14001_sgs_0dec0653": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905s3_joos_hybri_8aff6cb6": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905s1_group_joos_bbdb236c": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905groupjoos_tur_08d35864": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905groupjoos_tur_3d5b16ed": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905groupjoos_tur_8094301d": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905groupjoos_tur_75ed51dc": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905groupjoos_tur_76fb70ce": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905groupjoos_tur_fba7fa90": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905iso_14298_joo_436e629e": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__dbe4abbc": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__1e8d30c6": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__6cbc12e7": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905acces_top1jpg_101d9107": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__ffd5f728": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__a26893fc": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__0e6b3e90": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905nsi_buja_fena_7d09091a": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905visite_commun_b12faf90": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905seamlessafric_b7a42226": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905gisenyi_01_36_91b8fc77": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905nsi_tanzania__c3ec745a": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__89366447": {
+  "mode": "copy"
+ },
+ "legacy.contact_bbaff128": {
+  "mode": "copy"
+ },
+ "legacy.olivierduterme_at_nsi_monetiquecom_ea4ce6c7": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwfacebookcomsharerphpuhttpswwwnsi_monetiquecomenelect_5dce28a3": {
+  "mode": "copy"
+ },
+ "legacy.solutions_2a9dbfa4": {
+  "mode": "copy"
+ },
+ "legacy.kona_i_9dd4960e": {
+  "mode": "copy"
+ },
+ "legacy.verve_92c8c0ad": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202303bankseventmp4_573229a6": {
+  "mode": "copy"
+ },
+ "legacy.rwanda_50a41dcf": {
+  "mode": "copy"
+ },
+ "legacy.nord_sud_industries_ltd_3e8e24c1": {
+  "mode": "copy"
+ },
+ "legacy.kicukiro_district_kn_5_road_nyarugunga_kanombe_po_box_6209_k_d45436b4": {
+  "mode": "copy"
+ },
+ "legacy.rwanda_9d7ed5d7": {
+  "mode": "copy"
+ },
+ "legacy.burundi_642694dd": {
+  "mode": "copy"
+ },
+ "legacy.nord_sud_industries_immeuble_the_white_stone_bujumbura_burun_9b51236a": {
+  "mode": "copy"
+ },
+ "legacy.burundi_28765464": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202007cropped_nsi_n_04c27895": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202303share_300x157_fe4227e6": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202303richard_miche_3709cf42": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202007nsi_newlogo_f_62a2b767": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202007senapi_2_360x_18029e72": {
+  "mode": "copy"
+ },
+ "legacy.logo_96d6f2e7": {
+  "mode": "copy"
+ },
+ "legacy.httpswww_nsi_monetique_comtranslategoog_x_tr_schhttp_x_tr_sl_a8ec50da": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwbankinglycom_0b8c12bc": {
+  "mode": "copy"
+ },
+ "legacy.javascriptvoid0_708e0370": {
+  "mode": "copy"
+ },
+ "legacy.recaptcha_72fd8dd3": {
+  "mode": "copy"
+ },
+ "legacy.wicotiz_5c32210c": {
+  "mode": "copy"
+ },
+ "legacy.bpc_59d60109": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202007djibouti_3_36_5dac4eb8": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwfacebookcomsharerphpuhttpswwwnsi_monetiquecomennsi_g_d4af7497": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202007bpcpng_bb1188f4": {
+  "mode": "copy"
+ },
+ "legacy.kicukiro_district_b0ee7bee": {
+  "mode": "copy"
+ },
+ "legacy.kn_5_road_nyarugunga_kanombe_0922b82d": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__04c636b6": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202007wecotiz_card__a0863bf7": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202303richard_miche_17aa0461": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202007senapi_2_300x_7c1b4b18": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202007djibouti_3_30_00f4a946": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905nsi_buja_fena_5123013e": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905gisenyi_01_30_2970b6ae": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads201905shutterstock__431a5998": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwnsi_monetiquecomwp_contentuploads202007wecotiz_cardp_f268b044": {
+  "mode": "copy"
+ },
+ "legacy.httpswwwfacebookcomsharerphpuhttpswwwnsi_monetiquecomennsi_g_152821e3": {
+  "mode": "copy"
+ }
+}
