@@ -1,0 +1,404 @@
+{
+ "source_audit": "translation_audit_2026-10-26_132018.json",
+ "entries": [
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.introduction",
+   "fr": "NSI Group a développé une large gamme de solutions bancaires et monétiques couvrant l'ensemble des besoins des institutions financières en matières de paiements électroniques par FinPay Africa",
+   "en": "Through FinPay Africa, NSI Group has developed a wide range of banking and electronic payment solutions covering all of the electronic payment needs of financial institutions."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.0.title",
+   "fr": "Impression et Personnalisation de Cartes",
+   "en": "Card Printing and Personalization"
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.0.bullets.0",
+   "fr": "Personnalisation des cartes bancaires et des codes confidentiels.",
+   "en": "Personalization of bank cards and PIN codes."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.0.bullets.1",
+   "fr": "Émission de cartes bancaires (Crédit, Débit ou prépayées).",
+   "en": "Issuance of bank cards (credit, debit or prepaid)."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.0.bullets.2",
+   "fr": "Émission instantanée de cartes (instant issuing).",
+   "en": "Instant card issuance (instant issuing)."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.1.title",
+   "fr": "Processing Monétique & Gestion Externalisée des activités Monétiques",
+   "en": "Electronic Banking Processing & Outsourced Management of Electronic Banking Activities"
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.1.bullets.0",
+   "fr": "Interconnexion avec les partenaires monétiques et routage des transactions (réseaux nationaux et Internationaux).",
+   "en": "Interconnection with payment partners and transaction routing (national and international networks)."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.1.bullets.1",
+   "fr": "Gestion de la compensation.",
+   "en": "Clearing management."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.1.bullets.2",
+   "fr": "Acquisition de transactions à travers différents canaux (GAB, TPE et Internet) et la gestion des commerçants.",
+   "en": "Transaction acquiring across multiple channels (ATM, POS and Internet) and merchant management."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.2.title",
+   "fr": "E-payments pour Utilities & Opérateurs",
+   "en": "E-payments for Utilities & Operators"
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.2.bullets.0",
+   "fr": "Gestion de la fraude, des réclamations.",
+   "en": "Fraud and claims management."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.2.bullets.1",
+   "fr": "Gestion de la fidélité.",
+   "en": "Loyalty management."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.2.bullets.2",
+   "fr": "Gestion de canaux de communication (SMS, Internet, IVR,…)",
+   "en": "Management of communication channels (SMS, Internet, IVR, …)"
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.2.bullets.3",
+   "fr": "Édition d'états détaillés et de synthèse de toute l'activité monétique.",
+   "en": "Detailed and summary reporting on all electronic payment activity."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.2.bullets.4",
+   "fr": "Paiement de factures (Utilities, et opérateur).",
+   "en": "Bill payment (utilities and operators)."
+  },
+  {
+   "page": "solutions-monetiques",
+   "page_id": 5,
+   "field": "content.sections.2.bullets.5",
+   "fr": "Transfert par FinPay Africa.",
+   "en": "Money transfer through FinPay Africa."
+  },
+  {
+   "page": "software-expertise",
+   "page_id": 6,
+   "field": "content.introduction.heading",
+   "fr": "Expertise logicielle de NSI Group pour la gestion des documents sécurisés",
+   "en": "NSI Group's software expertise for secure document management"
+  },
+  {
+   "page": "software-expertise",
+   "page_id": 6,
+   "field": "content.introduction.text",
+   "fr": "<p>NSI Group propose ses solutions logicielles d'assistance intégrée, multi-fonctions:</p>",
+   "en": "<p>NSI Group offers integrated, multi-function support software solutions:</p>"
+  },
+  {
+   "page": "software-expertise",
+   "page_id": 6,
+   "field": "content.points.0",
+   "fr": "Contrôle complet et automatisé des opérations sur toute la chaine de production.",
+   "en": "Complete, automated control of operations across the entire production chain."
+  },
+  {
+   "page": "software-expertise",
+   "page_id": 6,
+   "field": "content.points.1",
+   "fr": "Modules hautement sécurisés de gestion des commandes, en cours, stocks et livraison ainsi que de la gestion des risques.",
+   "en": "Highly secure modules for managing orders, work in progress, stock and delivery, as well as risk management."
+  },
+  {
+   "page": "software-expertise",
+   "page_id": 6,
+   "field": "content.points.2",
+   "fr": "Adaptation en conformité avec les normes et les caractéristiques des documents de sécurité définies par les régulateurs dans différents pays.",
+   "en": "Adaptation to the standards and security-document specifications set by regulators in different countries."
+  },
+  {
+   "page": "software-expertise",
+   "page_id": 6,
+   "field": "content.points.3",
+   "fr": "Intégration parfaite des imprimantes, des plates-formes d'encodage numériques et de personnalisation modernes des documents de sécurité.",
+   "en": "Seamless integration of printers, digital encoding platforms and modern security-document personalization systems."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.title",
+   "fr": "NSI Group offre une prestation complète:",
+   "en": "NSI Group offers a complete service:"
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.0",
+   "fr": "Gestion des clés cryptographiques.",
+   "en": "Cryptographic key management."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.1",
+   "fr": "Gestion des supports carte.",
+   "en": "Card stock management."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.2",
+   "fr": "Aide à la conception.",
+   "en": "Design assistance."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.3",
+   "fr": "Impression des cartes.",
+   "en": "Card printing."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.4",
+   "fr": "Personnalisation des cartes (graphique, magnétique et puce électronique).",
+   "en": "Card personalization (graphic, magnetic stripe and chip)."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.5",
+   "fr": "Par embossage ou en infill.",
+   "en": "By embossing or infill."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.6",
+   "fr": "Personnalisation des cartes à puce (Data préparation).",
+   "en": "Chip card personalization (data preparation)."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.7",
+   "fr": "Encodage de la piste magnétique en utilisant les normes standard.",
+   "en": "Magnetic stripe encoding to industry standards."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.8",
+   "fr": "Possibilité d'imprimer en utilisant une encre à gratter.",
+   "en": "Option to print with scratch-off ink."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.9",
+   "fr": "Calcul des codes confidentiels (PIN) en respectant les normes internationales de sécurité et de confidentialité (gestion sécurisée des clés et du Hardware Security Module HSM).",
+   "en": "PIN calculation in line with international security and confidentiality standards (secure key management and Hardware Security Module, HSM)."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.0.bullets.10",
+   "fr": "Impression, mise sous pli et expédition suivant les besoins du client en termes de conditionnement et de lieu de livraison.",
+   "en": "Printing, enveloping and dispatch according to the client's packaging and delivery-location requirements."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.1.title",
+   "fr": "Une activité sécurisée et alignées sur les normes internationales",
+   "en": "A secure operation aligned with international standards"
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.1.description",
+   "fr": "<p>Ces activités sont réalisées au sein des sites NSI hautement sécurisés, et répondant aux normes PCI-DSS:</p>",
+   "en": "<p>These activities are carried out at highly secure NSI sites that meet PCI-DSS standards:</p>"
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.1.bullets.0",
+   "fr": "Contrôle d'accès aux aires de production par carte à mémoire.",
+   "en": "Smart-card access control to production areas."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.1.bullets.1",
+   "fr": "Surveillance vidéo couleur avec enregistrement 24 par 7.",
+   "en": "24/7 color video surveillance with recording."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.1.bullets.2",
+   "fr": "Détecteurs d'intrusion et barrières infrarouges.",
+   "en": "Intrusion detectors and infrared barriers."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.1.bullets.3",
+   "fr": "Système d'enregistrement des événements.",
+   "en": "Event logging system."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.1.bullets.4",
+   "fr": "Système de télésurveillance à distance effectuée par une société spécialisée.",
+   "en": "Remote monitoring carried out by a specialist company."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.2.title",
+   "fr": "Une organisation et des processus éprouvés",
+   "en": "Proven organization and processes"
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.2.bullets.0",
+   "fr": "L'application de processus et de procédures éprouvées permet d'assurer un haut niveau de sécurité et de confidentialité.",
+   "en": "Applying proven processes and procedures ensures a high level of security and confidentiality."
+  },
+  {
+   "page": "bank-card",
+   "page_id": 8,
+   "field": "content.sections.2.bullets.1",
+   "fr": "Une politique de formation et de sensibilisation continue pour l'ensemble du personnel de notre site assurent le respect opérationnel des procédures.",
+   "en": "Ongoing training and awareness for all staff at our site ensures that procedures are followed in day-to-day operations."
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.security.description",
+   "fr": "<p>Ce résultat est obtenu grâce à l&#039;utilisation conjuguée de plusieurs mécanismes dont les principaux sont :</p>",
+   "en": "<p>This is achieved through the combined use of several mechanisms, the main ones being:</p>"
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.security.bullets.0",
+   "fr": "Du papier vierge à l'imprimé sécurisé difficile à contrefaire et à falsifier, selon la norme NF-K-11-112",
+   "en": "From blank paper to secure printed documents that are hard to counterfeit or falsify, in line with standard NF-K-11-112"
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.security.bullets.1",
+   "fr": "Des papiers d'impression dotés de plusieurs éléments de sécurité,",
+   "en": "Printing papers with several built-in security features,"
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.security.bullets.2",
+   "fr": "Des encres spéciales, fluorescentes ou à variation de teinte,",
+   "en": "Special inks, fluorescent or color-shifting,"
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.security.bullets.3",
+   "fr": "Des types spécifiques d'impression de sécurité,",
+   "en": "Specific types of security printing,"
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.security.bullets.4",
+   "fr": "La numérotation des documents à l'encre fluorescente sous la Lumière UV ou à l'encre migrante.",
+   "en": "Document numbering with ink that fluoresces under UV light, or with migrating ink."
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.security.bullets.5",
+   "fr": "Impression dynamique de la ligne CMC7",
+   "en": "Dynamic printing of the CMC7 line"
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.services.description",
+   "fr": "<p>NSI propose une offre intégrée de services depuis la conception des documents, la détermination des niveaux de sécurité requis, le stockage, la personnalisation, la livraison des documents et le reporting régulier sur la consommation effective.</p>",
+   "en": "<p>NSI offers an integrated range of services, from document design and defining the required security levels to storage, personalization, delivery of documents and regular reporting on actual consumption.</p>"
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.services.bullets.0",
+   "fr": "Impression et personnalisation de documents bancaires (chèques, ordres de virement, lettres de change…).",
+   "en": "Printing and personalization of banking documents (cheques, transfer orders, bills of exchange…)."
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.services.bullets.1",
+   "fr": "Attestations, certificats et documents administratifs (actes d'État Civil, notes de perception, tickets de stationnement, titres de propriété, documents d'Identification…).",
+   "en": "Certificates, attestations and administrative documents (civil registry records, tax collection notices, parking tickets, property titles, identity documents…)."
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.services.bullets.2",
+   "fr": "Autres documents de valeur (reçus, vignettes automobiles, carte de contrôle technique…).",
+   "en": "Other documents of value (receipts, vehicle tax stickers, vehicle inspection cards…)."
+  },
+  {
+   "page": "secured-documents",
+   "page_id": 9,
+   "field": "content.closing",
+   "fr": "<p>La fourniture de documents sécurisés peut être réalisée en mode « pay per use », ce qui permet au client de rendre son coût d&#039;approvisionnement variable.</p>",
+   "en": "<p>Secure documents can be supplied on a “pay per use” basis, allowing the client to make its supply cost variable.</p>"
+  },
+  {
+   "page": "contact",
+   "page_id": 10,
+   "field": "title_en",
+   "fr": "NOUS CONTACTER",
+   "en": "Contact Us"
+  }
+ ]
+}
