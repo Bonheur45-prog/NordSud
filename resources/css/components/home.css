@@ -502,6 +502,12 @@
     gap: 2rem;
 }
 
+.home-news-card {
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+}
+
 .home-news-card__image {
     width: 100%;
     aspect-ratio: 16 / 10;
