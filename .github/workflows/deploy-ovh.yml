@@ -1,4 +1,4 @@
-name: Deploy to OVH
+name: Deploy to NSI Monétique
 
 on:
   push:
@@ -55,7 +55,7 @@ jobs:
           port: ${{ secrets.OVH_SSH_PORT || 22 }}
           key: ${{ secrets.OVH_SSH_PRIVATE_KEY }}
           source: deploy.tar.gz
-          target: /homez.2247/finpayw/nordsud-app
+          target: /homez.380/nsimonetml/nordsud-app
 
       - name: Extract and activate deployment
         uses: appleboy/ssh-action@v1.2.2
@@ -66,19 +66,24 @@ jobs:
           key: ${{ secrets.OVH_SSH_PRIVATE_KEY }}
           script: |
             set -eu
-            cd /homez.2247/finpayw/nordsud-app
+            cd /homez.380/nsimonetml/nordsud-app
             tar -xzf deploy.tar.gz --overwrite
             rm -f deploy.tar.gz
-            cp -R public/build /homez.2247/finpayw/www/
-            cp -R public/css /homez.2247/finpayw/www/
-            cp -R public/fonts /homez.2247/finpayw/www/
-            cp -R public/images /homez.2247/finpayw/www/
-            cp -R public/js /homez.2247/finpayw/www/
-            mkdir -p /homez.2247/finpayw/www/livewire-5346a406
-            cp vendor/livewire/livewire/dist/livewire.min.js /homez.2247/finpayw/www/livewire-5346a406/livewire.min.js
+            cp public/.htaccess /homez.380/nsimonetml/www/.htaccess
+            cp -R public/build /homez.380/nsimonetml/www/
+            cp -R public/css /homez.380/nsimonetml/www/
+            cp -R public/fonts /homez.380/nsimonetml/www/
+            cp -R public/images /homez.380/nsimonetml/www/
+            cp -R public/js /homez.380/nsimonetml/www/
+            mkdir -p /homez.380/nsimonetml/www/livewire-5346a406
+            cp vendor/livewire/livewire/dist/livewire.min.js /homez.380/nsimonetml/www/livewire-5346a406/livewire.min.js
             test -f .env
             test -f vendor/autoload.php
-            test -f /homez.2247/finpayw/www/build/manifest.json
-            test -f /homez.2247/finpayw/www/js/filament/filament/app.js
-            test -f /homez.2247/finpayw/www/livewire-5346a406/livewire.min.js
-            php -r 'require "vendor/autoload.php"; require "bootstrap/app.php"; echo "Laravel bootstrap OK\n";'
+            test -f /homez.380/nsimonetml/www/index.php
+            test -d /homez.380/nsimonetml/www/storage
+            test -f /homez.380/nsimonetml/www/build/manifest.json
+            test -f /homez.380/nsimonetml/www/js/filament/filament/app.js
+            test -f /homez.380/nsimonetml/www/livewire-5346a406/livewire.min.js
+
+      - name: Verify live site
+        run: curl --fail --silent --show-error --location --retry 5 --retry-delay 5 --retry-all-errors --max-time 30 https://www.nsi-monetique.com/ --output /dev/null
