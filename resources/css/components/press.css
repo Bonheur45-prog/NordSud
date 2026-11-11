@@ -214,6 +214,9 @@
 .press-card {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
 }
 
 .press-card__image-link {
